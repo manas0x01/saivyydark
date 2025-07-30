@@ -452,12 +452,12 @@
                     </div>
                 </div>
     
-                <form class="contact-form scroll-animate" data-animation="fadeInRight" id="contact-form">
+                <form method="POST" class="contact-form scroll-animate" data-animation="fadeInRight" id="contact-form">
                     <div class="form-header">
                         <h3>Send Us a Message</h3>
                         <p>Fill out the form below and we'll get back to you shortly</p>
                     </div>
-                
+                    <input type="hidden" name="access_key" value="47628992-41b4-4876-921f-06608d390814">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Full Name</label>
@@ -500,6 +500,7 @@
                         </button>
                         <p class="privacy-note">By submitting this form, you agree to our <a href="#privacy">Privacy Policy</a></p>
                     </div>
+                    <div id="result"></div>
                 </form>
                 
             </div>

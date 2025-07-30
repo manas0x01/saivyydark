@@ -1,39 +1,80 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const contactForm = document.getElementById("contact-form");
+    const result = document.getElementById('result');
 
-    contactForm.addEventListener("submit", (e) => {
+    contactForm.addEventListener('submit', function(e) {
+        const formData = new FormData(contactForm);
         e.preventDefault();
-        sendContactForm("https://vm.tail9e6e2f.ts.net/send-email", contactForm); // Update with your Tailscale IP or domain
+
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        result.innerHTML = "Please wait..."
+
+        fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = json.message;
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Something went wrong!";
+            })
+            .then(function() {
+                form.reset();
+                setTimeout(() => {
+                    result.style.display = "none";
+                }, 3000);
+            });
     });
 
-    async function sendContactForm(endpointUrl, formElement) {
-        const formData = new FormData(formElement);
-        
-        // Convert FormData to a plain object
-        const data = Object.fromEntries(formData.entries());
-        
-        try {
-            const response = await fetch(endpointUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json", // Sending as JSON
-                },
-                body: JSON.stringify(data), // Convert to JSON
-            });
+    // const contactForm = document.getElementById("contact-form");
 
-            const result = await response.json();  // Assuming your backend sends JSON response
+    // contactForm.addEventListener("submit", (e) => {
+    //     e.preventDefault();
+    //     sendContactForm("https://vm.tail9e6e2f.ts.net/send-email", contactForm); // Update with your Tailscale IP or domain
+    // });
 
-            if (result.status === "success") {
-                alert("✅ Message sent successfully!");
-                formElement.reset();
-            } else {
-                alert("❌ Failed to send message: " + result.message);
-            }
-        } catch (error) {
-            alert("⚠️ Error: " + error.message);
-        }
-    }
+    // async function sendContactForm(endpointUrl, formElement) {
+    //     const formData = new FormData(formElement);
+        
+    //     // Convert FormData to a plain object
+    //     const data = Object.fromEntries(formData.entries());
+        
+    //     try {
+    //         const response = await fetch(endpointUrl, {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json", // Sending as JSON
+    //             },
+    //             body: JSON.stringify(data), // Convert to JSON
+    //         });
+
+    //         const result = await response.json();  // Assuming your backend sends JSON response
+
+    //         if (result.status === "success") {
+    //             alert("✅ Message sent successfully!");
+    //             formElement.reset();
+    //         } else {
+    //             alert("❌ Failed to send message: " + result.message);
+    //         }
+    //     } catch (error) {
+    //         alert("⚠️ Error: " + error.message);
+    //     }
+    // }
 
       
 
