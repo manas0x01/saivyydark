@@ -27,11 +27,22 @@
             </div>
             <nav>
                 <ul class="main-menu">
-                    <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li>
+                        <a href="solutions.html" data-translate="navSolutions">Solutions</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html" data-translate="navPortfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="blog.html" data-translate="navBlog">Blog</a>
+                    </li>
+                    <li>
+                        <a href="media.html" data-translate="Media"> Media</a>
+                    </li>
+                    <li>
+                        <a href="about.html" data-translate="navAbout">About</a>
+                    </li>
+                    <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
                 </ul>
             </nav>
             <div class="theme-language-container">
@@ -114,41 +125,109 @@
     </main>
 
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Quick Links</h4>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="../saivvyMain.jpeg" alt="Saivyy Technologies Logo" class="footer-logo">
+                <p>Leading AI & Gen-AI Solutions</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
                 <ul>
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="solutions.html" data-translate="navSolutions">Solutions</a></li>
+                    <li><a href="about.html" data-translate="navAbout">About Us</a></li>
+                    <li><a href="portfolio.html" data-translate="navPortfolio">Portfolio</a></li>
+                    <li><a href="blog.html" data-translate="navBlog">Blog</a></li>
+                    <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="about.html">About Saivvy</a></li>
-                    <li><a href="team.html">Our Team</a></li>
-                    <li><a href="media.html">Media Mentions</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li><i class="fas fa-globe"></i> Saivyy Technologies</li>
-                    <li><i class="fas fa-phone"></i> +91 9318381279</li>
-                    <li><i class="fas fa-envelope"></i> founder@saivyytechnologies.in</li>
-                </ul>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> founder@saivyytechnologies.in</p>
+                <p><i class="fas fa-phone"></i> +91 9318381279</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Saivvy Technologies. All rights reserved.</p>
+            <p>&copy; 2025 Saivyy Technologies. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../script.js"></script>
+    <script>
+        // Existing particles.js configuration
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle"
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: false,
+                        anim: {
+                            enable: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#ffffff",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 4,
+                        direction: "none",
+                        random: false,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "grab"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        }
+                    }
+                },
+                retina_detect: true
+            });
+        });
+    </script>
 </body>
 </html>
