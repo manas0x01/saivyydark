@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Saivyy Technologies</title>
+    <meta name="description" content="Learn about Saivyy Technologies, our mission, vision, and the values that drive us to deliver innovative AI and Generative AI solutions.">
+    <meta name="keywords" content="About Saivyy Technologies, AI Company, Generative AI, Our Mission, Our Vision, Our Values">
     <!-- Favicon for most browsers -->
     <link rel="icon" type="image/png" href="../saivyyweb.png">
     <!-- Apple Touch Icon -->
@@ -46,15 +48,28 @@
             </div>
             <nav>
                 <ul class="main-menu">
-                    <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
-                    <li><a href="../index.html#insights">Insights</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li>
+                        <a href="solutions.html" data-translate="navSolutions">Solutions</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html" data-translate="navPortfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="blog.html" data-translate="navBlog">Blog</a>
+                    </li>
+                    <li>
+                        <a href="media.html" data-translate="Media"> Media</a>
+                    </li>
+                    <li>
+                        <a href="about.html" data-translate="navAbout">About</a>
+                    </li>
+                    <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
                 </ul>
             </nav>
             <div class="theme-language-container">
                 <div class="language-selector">
-                    <a href="#" class="active">EN</a>
+                    <a href="#" class="active" data-lang="en">EN</a>
+                    <a href="#" data-lang="hi">HI</a>
                 </div>
             </div>
             <!-- Mobile Menu Button -->
@@ -70,10 +85,11 @@
     <div class="mobile-side-menu">
         <nav>
             <ul>
-                <li><a href="solutions.html"><i class="fas fa-lightbulb"></i> Solutions</a></li>
-                <li><a href="about.html" class="active"><i class="fas fa-users"></i> About</a></li>
-                <li><a href="../index.html#insights"><i class="fas fa-chart-line"></i> Insights</a></li>
-                <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="solutions.html"><i class="fas fa-lightbulb"></i> <span data-translate="navSolutions">Solutions</span></a></li>
+                <li><a href="about.html" class="active"><i class="fas fa-users"></i> <span data-translate="navAbout">About</span></a></li>
+                <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> <span data-translate="navPortfolio">Portfolio</span></a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> <span data-translate="navBlog">Blog</span></a></li>
+                <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span data-translate="navContact">Contact</span></a></li>
             </ul>
         </nav>
     </div>
@@ -91,8 +107,8 @@
             <div class="hero-slider">
                 <div class="slide active">
                     <div class="slide-content scroll-animate" data-animation="fadeIn">
-                        <h2>Our Story</h2>
-                        <p>Pioneering the future of AI technology with innovation and excellence</p>
+                        <h2 data-translate="aboutHeroTitle">Our Story</h2>
+                        <p data-translate="aboutHeroSubtitle">Pioneering the future of AI technology with innovation and excellence</p>
                         <div class="slide-features">
                             <span class="scroll-animate" data-animation="fadeInUp" data-delay="0.2s">
                                 <i class="fas fa-rocket"></i> Innovation
@@ -112,21 +128,21 @@
         <!-- About Section -->
         <section class="about-detail-section">
             <div class="section-title scroll-animate" data-animation="fadeIn">
-                <h2>Who We Are</h2>
-                <p>Leading the AI revolution with cutting-edge solutions</p>
+                <h2 data-translate="whoWeAre">Who We Are</h2>
+                <p data-translate="whoWeAreSubtitle">Leading the AI revolution with cutting-edge solutions</p>
             </div>
             <div class="about-grid">
                 <div class="about-card scroll-animate" data-animation="fadeInUp">
                     <div class="about-icon">
                         <i class="fas fa-bullseye"></i>
                     </div>
-                    <h3>Our Mission</h3>
-                    <p>Empowering businesses with innovative AI solutions:</p>
+                    <h3 data-translate="ourMission">Our Mission</h3>
+                    <p data-translate="ourMissionText">Empowering businesses with innovative AI solutions:</p>
                     <ul>
-                        <li>Transform Business Operations</li>
-                        <li>Drive Digital Innovation</li>
-                        <li>Create Sustainable Impact</li>
-                        <li>Foster Technological Growth</li>
+                        <li data-translate="missionPoint1">Transform Business Operations</li>
+                        <li data-translate="missionPoint2">Drive Digital Innovation</li>
+                        <li data-translate="missionPoint3">Create Sustainable Impact</li>
+                        <li data-translate="missionPoint4">Foster Technological Growth</li>
                     </ul>
                 </div>
 
@@ -134,13 +150,13 @@
                     <div class="about-icon">
                         <i class="fas fa-eye"></i>
                     </div>
-                    <h3>Our Vision</h3>
-                    <p>Shaping the future of technology:</p>
+                    <h3 data-translate="ourVision">Our Vision</h3>
+                    <p data-translate="ourVisionText">Shaping the future of technology:</p>
                     <ul>
-                        <li>Global AI Leadership</li>
-                        <li>Innovation Excellence</li>
-                        <li>Client Success Focus</li>
-                        <li>Future-Ready Solutions</li>
+                        <li data-translate="visionPoint1">Global AI Leadership</li>
+                        <li data-translate="visionPoint2">Innovation Excellence</li>
+                        <li data-translate="visionPoint3">Client Success Focus</li>
+                        <li data-translate="visionPoint4">Future-Ready Solutions</li>
                     </ul>
                 </div>
 
@@ -148,13 +164,13 @@
                     <div class="about-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>Our Values</h3>
-                    <p>Core principles that drive us:</p>
+                    <h3 data-translate="ourValues">Our Values</h3>
+                    <p data-translate="ourValuesText">Core principles that drive us:</p>
                     <ul>
-                        <li>Innovation & Excellence</li>
-                        <li>Client-Centric Approach</li>
-                        <li>Integrity & Trust</li>
-                        <li>Continuous Learning</li>
+                        <li data-translate="valuesPoint1">Innovation & Excellence</li>
+                        <li data-translate="valuesPoint2">Client-Centric Approach</li>
+                        <li data-translate="valuesPoint3">Integrity & Trust</li>
+                        <li data-translate="valuesPoint4">Continuous Learning</li>
                     </ul>
                 </div>
 
@@ -162,13 +178,13 @@
                     <div class="about-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Our Journey</h3>
-                    <p>Milestones of our growth:</p>
+                    <h3 data-translate="ourJourney">Our Journey</h3>
+                    <p data-translate="ourJourneyText">Milestones of our growth:</p>
                     <ul>
-                        <li>Founded in 2024</li>
-                        <li>Rapid Market Expansion</li>
-                        <li>Innovation Recognition</li>
-                        <li>Global Partnerships</li>
+                        <li data-translate="journeyPoint1">Founded in 2024</li>
+                        <li data-translate="journeyPoint2">Rapid Market Expansion</li>
+                        <li data-translate="journeyPoint3">Innovation Recognition</li>
+                        <li data-translate="journeyPoint4">Global Partnerships</li>
                     </ul>
                 </div>
             </div>
@@ -177,8 +193,8 @@
         <!-- Team Section -->
         <section class="team-section">
             <div class="section-title scroll-animate" data-animation="fadeIn">
-                <h2>The Founding Members</h2>
-                <p>Meet the visionaries behind our success</p>
+                <h2 data-translate="foundingMembers">The Founding Members</h2>
+                <p data-translate="foundingMembersSubtitle">Meet the visionaries behind our success</p>
             </div>
             <div class="team-grid">
                 <div class="team-card scroll-animate" data-animation="fadeInUp">
@@ -187,7 +203,7 @@
                     </div>
                     <h3>Keshav Madan</h3>
                     <p class="position">CEO</p>
-                    <p class="description">Visionary leader driving innovation and growth</p>
+                    <p class="description" data-translate="keshavBio">Visionary leader driving innovation and growth</p>
                 </div>
 
                
@@ -196,9 +212,9 @@
         <!-- CTA Section -->
         <section class="cta-section">
             <div class="cta-content scroll-animate" data-animation="fadeIn">
-                <h2>Join Our Journey</h2>
-                <p>Be part of the AI revolution with Saivyy Technologies</p>
-                <a href="../index.html#contact" class="btn">Get in Touch <i class="fas fa-arrow-right"></i></a>
+                <h2 data-translate="joinJourney">Join Our Journey</h2>
+                <p data-translate="joinJourneySubtitle">Be part of the AI revolution with Saivyy Technologies</p>
+                <a href="../index.html#contact" class="btn" data-translate="getInTouch">Get in Touch <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
     </main>
@@ -214,10 +230,11 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="../index.html#insights">Insights</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="solutions.html" data-translate="navSolutions">Solutions</a></li>
+                    <li><a href="about.html" data-translate="navAbout">About Us</a></li>
+                    <li><a href="portfolio.html" data-translate="navPortfolio">Portfolio</a></li>
+                    <li><a href="blog.html" data-translate="navBlog">Blog</a></li>
+                    <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -382,4 +399,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
