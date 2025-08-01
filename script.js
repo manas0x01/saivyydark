@@ -1,5 +1,280 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    const translations = {
+        en: {
+            // Nav
+            navSolutions: 'Solutions',
+            navAbout: 'About',
+            navPortfolio: 'Portfolio',
+            navBlog: 'Blog',
+            navContact: 'Contact',
+
+            // Hero
+            heroTitle: 'Pioneering AI & Generative AI Solutions',
+            heroSubtitle: 'Leveraging cutting-edge technology to build intelligent solutions for your business challenges.',
+            heroExplore: 'Explore Solutions',
+
+            // About Page
+            aboutHeroTitle: 'Our Story',
+            aboutHeroSubtitle: 'Pioneering the future of AI technology with innovation and excellence',
+            whoWeAre: 'Who We Are',
+            whoWeAreSubtitle: 'Leading the AI revolution with cutting-edge solutions',
+            ourMission: 'Our Mission',
+            ourMissionText: 'Empowering businesses with innovative AI solutions:',
+            missionPoint1: 'Transform Business Operations',
+            missionPoint2: 'Drive Digital Innovation',
+            missionPoint3: 'Create Sustainable Impact',
+            missionPoint4: 'Foster Technological Growth',
+            ourVision: 'Our Vision',
+            ourVisionText: 'Shaping the future of technology:',
+            visionPoint1: 'Global AI Leadership',
+            visionPoint2: 'Innovation Excellence',
+            visionPoint3: 'Client Success Focus',
+            visionPoint4: 'Future-Ready Solutions',
+            ourValues: 'Our Values',
+            ourValuesText: 'Core principles that drive us:',
+            valuesPoint1: 'Innovation & Excellence',
+            valuesPoint2: 'Client-Centric Approach',
+            valuesPoint3: 'Integrity & Trust',
+            valuesPoint4: 'Continuous Learning',
+            ourJourney: 'Our Journey',
+            ourJourneyText: 'Milestones of our growth:',
+            journeyPoint1: 'Founded in 2024',
+            journeyPoint2: 'Rapid Market Expansion',
+            journeyPoint3: 'Innovation Recognition',
+            journeyPoint4: 'Global Partnerships',
+            foundingMembers: 'The Founding Members',
+            foundingMembersSubtitle: 'Meet the visionaries behind our success',
+            keshavBio: 'Visionary leader driving innovation and growth',
+            joinJourney: 'Join Our Journey',
+            joinJourneySubtitle: 'Be part of the AI revolution with Saivvy Technologies',
+            getInTouch: 'Get in Touch',
+
+            // Solutions Page
+            solutionsHeroTitle: 'Our AI Solutions',
+            solutionsHeroSubtitle: 'Discover how our cutting-edge AI solutions can transform your business',
+            comprehensiveSolutions: 'Comprehensive AI Solutions',
+            comprehensiveSolutionsSubtitle: 'End-to-end AI solutions tailored to your business needs',
+            genAiSolutions: 'Generative AI Solutions',
+            genAiSolutionsText: 'Transform your business with cutting-edge generative AI technology:',
+            genAiPoint1: 'Content Generation & Optimization',
+            genAiPoint2: 'AI-Powered Design & Creativity',
+            genAiPoint3: 'Natural Language Processing',
+            genAiPoint4: 'Custom AI Model Development',
+            aiAutomation: 'AI Automation',
+            aiAutomationText: 'Streamline your operations with intelligent automation:',
+            automationPoint1: 'Process Automation',
+            automationPoint2: 'Workflow Optimization',
+            automationPoint3: 'Intelligent Document Processing',
+            automationPoint4: 'RPA Integration',
+            dataAnalytics: 'Data Analytics & ML',
+            dataAnalyticsText: 'Unlock insights from your data with advanced analytics:',
+            analyticsPoint1: 'Predictive Analytics',
+            analyticsPoint2: 'Business Intelligence',
+            analyticsPoint3: 'Machine Learning Models',
+            analyticsPoint4: 'Data Visualization',
+            customDevelopment: 'Custom AI Development',
+            customDevelopmentText: 'Bespoke AI solutions for your unique challenges:',
+            customDevPoint1: 'Custom AI Applications',
+            customDevPoint2: 'AI Integration Services',
+            customDevPoint3: 'API Development',
+            customDevPoint4: 'System Architecture',
+            readyToTransform: 'Ready to Transform Your Business?',
+            readyToTransformSubtitle: 'Let\'s discuss how our AI solutions can help you achieve your goals',
+            getStarted: 'Get Started',
+
+            // Portfolio Page
+            portfolioHeroTitle: 'Our Portfolio',
+            portfolioHeroSubtitle: 'A showcase of our successful projects and impactful results.',
+            caseStudies: 'Case Studies',
+            caseStudiesSubtitle: 'Explore how we\'ve helped businesses like yours succeed.',
+            project1Title: 'AI-Powered Sales Forecasting',
+            project1Desc: 'Developed a custom machine learning model to predict sales with 95% accuracy, leading to a 20% increase in revenue.',
+            project2Title: 'Generative AI for Content Creation',
+            project2Desc: 'Implemented a Gen-AI solution that automated content creation, reducing marketing costs by 30% and increasing engagement by 40%.',
+            project3Title: 'AI-Driven Customer Support Chatbot',
+            project3Desc: 'Created a chatbot that resolved 80% of customer queries automatically, improving customer satisfaction by 25%.',
+            viewCaseStudy: 'View Case Study',
+
+            // Blog Page
+            blogHeroTitle: 'AI Insights',
+            blogHeroSubtitle: 'Your source for the latest news, articles, and insights on AI.',
+            latestArticles: 'Latest Articles',
+            latestArticlesSubtitle: 'Stay informed with our expert analysis and commentary.',
+            blog1Title: 'The Future of Generative AI in Business',
+            blog1Desc: 'Discover how generative AI is set to revolutionize industries and what it means for your business.',
+            blog2Title: 'Top 5 Machine Learning Trends to Watch',
+            blog2Desc: 'We break down the most important machine learning trends that will shape the technology landscape.',
+            blog3Title: 'The Importance of Ethical AI Development',
+            blog3Desc: 'A deep dive into the ethical considerations of AI and how to ensure fairness and transparency.',
+            readMore: 'Read More',
+
+            // Media Page
+            mediaHeroTitle: 'Media & Awards',
+            mediaHeroSubtitle: 'Recognized for our innovation and excellence in the AI industry.',
+            inTheNews: 'In the News',
+            inTheNewsSubtitle: 'Read what others are saying about Saivvy Technologies.',
+            news1: '"Saivvy Technologies is revolutionizing the AI landscape with its innovative solutions."',
+            news2: '"A company to watch, Saivvy Technologies is making waves in the world of generative AI."',
+            news3: '"The team at Saivvy is pushing the boundaries of what\'s possible with artificial intelligence."',
+            readArticle: 'Read Article',
+            awardsRecognition: 'Awards & Recognition',
+            awardsRecognitionSubtitle: 'We are proud of our achievements and industry recognition.',
+            award1Title: 'AI Innovation Award 2025',
+            award1Desc: 'Awarded for our groundbreaking work in generative AI.',
+            award2Title: 'Best AI Startup 2025',
+            award2Desc: 'Recognized as the leading AI startup of the year.',
+            award3Title: 'Tech Innovator of the Year',
+            award3Desc: 'Our CEO, Keshav Madan, was named the top tech innovator.',
+        },
+        hi: {
+            // Nav
+            navSolutions: 'समाधान',
+            navAbout: 'हमारे बारे में',
+            navPortfolio: 'पोर्टफोलियो',
+            navBlog: 'ब्लॉग',
+            navContact: 'संपर्क करें',
+
+            // Hero
+            heroTitle: 'अग्रणी एआई और जेनरेटिव एआई समाधान',
+            heroSubtitle: 'आपके व्यावसायिक चुनौतियों के लिए बुद्धिमान समाधान बनाने के लिए नवीनतम तकनीक का लाभ उठाना।',
+            heroExplore: 'समाधान खोजें',
+
+            // About Page
+            aboutHeroTitle: 'हमारी कहानी',
+            aboutHeroSubtitle: 'नवाचार और उत्कृष्टता के साथ एआई प्रौद्योगिकी के भविष्य का मार्ग प्रशस्त करना',
+            whoWeAre: 'हम कौन हैं',
+            whoWeAreSubtitle: 'अत्याधुनिक समाधानों के साथ एआई क्रांति का नेतृत्व करना',
+            ourMission: 'हमारा लक्ष्य',
+            ourMissionText: 'अभिनव एआई समाधानों के साथ व्यवसायों को सशक्त बनाना:',
+            missionPoint1: 'व्यावसायिक संचालन को बदलना',
+            missionPoint2: 'डिजिटल नवाचार को बढ़ावा देना',
+            missionPoint3: 'सतत प्रभाव पैदा करना',
+            missionPoint4: 'तकनीकी विकास को बढ़ावा देना',
+            ourVision: 'हमारी दृष्टि',
+            ourVisionText: 'प्रौद्योगिकी के भविष्य को आकार देना:',
+            visionPoint1: 'वैश्विक एआई नेतृत्व',
+            visionPoint2: 'नवाचार उत्कृष्टता',
+            visionPoint3: 'ग्राहक सफलता फोकस',
+            visionPoint4: 'भविष्य के लिए तैयार समाधान',
+            ourValues: 'हमारे मूल्य',
+            ourValuesText: 'हमें चलाने वाले मूल सिद्धांत:',
+            valuesPoint1: 'नवाचार और उत्कृष्टता',
+            valuesPoint2: 'ग्राहक-केंद्रित दृष्टिकोण',
+            valuesPoint3: 'अखंडता और विश्वास',
+            valuesPoint4: 'निरंतर सीखना',
+            ourJourney: 'हमारी यात्रा',
+            ourJourneyText: 'हमारे विकास के मील के पत्थर:',
+            journeyPoint1: '2024 में स्थापित',
+            journeyPoint2: 'तेजी से बाजार विस्तार',
+            journeyPoint3: 'नवाचार मान्यता',
+            journeyPoint4: 'वैश्विक भागीदारी',
+            foundingMembers: 'संस्थापक सदस्य',
+            foundingMembersSubtitle: 'हमारी सफलता के पीछे के दूरदर्शी लोगों से मिलें',
+            keshavBio: 'नवाचार और विकास को चलाने वाले दूरदर्शी नेता',
+            joinJourney: 'हमारी यात्रा में शामिल हों',
+            joinJourneySubtitle: 'Saivvy Technologies के साथ AI क्रांति का हिस्सा बनें',
+            getInTouch: 'संपर्क करें',
+
+            // Solutions Page
+            solutionsHeroTitle: 'हमारे एआई समाधान',
+            solutionsHeroSubtitle: 'जानें कि हमारे अत्याधुनिक एआई समाधान आपके व्यवसाय को कैसे बदल सकते हैं',
+            comprehensiveSolutions: 'व्यापक एआई समाधान',
+            comprehensiveSolutionsSubtitle: 'आपकी व्यावसायिक आवश्यकताओं के अनुरूप एंड-टू-एंड एआई समाधान',
+            genAiSolutions: 'जेनरेटिव एआई समाधान',
+            genAiSolutionsText: 'अत्याधुनिक जेनरेटिव एआई तकनीक के साथ अपने व्यवसाय को बदलें:',
+            genAiPoint1: 'सामग्री निर्माण और अनुकूलन',
+            genAiPoint2: 'एआई-संचालित डिजाइन और रचनात्मकता',
+            genAiPoint3: 'प्राकृतिक भाषा प्रसंस्करण',
+            genAiPoint4: 'कस्टम एआई मॉडल विकास',
+            aiAutomation: 'एआई स्वचालन',
+            aiAutomationText: 'बुद्धिमान स्वचालन के साथ अपने संचालन को सुव्यवस्थित करें:',
+            automationPoint1: 'प्रक्रिया स्वचालन',
+            automationPoint2: 'कार्यप्रवाह अनुकूलन',
+            automationPoint3: 'बुद्धिमान दस्तावेज़ प्रसंस्करण',
+            automationPoint4: 'आरपीए एकीकरण',
+            dataAnalytics: 'डेटा एनालिटिक्स और एमएल',
+            dataAnalyticsText: 'उन्नत एनालिटिक्स के साथ अपने डेटा से अंतर्दृष्टि अनलॉक करें:',
+            analyticsPoint1: 'भविष्य कहनेवाला विश्लेषिकी',
+            analyticsPoint2: 'व्यावसायिक बुद्धिमत्ता',
+            analyticsPoint3: 'मशीन लर्निंग मॉडल',
+            analyticsPoint4: 'डेटा विज़ुअलाइज़ेशन',
+            customDevelopment: 'कस्टम एआई विकास',
+            customDevelopmentText: 'आपकी अनूठी चुनौतियों के लिए बीस्पोक एआई समाधान:',
+            customDevPoint1: 'कस्टम एआई अनुप्रयोग',
+            customDevPoint2: 'एआई एकीकरण सेवाएं',
+            customDevPoint3: 'एपीआई विकास',
+            customDevPoint4: 'सिस्टम आर्किटेक्चर',
+            readyToTransform: 'क्या आप अपने व्यवसाय को बदलने के लिए तैयार हैं?',
+            readyToTransformSubtitle: 'आइए चर्चा करें कि हमारे एआई समाधान आपके लक्ष्यों को प्राप्त करने में आपकी कैसे मदद कर सकते हैं',
+            getStarted: 'शुरू हो जाओ',
+
+            // Portfolio Page
+            portfolioHeroTitle: 'हमारा पोर्टफोलियो',
+            portfolioHeroSubtitle: 'हमारी सफल परियोजनाओं और प्रभावशाली परिणामों का प्रदर्शन।',
+            caseStudies: 'केस स्टडीज',
+            caseStudiesSubtitle: 'अन्वेषण करें कि हमने आपके जैसे व्यवसायों को सफल होने में कैसे मदद की है।',
+            project1Title: 'एआई-पावर्ड सेल्स फोरकास्टिंग',
+            project1Desc: '95% सटीकता के साथ बिक्री की भविष्यवाणी करने के लिए एक कस्टम मशीन लर्निंग मॉडल विकसित किया, जिससे राजस्व में 20% की वृद्धि हुई।',
+            project2Title: 'सामग्री निर्माण के लिए जेनरेटिव एआई',
+            project2Desc: 'एक जेन-एआई समाधान लागू किया जिसने सामग्री निर्माण को स्वचालित किया, विपणन लागत को 30% तक कम किया और जुड़ाव को 40% तक बढ़ाया।',
+            project3Title: 'एआई-चालित ग्राहक सहायता चैटबॉट',
+            project3Desc: 'एक चैटबॉट बनाया जिसने 80% ग्राहक प्रश्नों को स्वचालित रूप से हल किया, जिससे ग्राहकों की संतुष्टि में 25% का सुधार हुआ।',
+            viewCaseStudy: 'केस स्टडी देखें',
+
+            // Blog Page
+            blogHeroTitle: 'एआई अंतर्दृष्टि',
+            blogHeroSubtitle: 'एआई पर नवीनतम समाचारों, लेखों और अंतर्दृष्टि के लिए आपका स्रोत।',
+            latestArticles: 'नवीनतम लेख',
+            latestArticlesSubtitle: 'हमारे विशेषज्ञ विश्लेषण और कमेंटरी से अवगत रहें।',
+            blog1Title: 'व्यवसाय में जेनरेटिव एआई का भविष्य',
+            blog1Desc: 'जानें कि जेनरेटिव एआई उद्योगों में क्रांति लाने के लिए कैसे तैयार है और आपके व्यवसाय के लिए इसका क्या अर्थ है।',
+            blog2Title: 'देखने के लिए शीर्ष 5 मशीन लर्निंग रुझान',
+            blog2Desc: 'हम सबसे महत्वपूर्ण मशीन लर्निंग रुझानों को तोड़ते हैं जो प्रौद्योगिकी परिदृश्य को आकार देंगे।',
+            blog3Title: 'नैतिक एआई विकास का महत्व',
+            blog3Desc: 'एआई के नैतिक विचारों में एक गहरा गोता और निष्पक्षता और पारदर्शिता कैसे सुनिश्चित करें।',
+            readMore: 'और पढ़ें',
+
+            // Media Page
+            mediaHeroTitle: 'मीडिया और पुरस्कार',
+            mediaHeroSubtitle: 'एआई उद्योग में हमारे नवाचार और उत्कृष्टता के लिए मान्यता प्राप्त है।',
+            inTheNews: 'खबरों में',
+            inTheNewsSubtitle: 'पढ़ें कि दूसरे Saivvy Technologies के बारे में क्या कह रहे हैं।',
+            news1: '"Saivvy Technologies अपने अभिनव समाधानों के साथ AI परिदृश्य में क्रांति ला रही है।"',
+            news2: '"देखने वाली एक कंपनी, Saivvy Technologies जेनरेटिव AI की दुनिया में लहरें बना रही है।"',
+            news3: '"Saivvy की टीम कृत्रिम बुद्धिमत्ता के साथ जो संभव है उसकी सीमाओं को आगे बढ़ा रही है।"',
+            readArticle: 'लेख पढ़ें',
+            awardsRecognition: 'पुरस्कार और मान्यता',
+            awardsRecognitionSubtitle: 'हमें अपनी उपलब्धियों और उद्योग की मान्यता पर गर्व है।',
+            award1Title: 'एआई इनोवेशन अवार्ड 2025',
+            award1Desc: 'जेनरेटिव एआई में हमारे अभूतपूर्व काम के लिए सम्मानित किया गया।',
+            award2Title: 'सर्वश्रेष्ठ एआई स्टार्टअप 2025',
+            award2Desc: 'वर्ष के अग्रणी एआई स्टार्टअप के रूप में मान्यता प्राप्त है।',
+            award3Title: 'टेक इनोवेटर ऑफ द ईयर',
+            award3Desc: 'हमारे सीईओ, केशव मदन को शीर्ष तकनीकी प्रर्वतक नामित किया गया था।',
+        }
+    };
+
+    const languageSelector = document.querySelector('.language-selector');
+
+    languageSelector.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            const lang = e.target.dataset.lang;
+            setLanguage(lang);
+
+            // Update active class
+            languageSelector.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+            e.target.classList.add('active');
+        }
+    });
+
+    function setLanguage(lang) {
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.dataset.translate;
+            el.textContent = translations[lang][key];
+        });
+    }
+
     const contactForm = document.getElementById("contact-form");
     const result = document.getElementById('result');
 
@@ -353,7 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.2 }); // Increased threshold slightly to ensure more of the item is visible
 
-    // Add animation classes to elements marked with 'scroll-animate'
+    // Add animation classes to elements marked with 'scroll-animate' 
     const animatedElements = document.querySelectorAll('.scroll-animate'); 
     animatedElements.forEach(el => {
         // Initially hide elements to be animated
@@ -951,7 +1226,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (mobileMenuBtn.classList.contains('active')) {
                 closeMenu();
-            } else {
+            }
+            else {
                 openMenu();
             }
         });

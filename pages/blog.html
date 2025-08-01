@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Saivyy Technologies</title>
+    <meta name="description" content="Read the latest articles and insights on AI, Generative AI, and machine learning from the experts at Saivyy Technologies.">
+    <link rel="icon" type="image/png" href="../saivyyweb.png">
+    <link rel="apple-touch-icon" href="../saivyyweb.png">
+    <meta name="msapplication-TileImage" content="../saivyyweb.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="solutions.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../saivvyMain.jpeg" alt="Saivyy Technologies Logo" class="nav-logo">
+                    <span>Saivyy Technologies</span>
+                </a>
+                <span class="india-tag">AI Solutions</span>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="solutions.html" data-translate="navSolutions">Solutions</a></li>
+                    <li><a href="about.html" data-translate="navAbout">About</a></li>
+                    <li><a href="portfolio.html" data-translate="navPortfolio">Portfolio</a></li>
+                    <li><a href="blog.html" class="active" data-translate="navBlog">Blog</a></li>
+                    <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="theme-language-container">
+                <div class="language-selector">
+                    <a href="#" class="active" data-lang="en">EN</a>
+                    <a href="#" data-lang="hi">HI</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-side-menu">
+        <nav>
+            <ul>
+                <li><a href="solutions.html"><i class="fas fa-lightbulb"></i> <span data-translate="navSolutions">Solutions</span></a></li>
+                <li><a href="about.html"><i class="fas fa-users"></i> <span data-translate="navAbout">About</span></a></li>
+                <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> <span data-translate="navPortfolio">Portfolio</span></a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> <span data-translate="navBlog">Blog</span></a></li>
+                <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span data-translate="navContact">Contact</span></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <section class="hero-section">
+            <div class="video-background">
+                <video autoplay muted loop playsinline>
+                    <source src="../uk1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            <div class="hero-slider">
+                <div class="slide active">
+                    <div class="slide-content scroll-animate" data-animation="fadeIn">
+                        <h2 data-translate="blogHeroTitle">AI Insights</h2>
+                        <p data-translate="blogHeroSubtitle">Your source for the latest news, articles, and insights on AI.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-section">
+            <div class="section-title scroll-animate" data-animation="fadeIn">
+                <h2 data-translate="latestArticles">Latest Articles</h2>
+                <p data-translate="latestArticlesSubtitle">Stay informed with our expert analysis and commentary.</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card scroll-animate" data-animation="fadeInUp">
+                    <img src="https://picsum.photos/seed/blog1/600/400" alt="Blog Post 1">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar-alt"></i> August 1, 2025</span>
+                            <span><i class="fas fa-tags"></i> <a href="#">Generative AI</a></span>
+                        </div>
+                        <h3 data-translate="blog1Title">The Future of Generative AI in Business</h3>
+                        <p data-translate="blog1Desc">Discover how generative AI is set to revolutionize industries and what it means for your business.</p>
+                        <a href="#" class="btn" data-translate="readMore">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card scroll-animate" data-animation="fadeInUp" data-delay="0.2s">
+                    <img src="https://picsum.photos/seed/blog2/600/400" alt="Blog Post 2">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar-alt"></i> July 25, 2025</span>
+                            <span><i class="fas fa-tags"></i> <a href="#">Machine Learning</a></span>
+                        </div>
+                        <h3 data-translate="blog2Title">Top 5 Machine Learning Trends to Watch</h3>
+                        <p data-translate="blog2Desc">We break down the most important machine learning trends that will shape the technology landscape.</p>
+                        <a href="#" class="btn" data-translate="readMore">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card scroll-animate" data-animation="fadeInUp" data-delay="0.4s">
+                    <img src="https://picsum.photos/seed/blog3/600/400" alt="Blog Post 3">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar-alt"></i> July 18, 2025</span>
+                            <span><i class="fas fa-tags"></i> <a href="#">AI Ethics</a></span>
+                        </div>
+                        <h3 data-translate="blog3Title">The Importance of Ethical AI Development</h3>
+                        <p data-translate="blog3Desc">A deep dive into the ethical considerations of AI and how to ensure fairness and transparency.</p>
+                        <a href="#" class="btn" data-translate="readMore">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="solutions.html" data-translate="navSolutions">Solutions</a></li>
+                    <li><a href="about.html" data-translate="navAbout">About</a></li>
+                    <li><a href="portfolio.html" data-translate="navPortfolio">Portfolio</a></li>
+                    <li><a href="blog.html" data-translate="navBlog">Blog</a></li>
+                    <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Saivvy</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="media.html">Media Mentions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-globe"></i> Saivvy Technologies</li>
+                    <li><i class="fas fa-phone"></i> +91 9318381279</li>
+                    <li><i class="fas fa-envelope"></i> founder@saivyytechnologies.in</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Saivvy Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solutions | Saivyy Technologies</title>
+    <meta name="description" content="Explore the comprehensive AI and Generative AI solutions offered by Saivyy Technologies, including AI automation, data analytics, and custom AI development.">
+    <meta name="keywords" content="AI Solutions, Generative AI, AI Automation, Data Analytics, Machine Learning, Custom AI Development, Saivyy Technologies">
     <!-- Favicon for most browsers -->
     <link rel="icon" type="image/png" href="../saivyyweb.png">
     <!-- Apple Touch Icon -->
@@ -46,15 +48,17 @@
             </div>
             <nav>
                 <ul class="main-menu">
-                    <li><a href="solutions.html" class="active">Solutions</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="../index.html#insights">Insights</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="solutions.html" class="active" data-translate="navSolutions">Solutions</a></li>
+                    <li><a href="about.html" data-translate="navAbout">About</a></li>
+                    <li><a href="portfolio.html" data-translate="navPortfolio">Portfolio</a></li>
+                    <li><a href="blog.html" data-translate="navBlog">Blog</a></li>
+                    <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
                 </ul>
             </nav>
             <div class="theme-language-container">
                 <div class="language-selector">
-                    <a href="#" class="active">EN</a>
+                    <a href="#" class="active" data-lang="en">EN</a>
+                    <a href="#" data-lang="hi">HI</a>
                 </div>
             </div>
             <!-- Mobile Menu Button -->
@@ -70,10 +74,11 @@
     <div class="mobile-side-menu">
         <nav>
             <ul>
-                <li><a href="solutions.html" class="active"><i class="fas fa-lightbulb"></i> Solutions</a></li>
-                <li><a href="about.html"><i class="fas fa-users"></i> About</a></li>
-                <li><a href="../index.html#insights"><i class="fas fa-chart-line"></i> Insights</a></li>
-                <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="solutions.html" class="active"><i class="fas fa-lightbulb"></i> <span data-translate="navSolutions">Solutions</span></a></li>
+                <li><a href="about.html"><i class="fas fa-users"></i> <span data-translate="navAbout">About</span></a></li>
+                <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> <span data-translate="navPortfolio">Portfolio</span></a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> <span data-translate="navBlog">Blog</span></a></li>
+                <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span data-translate="navContact">Contact</span></a></li>
             </ul>
         </nav>
     </div>
@@ -91,8 +96,8 @@
             <div class="hero-slider">
                 <div class="slide active">
                     <div class="slide-content scroll-animate" data-animation="fadeIn">
-                        <h2>Our AI Solutions</h2>
-                        <p>Discover how our cutting-edge AI solutions can transform your business</p>
+                        <h2 data-translate="solutionsHeroTitle">Our AI Solutions</h2>
+                        <p data-translate="solutionsHeroSubtitle">Discover how our cutting-edge AI solutions can transform your business</p>
                         <div class="slide-features">
                             <span class="scroll-animate" data-animation="fadeInUp" data-delay="0.2s">
                                 <i class="fas fa-brain"></i> Advanced AI
@@ -112,21 +117,21 @@
         <!-- Solutions Section -->
         <section class="solutions-detail-section">
             <div class="section-title scroll-animate" data-animation="fadeIn">
-                <h2>Comprehensive AI Solutions</h2>
-                <p>End-to-end AI solutions tailored to your business needs</p>
+                <h2 data-translate="comprehensiveSolutions">Comprehensive AI Solutions</h2>
+                <p data-translate="comprehensiveSolutionsSubtitle">End-to-end AI solutions tailored to your business needs</p>
             </div>
             <div class="solutions-grid">
                 <div class="solution-card scroll-animate" data-animation="fadeInUp">
                     <div class="solution-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3>Generative AI Solutions</h3>
-                    <p>Transform your business with cutting-edge generative AI technology:</p>
+                    <h3 data-translate="genAiSolutions">Generative AI Solutions</h3>
+                    <p data-translate="genAiSolutionsText">Transform your business with cutting-edge generative AI technology:</p>
                     <ul>
-                        <li>Content Generation & Optimization</li>
-                        <li>AI-Powered Design & Creativity</li>
-                        <li>Natural Language Processing</li>
-                        <li>Custom AI Model Development</li>
+                        <li data-translate="genAiPoint1">Content Generation & Optimization</li>
+                        <li data-translate="genAiPoint2">AI-Powered Design & Creativity</li>
+                        <li data-translate="genAiPoint3">Natural Language Processing</li>
+                        <li data-translate="genAiPoint4">Custom AI Model Development</li>
                     </ul>
                 </div>
 
@@ -134,13 +139,13 @@
                     <div class="solution-icon">
                         <i class="fas fa-robot"></i>
                     </div>
-                    <h3>AI Automation</h3>
-                    <p>Streamline your operations with intelligent automation:</p>
+                    <h3 data-translate="aiAutomation">AI Automation</h3>
+                    <p data-translate="aiAutomationText">Streamline your operations with intelligent automation:</p>
                     <ul>
-                        <li>Process Automation</li>
-                        <li>Workflow Optimization</li>
-                        <li>Intelligent Document Processing</li>
-                        <li>RPA Integration</li>
+                        <li data-translate="automationPoint1">Process Automation</li>
+                        <li data-translate="automationPoint2">Workflow Optimization</li>
+                        <li data-translate="automationPoint3">Intelligent Document Processing</li>
+                        <li data-translate="automationPoint4">RPA Integration</li>
                     </ul>
                 </div>
 
@@ -148,13 +153,13 @@
                     <div class="solution-icon">
                         <i class="fas fa-chart-pie"></i>
                     </div>
-                    <h3>Data Analytics & ML</h3>
-                    <p>Unlock insights from your data with advanced analytics:</p>
+                    <h3 data-translate="dataAnalytics">Data Analytics & ML</h3>
+                    <p data-translate="dataAnalyticsText">Unlock insights from your data with advanced analytics:</p>
                     <ul>
-                        <li>Predictive Analytics</li>
-                        <li>Business Intelligence</li>
-                        <li>Machine Learning Models</li>
-                        <li>Data Visualization</li>
+                        <li data-translate="analyticsPoint1">Predictive Analytics</li>
+                        <li data-translate="analyticsPoint2">Business Intelligence</li>
+                        <li data-translate="analyticsPoint3">Machine Learning Models</li>
+                        <li data-translate="analyticsPoint4">Data Visualization</li>
                     </ul>
                 </div>
 
@@ -162,13 +167,13 @@
                     <div class="solution-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3>Custom AI Development</h3>
-                    <p>Bespoke AI solutions for your unique challenges:</p>
+                    <h3 data-translate="customDevelopment">Custom AI Development</h3>
+                    <p data-translate="customDevelopmentText">Bespoke AI solutions for your unique challenges:</p>
                     <ul>
-                        <li>Custom AI Applications</li>
-                        <li>AI Integration Services</li>
-                        <li>API Development</li>
-                        <li>System Architecture</li>
+                        <li data-translate="customDevPoint1">Custom AI Applications</li>
+                        <li data-translate="customDevPoint2">AI Integration Services</li>
+                        <li data-translate="customDevPoint3">API Development</li>
+                        <li data-translate="customDevPoint4">System Architecture</li>
                     </ul>
                 </div>
             </div>
@@ -177,9 +182,9 @@
         <!-- CTA Section -->
         <section class="cta-section">
             <div class="cta-content scroll-animate" data-animation="fadeIn">
-                <h2>Ready to Transform Your Business?</h2>
-                <p>Let's discuss how our AI solutions can help you achieve your goals</p>
-                <a href="../index.html#contact" class="btn">Get Started <i class="fas fa-arrow-right"></i></a>
+                <h2 data-translate="readyToTransform">Ready to Transform Your Business?</h2>
+                <p data-translate="readyToTransformSubtitle">Let's discuss how our AI solutions can help you achieve your goals</p>
+                <a href="../index.html#contact" class="btn" data-translate="getStarted">Get Started <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
     </main>
@@ -195,10 +200,11 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="../index.html#insights">Insights</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="solutions.html" data-translate="navSolutions">Solutions</a></li>
+                    <li><a href="about.html" data-translate="navAbout">About Us</a></li>
+                    <li><a href="portfolio.html" data-translate="navPortfolio">Portfolio</a></li>
+                    <li><a href="blog.html" data-translate="navBlog">Blog</a></li>
+                    <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -208,7 +214,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Saivyy Technologies. All rights reserved.</p>
+            <p>&copy; 2025 Saivvy Technologies. All rights reserved.</p>
         </div>
     </footer>
 
