@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navPortfolio: 'Portfolio',
             navBlog: 'Blog',
             navContact: 'Contact',
+            Media: 'Media',
 
             // Hero
             heroTitle: 'Pioneering AI & Generative AI Solutions',
@@ -134,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navPortfolio: 'पोर्टफोलियो',
             navBlog: 'ब्लॉग',
             navContact: 'संपर्क करें',
+            Media: 'मीडिया',
 
             // Hero
             heroTitle: 'अग्रणी एआई और जेनरेटिव एआई समाधान',

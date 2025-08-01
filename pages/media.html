@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" href="../saivyyweb.png">
     <meta name="msapplication-TileImage" content="../saivyyweb.png">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="solutions.css">
+    <link rel="stylesheet" href="media.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -27,10 +27,21 @@
             </div>
             <nav>
                 <ul class="main-menu">
-                    <li><a href="solutions.html" data-translate="navSolutions">Solutions</a></li>
-                    <li><a href="about.html" data-translate="navAbout">About</a></li>
-                    <li><a href="portfolio.html" data-translate="navPortfolio">Portfolio</a></li>
-                    <li><a href="blog.html" data-translate="navBlog">Blog</a></li>
+                    <li>
+                        <a href="solutions.html" data-translate="navSolutions">Solutions</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html" data-translate="navPortfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="blog.html" data-translate="navBlog">Blog</a>
+                    </li>
+                    <li>
+                        <a href="media.html" data-translate="Media"> Media</a>
+                    </li>
+                    <li>
+                        <a href="about.html" data-translate="navAbout">About</a>
+                    </li>
                     <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
                 </ul>
             </nav>
@@ -86,25 +97,25 @@
             </div>
             <div class="media-grid">
                 <div class="media-card scroll-animate" data-animation="fadeInUp">
-                    <img src="https://picsum.photos/seed/news1/200/100" alt="TechCrunch Logo">
+                    <h3>TechCrunch</h3>
+                    <img src="https://picsum.photos/seed/news1/400/250" alt="TechCrunch Logo">
                     <div class="media-content">
-                        <h3>TechCrunch</h3>
                         <p data-translate="news1">"Saivyy Technologies is revolutionizing the AI landscape with its innovative solutions."</p>
                         <a href="#" class="btn" data-translate="readArticle">Read Article</a>
                     </div>
                 </div>
                 <div class="media-card scroll-animate" data-animation="fadeInUp" data-delay="0.2s">
-                    <img src="https://picsum.photos/seed/news2/200/100" alt="Forbes Logo">
+                    <h3>Forbes</h3>
+                    <img src="https://picsum.photos/seed/news2/400/250" alt="Forbes Logo">
                     <div class="media-content">
-                        <h3>Forbes</h3>
                         <p data-translate="news2">"A company to watch, Saivyy Technologies is making waves in the world of generative AI."</p>
                         <a href="#" class="btn" data-translate="readArticle">Read Article</a>
                     </div>
                 </div>
                 <div class="media-card scroll-animate" data-animation="fadeInUp" data-delay="0.4s">
-                    <img src="https://picsum.photos/seed/news3/200/100" alt="Wired Logo">
+                    <h3>Wired</h3>
+                    <img src="https://picsum.photos/seed/news3/400/250" alt="Wired Logo">
                     <div class="media-content">
-                        <h3>Wired</h3>
                         <p data-translate="news3">"The team at Saivvy is pushing the boundaries of what's possible with artificial intelligence."</p>
                         <a href="#" class="btn" data-translate="readArticle">Read Article</a>
                     </div>
@@ -117,54 +128,57 @@
                 <h2 data-translate="awardsRecognition">Awards & Recognition</h2>
                 <p data-translate="awardsRecognitionSubtitle">We are proud of our achievements and industry recognition.</p>
             </div>
-            <div class="awards-grid">
-                <div class="award-card scroll-animate" data-animation="fadeInUp">
-                    <div class="award-icon"><i class="fas fa-trophy"></i></div>
-                    <h3 data-translate="award1Title">AI Innovation Award 2025</h3>
-                    <p data-translate="award1Desc">Awarded for our groundbreaking work in generative AI.</p>
+            <div class="awards-timeline">
+                <div class="timeline-item scroll-animate" data-animation="fadeInUp">
+                    <div class="timeline-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="timeline-content">
+                        <h3 data-translate="award1Title">AI Innovation Award 2025</h3>
+                        <p data-translate="award1Desc">Awarded for our groundbreaking work in generative AI.</p>
+                        <span class="timeline-date">March 2025</span>
+                    </div>
                 </div>
-                <div class="award-card scroll-animate" data-animation="fadeInUp" data-delay="0.2s">
-                    <div class="award-icon"><i class="fas fa-award"></i></div>
-                    <h3 data-translate="award2Title">Best AI Startup 2025</h3>
-                    <p data-translate="award2Desc">Recognized as the leading AI startup of the year.</p>
+                <div class="timeline-item scroll-animate" data-animation="fadeInUp" data-delay="0.2s">
+                    <div class="timeline-icon"><i class="fas fa-award"></i></div>
+                    <div class="timeline-content">
+                        <h3 data-translate="award2Title">Best AI Startup 2025</h3>
+                        <p data-translate="award2Desc">Recognized as the leading AI startup of the year.</p>
+                        <span class="timeline-date">June 2025</span>
+                    </div>
                 </div>
-                <div class="award-card scroll-animate" data-animation="fadeInUp" data-delay="0.4s">
-                    <div class="award-icon"><i class="fas fa-medal"></i></div>
-                    <h3 data-translate="award3Title">Tech Innovator of the Year</h3>
-                    <p data-translate="award3Desc">Our CEO, Keshav Madan, was named the top tech innovator.</p>
+                <div class="timeline-item scroll-animate" data-animation="fadeInUp" data-delay="0.4s">
+                    <div class="timeline-icon"><i class="fas fa-medal"></i></div>
+                    <div class="timeline-content">
+                        <h3 data-translate="award3Title">Tech Innovator of the Year</h3>
+                        <p data-translate="award3Desc">Our CEO, Keshav Madan, was named the top tech innovator.</p>
+                        <span class="timeline-date">August 2025</span>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Quick Links</h4>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="../saivvyMain.jpeg" alt="Saivyy Technologies Logo" class="footer-logo">
+                <p>Leading AI & Gen-AI Solutions</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
                 <ul>
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="solutions.html" data-translate="navSolutions">Solutions</a></li>
-                    <li><a href="about.html" data-translate="navAbout">About</a></li>
+                    <li><a href="about.html" data-translate="navAbout">About Us</a></li>
                     <li><a href="portfolio.html" data-translate="navPortfolio">Portfolio</a></li>
                     <li><a href="blog.html" data-translate="navBlog">Blog</a></li>
                     <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="about.html">About Saivvy</a></li>
-                    <li><a href="team.html">Our Team</a></li>
-                    <li><a href="media.html">Media Mentions</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li><i class="fas fa-globe"></i> Saivvy Technologies</li>
-                    <li><i class="fas fa-phone"></i> +91 9318381279</li>
-                    <li><i class="fas fa-envelope"></i> founder@saivyytechnologies.in</li>
-                </ul>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> founder@saivyytechnologies.in    </p>
+                <p><i class="fas fa-phone"></i> +91 9318381279</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -174,5 +188,80 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../script.js"></script>
+    <script>
+        // Existing particles.js configuration
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle"
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: false,
+                        anim: {
+                            enable: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#ffffff",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 4,
+                        direction: "none",
+                        random: false,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "grab"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        }
+                    }
+                },
+                retina_detect: true
+            });
+        });
+    </script>
 </body>
 </html>
