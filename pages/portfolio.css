@@ -828,21 +828,6 @@ footer {
     max-width: 85%;
 }
 
-.portfolio-content .btn {
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    background: var(--primary-red);
-    padding: 6px 12px;
-    border-radius: 8px;
-    transition: background 0.2s;
-    margin-top: auto;
-}
-
-.portfolio-content .btn:hover {
-    background: var(--accent-red);
-}
-
 .portfolio-section{
     padding: 60px 0;
 }
