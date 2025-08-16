@@ -667,9 +667,6 @@ header {
     border: var(--glass-border-hover);
 }
 
-.legend {
-    /* Style as needed */
-}
 
 .legend-item {
     display: flex;
@@ -863,11 +860,6 @@ header {
     transition: stroke-dashoffset 1.5s cubic-bezier(0.65, 0, 0.35, 1); /* Animation */
 }
 
-.stat-item:hover .stat-progress {
-    /* Optional: slightly change on hover? */
-    /* stroke: var(--accent-red); */
-}
-
 .stat-number {
     position: absolute;
     top: 50%;
@@ -992,9 +984,6 @@ header {
     align-items: stretch; /* Make columns equal height */
 }
 
-.contact-info {
-    /* Container for the info card */
-}
 
 .contact-card {
     /* Apply glassmorphism */
@@ -1047,10 +1036,7 @@ header {
     border-bottom: none;
 }
 
-.info-item:hover {
-    /* Optional: subtle hover effect */
-    /* background-color: rgba(255, 255, 255, 0.05); */
-}
+
 
 .info-item i {
     font-size: 1.5rem;
@@ -1348,10 +1334,7 @@ footer::before {
     color: #bdbdbd;
 }
 
-/* Language Selector */
-.language-selector {
-    /* Styles remain similar */
-}
+
 
 .language-selector a {
     color: var(--medium-gray); /* Medium gray text */
@@ -1859,10 +1842,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-red); /* Keep red in dark mode or adjust */
 }
 
-/* Bar Graph Styles (within .graph-item) */
-.bar-graphs-container { /* Specific container */
-    /* Adjust padding or margins if needed */
-}
+
 
 .bar-item {
     margin-bottom: 1.5rem;
@@ -2133,10 +2113,7 @@ h1, h2, h3, h4, h5, h6 {
         display: none; /* Remove underline */
     }
 
-    /* Adjust header container padding if needed */
-    .header-container {
-        /* padding-right: 4rem; /* Ensure space for button if it moves */
-    }
+
 
     .network-container {
         /* Ensure it stacks */
