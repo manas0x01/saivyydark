@@ -81,14 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
             customDevPoint3: 'API Development',
             customDevPoint4: 'System Architecture',
             readyToTransform: 'Ready to Transform Your Business?',
-            readyToTransformSubtitle: 'Let\'s discuss how our AI solutions can help you achieve your goals',
+            readyToTransformSubtitle: "'Let's discuss how our AI solutions can help you achieve your goals'",
             getStarted: 'Get Started',
 
             // Portfolio Page
             portfolioHeroTitle: 'Our Portfolio',
             portfolioHeroSubtitle: 'A showcase of our successful projects and impactful results.',
             caseStudies: 'Case Studies',
-            caseStudiesSubtitle: 'Explore how we\'ve helped businesses like yours succeed.',
+            caseStudiesSubtitle: "'Explore how we've helped businesses like yours succeed.'",
             project1Title: 'AI-Powered Sales Forecasting',
             project1Desc: 'Developed a custom machine learning model to predict sales with 95% accuracy, leading to a 20% increase in revenue.',
             project2Title: 'Generative AI for Content Creation',
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             inTheNewsSubtitle: 'Read what others are saying about Saivvy Technologies.',
             news1: '"Saivvy Technologies is revolutionizing the AI landscape with its innovative solutions."',
             news2: '"A company to watch, Saivvy Technologies is making waves in the world of generative AI."',
-            news3: '"The team at Saivvy is pushing the boundaries of what\'s possible with artificial intelligence."',
+            news3: '"The team at Saivvy is pushing the boundaries of whats possible with artificial intelligence."',
             readArticle: 'Read Article',
             awardsRecognition: 'Awards & Recognition',
             awardsRecognitionSubtitle: 'We are proud of our achievements and industry recognition.',
@@ -127,6 +127,192 @@ document.addEventListener('DOMContentLoaded', () => {
             award2Desc: 'Recognized as the leading AI startup of the year.',
             award3Title: 'Tech Innovator of the Year',
             award3Desc: 'Our CEO, Keshav Madan, was named the top tech innovator.',
+            "welcome-to-saivvy-technologies": "Welcome to Saivvy Technologies",
+            "leading-ai-gen-ai-solutions": "Leading AI & Gen-AI Solutions",
+            "saivvy-technologies": "Saivvy Technologies",
+            "ai-solutions": "AI Solutions",
+            "video-tag-not-supported": "Your browser does not support the video tag.",
+            "innovative-solutions": "Innovative Solutions",
+            "seamless-integration": "Seamless Integration",
+            "expert-team": "Expert Team",
+            "our-ai-capabilities": "Our AI Capabilities",
+            "end-to-end-ai-solutions": "End-to-end AI solutions tailored to your needs",
+            "ai-automation": "AI Automation",
+            "ai-automation-desc": "We help businesses eliminate repetitive manual tasks and boost productivity with intelligent automation.",
+            "healthcare-medical-solutions": "Healthcare & Medical Solutions",
+            "healthcare-medical-solutions-desc": "Leveraging technology to improve healthcare accessibility, efficiency, and patient outcomes.",
+            "hr-automation-solutions": "HR Automation Solutions",
+            "hr-automation-solutions-desc": "Empowering organizations with smart tools to streamline HR operations and enhance employee experiences.",
+            "recruitment-solutions": "Recruitment Solutions",
+            "recruitment-solutions-desc": "Transforming recruitment with AI-driven tools that speed up hiring and improve candidate quality.",
+            "custom-ai-solutions": "Custom AI Solutions",
+            "custom-ai-solutions-desc": "Providing tailor-made AI-driven solutions to fit unique industry challenges.",
+            "ai-consulting": "AI Consulting",
+            "ai-consulting-desc": "Expert guidance to strategize and implement your AI initiatives.",
+            "our-global-reach": "Our Global Reach",
+            "providing-ai-solutions-worldwide": "Providing AI solutions worldwide",
+            "serving-clients-across-continents": "Serving Clients Across Continents",
+            "global-reach-desc": "Our AI solutions empower businesses in more than 35 countries, with dedicated support and infrastructure on all major continents.",
+            "strategic-data-centers": "Strategic Data Centers",
+            "global-development-network": "Global Development Network",
+            "24-7-support-coverage": "24/7 Support Coverage",
+            "regional-compliance-expertise": "Regional Compliance Expertise",
+            "why-partner-with-saivvy": "Why Partner With Saivvy?",
+            "why-partner-with-saivvy-desc": "Experience the future of AI-driven success",
+            "cutting-edge-tech": "Cutting-Edge Tech",
+            "cutting-edge-tech-desc": "Leveraging the latest advancements in AI and machine learning.",
+            "expert-team-desc": "Dedicated AI specialists committed to your project's success.",
+            "collaborative-approach": "Collaborative Approach",
+            "collaborative-approach-desc": "Working closely with you to tailor solutions to your exact needs.",
+            "measurable-results": "Measurable Results",
+            "measurable-results-desc": "Focusing on delivering tangible business value and ROI.",
+            "proven-client-results": "Proven Client Results",
+            "proven-client-results-desc": "Our AI solutions deliver measurable impact across key metrics",
+            "key-performance-improvements": "Key Performance Improvements",
+            "efficiency-gain": "Efficiency Gain",
+            "efficiency-gain-value": "+45%",
+            "cost-reduction": "Cost Reduction",
+            "cost-reduction-value": "-30%",
+            "revenue-growth": "Revenue Growth",
+            "revenue-growth-value": "+25%",
+            "process-automation": "Process Automation",
+            "process-automation-value": "+60%",
+            "resource-allocation-optimization": "Resource Allocation Optimization",
+            "time-savings": "Time Savings (35%)",
+            "cost-efficiency": "Cost Efficiency (40%)",
+            "personnel-reallocation": "Personnel Reallocation (25%)",
+            "performance-improvement-trend": "Performance Improvement Trend",
+            "start": "Start",
+            "current": "Current",
+            "performance-label": "Perf.",
+            "ai-projects-delivered-value": "10+",
+            "ai-projects-delivered": "AI Projects Delivered",
+            "client-satisfaction-rate-value": "98%",
+            "client-satisfaction-rate": "Client Satisfaction Rate",
+            "industries-served-value": "35+",
+            "industries-served": "Industries Served",
+            "sectors-automated-value": "43+",
+            "sectors-automated": "Sectors Automated with AI",
+            "success-stories": "Success Stories",
+            "success-stories-desc": "See how we've helped businesses thrive with AI",
+            "testimonial1": "Saivvy Technologies delivered a bespoke AI solution that significantly improved our data analysis capabilities. Their expertise is unmatched.",
+            "amit-singh": "Amit Singh",
+            "cto-innovate-solutions": "CTO, Innovate Solutions",
+            "testimonial2": "The Gen-AI tools developed by Saivvy have revolutionized our content creation process. Highly recommended for their innovative approach.",
+            "meera-desai": "Meera Desai",
+            "marketing-director-creative-hub": "Marketing Director, Creative Hub",
+            "get-in-touch": "Get in Touch",
+            "get-in-touch-desc": "Ready to transform your business with AI? Contact us today.",
+            "lets-discuss-your-project": "Let's Discuss Your Project",
+            "lets-discuss-your-project-desc": "Our AI experts are ready to help you leverage the power of artificial intelligence.",
+            "location": "Location",
+            "location-desc": "Serving clients globally<br>Contact us for local presence details",
+            "call-us": "Call Us",
+            "phone-number": "+91 9318381279",
+            "working-hours": "Mon-Fri, 9am-6pm",
+            "email-support": "Email Support",
+            "email-address": "founder@saivyytechnologies.in",
+            "response-time": "Response within 24 hours",
+            "connect-with-us": "Connect With Us",
+            "send-us-a-message": "Send Us a Message",
+            "send-us-a-message-desc": "Fill out the form below and we'll get back to you shortly",
+            "full-name": "Full Name",
+            "email-address-label": "Email Address",
+            "phone-number-label": "Phone Number",
+            "service-interested-in": "Service Interested In",
+            "select-a-service": "Select a service",
+            "generative-ai": "Generative AI",
+            "ai-automation-option": "AI Automation",
+            "data-analytics-option": "Data Analytics",
+            "custom-ai-development-option": "Custom AI Development",
+            "ai-consulting-option": "AI Consulting",
+            "other-option": "Other",
+            "your-message": "Your Message / Project Details",
+            "send-message": "Send Message",
+            "privacy-note": "By submitting this form, you agree to our Privacy Policy",
+            "quick-links": "Quick Links",
+            "our-solutions": "Our Solutions",
+            "blog": "Blog",
+            "contact-us": "Contact Us",
+            "company": "Company",
+            "about-saivvy": "About Saivvy",
+            "our-team": "Our Team",
+            "portfolio": "Portfolio",
+            "media": "Media",
+            "contact": "Contact",
+            "saivvy-technologies-footer": "Saivvy Technologies",
+            "phone-number-footer": "+91 9318381279",
+            "email-address-footer": "founder@saivyytechnologies.in",
+            "copyright": "© 2025 Saivvy Technologies. All rights reserved.",
+            "welcome-to-about-us": "Welcome to About Us",
+            "discover-our-story-and-mission": "Discover our story and mission",
+            "innovation": "Innovation",
+            "team": "Team",
+            "global-impact": "Global Impact",
+            "keshav-madan": "Keshav Madan",
+            "ceo": "CEO",
+            "manas-saxena": "Manas Saxena",
+            "coo": "COO",
+            "manas-bio": "Operational strategist ensuring seamless execution and sustainable scaling",
+            "leading-ai-gen-ai-solutions-footer": "Leading AI & Gen-AI Solutions",
+            "quick-links-footer": "Quick Links",
+            "home-footer": "Home",
+            "contact-us-footer": "Contact Us",
+            "email-footer": "founder@saivyytechnologies.in",
+            "phone-footer": "+91 9318381279",
+            "copyright-footer": "© 2025 Saivvy Technologies. All rights reserved.",
+            "jan-26-2025": "Jan 26, 2025",
+            "generative-ai-tag": "Generative AI",
+            "aug-14-2025": "August 14, 2025",
+            "machine-learning-tag": "Machine Learning",
+            "what-is-machine-learning": "What is Machine learning?",
+            "what-is-machine-learning-desc": "Machine Learning: Teaching Machines to Think and Learn Like Humans. Let's understand deeply.",
+            "aug-6-2025": "August 6, 2025",
+            "ai-ethics-tag": "AI Ethics",
+            "bias-in-ai": "Bias in AI: When Algorithms Aren’t Fair",
+            "bias-in-ai-desc": "As artificial intelligence becomes more embedded in our lives, one pressing concern rises to the surface—what happens when the algorithms meant to help us end up discriminating against us?",
+            "mar-19-2025": "March 19, 2025",
+            "categories": "Categories",
+            "generative-ai-category": "Generative AI",
+            "machine-learning-category": "Machine Learning",
+            "ai-ethics-category": "AI Ethics",
+            "data-analytics-category": "Data Analytics",
+            "recent-posts": "Recent Posts",
+            "recent-post-1": "The Future of Generative AI in Business",
+            "recent-post-2": "Top 5 Machine Learning Trends to Watch",
+            "recent-post-3": "Bias in AI",
+            "techcrunch": "TechCrunch",
+            "forbes": "Forbes",
+            "wired": "Wired",
+            "march-2025": "March 2025",
+            "june-2025": "June 2025",
+            "august-2025": "August 2025",
+            "all-filter": "All",
+            "generative-ai-filter": "Generative AI",
+            "ai-automation-filter": "AI Automation",
+            "data-analytics-ml-filter": "Data Analytics & ML",
+            "welcome-to-our-solutions": "Welcome to Our Solutions",
+            "discover-our-cutting-edge-ai-solutions": "Discover our cutting-edge AI solutions",
+            "advanced-ai": "Advanced AI",
+            "automation": "Automation",
+            "analytics": "Analytics",
+            "solutions-mobile-menu": "Solutions",
+            "about-mobile-menu": "About",
+            "portfolio-mobile-menu": "Portfolio",
+            "blog-mobile-menu": "Blog",
+            "contact-mobile-menu": "Contact",
+            "our-team-heading": "Our Team",
+            "our-team-desc": "The brilliant minds behind Saivvy Technologies.",
+            "leadership": "Leadership",
+            "leadership-desc": "Meet the visionaries driving our company forward.",
+            "founder-ceo": "Founder & CEO",
+            "keshav-madan-desc": "Keshav is a visionary leader with a passion for leveraging AI to solve complex business challenges. His expertise in machine learning and strategic planning drives the company's innovation and growth.",
+            "jane-doe": "Jane Doe",
+            "cto": "Chief Technology Officer",
+            "jane-doe-desc": "Jane is a seasoned technology expert with a deep understanding of AI and cloud computing. She leads the development of our cutting-edge solutions.",
+            "john-smith": "John Smith",
+            "head-of-ai-research": "Head of AI Research",
+            "john-smith-desc": "John is a leading researcher in the field of generative AI. He is responsible for pushing the boundaries of what is possible with our technology."
         },
         hi: {
             // Nav
@@ -254,6 +440,192 @@ document.addEventListener('DOMContentLoaded', () => {
             award2Desc: 'वर्ष के अग्रणी एआई स्टार्टअप के रूप में मान्यता प्राप्त है।',
             award3Title: 'टेक इनोवेटर ऑफ द ईयर',
             award3Desc: 'हमारे सीईओ, केशव मदन को शीर्ष तकनीकी प्रर्वतक नामित किया गया था।',
+            "welcome-to-saivvy-technologies": "सैवी टेक्नोलॉजीज में आपका स्वागत है",
+            "leading-ai-gen-ai-solutions": "अग्रणी एआई और जेन-एआई समाधान",
+            "saivvy-technologies": "सैवी टेक्नोलॉजीज",
+            "ai-solutions": "एआई समाधान",
+            "video-tag-not-supported": "आपका ब्राउज़र वीडियो टैग का समर्थन नहीं करता है।",
+            "innovative-solutions": "अभिनव समाधान",
+            "seamless-integration": "सहज एकीकरण",
+            "expert-team": "विशेषज्ञ टीम",
+            "our-ai-capabilities": "हमारी एआई क्षमताएं",
+            "end-to-end-ai-solutions": "आपकी आवश्यकताओं के अनुरूप एंड-टू-एंड एआई समाधान",
+            "ai-automation": "एआई ऑटोमेशन",
+            "ai-automation-desc": "हम व्यवसायों को दोहराए जाने वाले मैन्युअल कार्यों को खत्म करने और बुद्धिमान स्वचालन के साथ उत्पादकता बढ़ाने में मदद करते हैं।",
+            "healthcare-medical-solutions": "हेल्थकेयर और मेडिकल समाधान",
+            "healthcare-medical-solutions-desc": "स्वास्थ्य सेवा पहुंच, दक्षता और रोगी परिणामों में सुधार के लिए प्रौद्योगिकी का लाभ उठाना।",
+            "hr-automation-solutions": "मानव संसाधन स्वचालन समाधान",
+            "hr-automation-solutions-desc": "मानव संसाधन संचालन को सुव्यवस्थित करने और कर्मचारी अनुभवों को बढ़ाने के लिए स्मार्ट टूल के साथ संगठनों को सशक्त बनाना।",
+            "recruitment-solutions": "भर्ती समाधान",
+            "recruitment-solutions-desc": "एआई-संचालित उपकरणों के साथ भर्ती को बदलना जो भर्ती में तेजी लाते हैं और उम्मीदवार की गुणवत्ता में सुधार करते हैं।",
+            "custom-ai-solutions": "कस्टम एआई समाधान",
+            "custom-ai-solutions-desc": "अद्वितीय उद्योग चुनौतियों के लिए विशेष रूप से एआई-संचालित समाधान प्रदान करना।",
+            "ai-consulting": "एआई परामर्श",
+            "ai-consulting-desc": "आपकी एआई पहलों की रणनीति बनाने और उन्हें लागू करने के लिए विशेषज्ञ मार्गदर्शन।",
+            "our-global-reach": "हमारी वैश्विक पहुंच",
+            "providing-ai-solutions-worldwide": "दुनिया भर में एआई समाधान प्रदान करना",
+            "serving-clients-across-continents": "महाद्वीपों में ग्राहकों की सेवा करना",
+            "global-reach-desc": "हमारे एआई समाधान 35 से अधिक देशों में व्यवसायों को सशक्त बनाते हैं, सभी प्रमुख महाद्वीपों पर समर्पित समर्थन और बुनियादी ढांचे के साथ।",
+            "strategic-data-centers": "रणनीतिक डेटा केंद्र",
+            "global-development-network": "वैश्विक विकास नेटवर्क",
+            "24-7-support-coverage": "24/7 सहायता कवरेज",
+            "regional-compliance-expertise": "क्षेत्रीय अनुपालन विशेषज्ञता",
+            "why-partner-with-saivvy": "सैवी के साथ साझेदारी क्यों करें?",
+            "why-partner-with-saivvy-desc": "एआई-संचालित सफलता के भविष्य का अनुभव करें",
+            "cutting-edge-tech": "अत्याधुनिक तकनीक",
+            "cutting-edge-tech-desc": "एआई और मशीन लर्निंग में नवीनतम प्रगति का लाभ उठाना।",
+            "expert-team-desc": "आपके प्रोजेक्ट की सफलता के लिए समर्पित एआई विशेषज्ञ।",
+            "collaborative-approach": "सहयोगात्मक दृष्टिकोण",
+            "collaborative-approach-desc": "आपकी सटीक आवश्यकताओं के अनुरूप समाधान तैयार करने के लिए आपके साथ मिलकर काम करना।",
+            "measurable-results": "मापने योग्य परिणाम",
+            "measurable-results-desc": "मूर्त व्यावसायिक मूल्य और आरओआई देने पर ध्यान केंद्रित करना।",
+            "proven-client-results": "सिद्ध ग्राहक परिणाम",
+            "proven-client-results-desc": "हमारे एआई समाधान प्रमुख मैट्रिक्स में औसत दर्जे का प्रभाव डालते हैं",
+            "key-performance-improvements": "मुख्य प्रदर्शन सुधार",
+            "efficiency-gain": "दक्षता लाभ",
+            "efficiency-gain-value": "+45%",
+            "cost-reduction": "लागत में कमी",
+            "cost-reduction-value": "-30%",
+            "revenue-growth": "राजस्व वृद्धि",
+            "revenue-growth-value": "+25%",
+            "process-automation": "प्रक्रिया स्वचालन",
+            "process-automation-value": "+60%",
+            "resource-allocation-optimization": "संसाधन आवंटन अनुकूलन",
+            "time-savings": "समय की बचत (35%)",
+            "cost-efficiency": "लागत दक्षता (40%)",
+            "personnel-reallocation": "कार्मिक पुन: आवंटन (25%)",
+            "performance-improvement-trend": "प्रदर्शन सुधार की प्रवृत्ति",
+            "start": "प्रारंभ",
+            "current": "वर्तमान",
+            "performance-label": "प्रदर्शन",
+            "ai-projects-delivered-value": "10+",
+            "ai-projects-delivered": "एआई प्रोजेक्ट वितरित",
+            "client-satisfaction-rate-value": "98%",
+            "client-satisfaction-rate": "ग्राहक संतुष्टि दर",
+            "industries-served-value": "35+",
+            "industries-served": "सेवित उद्योग",
+            "sectors-automated-value": "43+",
+            "sectors-automated": "एआई के साथ स्वचालित क्षेत्र",
+            "success-stories": "सफलता की कहानियां",
+            "success-stories-desc": "देखें कि हमने व्यवसायों को एआई के साथ फलने-फूलने में कैसे मदद की है",
+            "testimonial1": "सैवी टेक्नोलॉजीज ने एक विशेष एआई समाधान दिया जिसने हमारी डेटा विश्लेषण क्षमताओं में काफी सुधार किया। उनकी विशेषज्ञता बेजोड़ है।",
+            "amit-singh": "अमित सिंह",
+            "cto-innovate-solutions": "सीटीओ, इनोवेट सॉल्यूशंस",
+            "testimonial2": "सैवी द्वारा विकसित जेन-एआई टूल ने हमारी सामग्री निर्माण प्रक्रिया में क्रांति ला दी है। उनके अभिनव दृष्टिकोण के लिए अत्यधिक अनुशंसित।",
+            "meera-desai": "मीरा देसाई",
+            "marketing-director-creative-hub": "विपणन निदेशक, क्रिएटिव हब",
+            "get-in-touch": "संपर्क में रहें",
+            "get-in-touch-desc": "एआई के साथ अपने व्यवसाय को बदलने के लिए तैयार हैं? आज ही हमसे संपर्क करें।",
+            "lets-discuss-your-project": "आइए आपके प्रोजेक्ट पर चर्चा करें",
+            "lets-discuss-your-project-desc": "हमारे एआई विशेषज्ञ आपको आर्टिफिशियल इंटेलिजेंस की शक्ति का लाभ उठाने में मदद करने के लिए तैयार हैं।",
+            "location": "स्थान",
+            "location-desc": "विश्व स्तर पर ग्राहकों की सेवा<br>स्थानीय उपस्थिति विवरण के लिए हमसे संपर्क करें",
+            "call-us": "हमें कॉल करें",
+            "phone-number": "+91 9318381279",
+            "working-hours": "सोम-शुक्र, सुबह 9 बजे से शाम 6 बजे तक",
+            "email-support": "ईमेल सहायता",
+            "email-address": "founder@saivyytechnologies.in",
+            "response-time": "24 घंटे के भीतर प्रतिक्रिया",
+            "connect-with-us": "हमसे जुड़ें",
+            "send-us-a-message": "हमें एक संदेश भेजें",
+            "send-us-a-message-desc": "नीचे दिया गया फॉर्म भरें और हम जल्द ही आपसे संपर्क करेंगे",
+            "full-name": "पूरा नाम",
+            "email-address-label": "ईमेल पता",
+            "phone-number-label": "फ़ोन नंबर",
+            "service-interested-in": "सेवा में रुचि",
+            "select-a-service": "एक सेवा चुनें",
+            "generative-ai": "जेनरेटिव एआई",
+            "ai-automation-option": "एआई ऑटोमेशन",
+            "data-analytics-option": "डेटा एनालिटिक्स",
+            "custom-ai-development-option": "कस्टम एआई डेवलपमेंट",
+            "ai-consulting-option": "एआई कंसल्टिंग",
+            "other-option": "अन्य",
+            "your-message": "आपका संदेश / प्रोजेक्ट विवरण",
+            "send-message": "संदेश भेजें",
+            "privacy-note": "इस फॉर्म को जमा करके, आप हमारी गोपनीयता नीति से सहमत होते हैं",
+            "quick-links": "त्वरित लिंक",
+            "our-solutions": "हमारे समाधान",
+            "blog": "ब्लॉग",
+            "contact-us": "हमसे संपर्क करें",
+            "company": "कंपनी",
+            "about-saivvy": "सैवी के बारे में",
+            "our-team": "हमारी टीम",
+            "portfolio": "पोर्टफोलियो",
+            "media": "मीडिया",
+            "contact": "संपर्क",
+            "saivvy-technologies-footer": "सैवी टेक्नोलॉजीज",
+            "phone-number-footer": "+91 9318381279",
+            "email-address-footer": "founder@saivyytechnologies.in",
+            "copyright": "© 2025 सैवी टेक्नोलॉजीज। सर्वाधिकार सुरक्षित।",
+            "welcome-to-about-us": "हमारे बारे में आपका स्वागत है",
+            "discover-our-story-and-mission": "हमारी कहानी और मिशन की खोज करें",
+            "innovation": "नवाचार",
+            "team": "टीम",
+            "global-impact": "वैश्विक प्रभाव",
+            "keshav-madan": "केशव मदान",
+            "ceo": "सीईओ",
+            "manas-saxena": "मानस सक्सेना",
+            "coo": "सीओओ",
+            "manas-bio": "निर्बाध निष्पादन और टिकाऊ स्केलिंग सुनिश्चित करने वाले परिचालन रणनीतिकार",
+            "leading-ai-gen-ai-solutions-footer": "अग्रणी एआई और जेन-एआई समाधान",
+            "quick-links-footer": "त्वरित लिंक",
+            "home-footer": "होम",
+            "contact-us-footer": "हमसे संपर्क करें",
+            "email-footer": "founder@saivyytechnologies.in",
+            "phone-footer": "+91 9318381279",
+            "copyright-footer": "© 2025 सैवी टेक्नोलॉजीज। सर्वाधिकार सुरक्षित।",
+            "jan-26-2025": "26 जनवरी, 2025",
+            "generative-ai-tag": "जेनरेटिव एआई",
+            "aug-14-2025": "14 अगस्त, 2025",
+            "machine-learning-tag": "मशीन लर्निंग",
+            "what-is-machine-learning": "मशीन लर्निंग क्या है?",
+            "what-is-machine-learning-desc": "मशीन लर्निंग: मशीनों को इंसानों की तरह सोचना और सीखना सिखाना। आइए गहराई से समझते हैं।",
+            "aug-6-2025": "6 अगस्त, 2025",
+            "ai-ethics-tag": "एआई नैतिकता",
+            "bias-in-ai": "एआई में पूर्वाग्रह: जब एल्गोरिदम निष्पक्ष नहीं होते हैं",
+            "bias-in-ai-desc": "जैसे-जैसे आर्टिफिशियल इंटेलिजेंस हमारे जीवन में अधिक अंतर्निहित होता जाता है, एक गंभीर चिंता सतह पर आ जाती है - क्या होता है जब हमारी मदद करने के लिए बनाए गए एल्गोरिदम हमारे साथ भेदभाव करने लगते हैं?",
+            "mar-19-2025": "19 मार्च, 2025",
+            "categories": "श्रेणियाँ",
+            "generative-ai-category": "जेनरेटिव एआई",
+            "machine-learning-category": "मशीन लर्निंग",
+            "ai-ethics-category": "एआई नैतिकता",
+            "data-analytics-category": "डेटा एनालिटिक्स",
+            "recent-posts": "हाल की पोस्ट",
+            "recent-post-1": "व्यापार में जेनरेटिव एआई का भविष्य",
+            "recent-post-2": "देखने के लिए शीर्ष 5 मशीन लर्निंग रुझान",
+            "recent-post-3": "एआई में पूर्वाग्रह",
+            "techcrunch": "टेकक्रंच",
+            "forbes": "फोर्ब्स",
+            "wired": "वायर्ड",
+            "march-2025": "मार्च 2025",
+            "june-2025": "जून 2025",
+            "august-2025": "अगस्त 2025",
+            "all-filter": "सभी",
+            "generative-ai-filter": "जेनरेटिव एआई",
+            "ai-automation-filter": "एआई ऑटोमेशन",
+            "data-analytics-ml-filter": "डेटा एनालिटिक्स और एमएल",
+            "welcome-to-our-solutions": "हमारे समाधानों में आपका स्वागत है",
+            "discover-our-cutting-edge-ai-solutions": "हमारे अत्याधुनिक एआई समाधानों की खोज करें",
+            "advanced-ai": "उन्नत एआई",
+            "automation": "स्वचालन",
+            "analytics": "एनालिटिक्स",
+            "solutions-mobile-menu": "समाधान",
+            "about-mobile-menu": "हमारे बारे में",
+            "portfolio-mobile-menu": "पोर्टफोलियो",
+            "blog-mobile-menu": "ब्लॉग",
+            "contact-mobile-menu": "संपर्क",
+            "our-team-heading": "हमारी टीम",
+            "our-team-desc": "सैवी टेक्नोलॉजीज के पीछे के शानदार दिमाग।",
+            "leadership": "नेतृत्व",
+            "leadership-desc": "हमारी कंपनी को आगे बढ़ाने वाले दूरदर्शी लोगों से मिलें।",
+            "founder-ceo": "संस्थापक और सीईओ",
+            "keshav-madan-desc": "केशव एक दूरदर्शी नेता हैं, जिन्हें जटिल व्यावसायिक चुनौतियों को हल करने के लिए एआई का लाभ उठाने का शौक है। मशीन लर्निंग और रणनीतिक योजना में उनकी विशेषज्ञता कंपनी के नवाचार और विकास को बढ़ावा देती है।",
+            "jane-doe": "जेन डो",
+            "cto": "मुख्य प्रौद्योगिकी अधिकारी",
+            "jane-doe-desc": "जेन एक अनुभवी प्रौद्योगिकी विशेषज्ञ हैं, जिन्हें एआई और क्लाउड कंप्यूटिंग की गहरी समझ है। वह हमारे अत्याधुनिक समाधानों के विकास का नेतृत्व करती हैं।",
+            "john-smith": "जॉन स्मिथ",
+            "head-of-ai-research": "एआई अनुसंधान के प्रमुख",
+            "john-smith-desc": "जॉन जेनरेटिव एआई के क्षेत्र में एक अग्रणी शोधकर्ता हैं। वह हमारी तकनीक से जो संभव है उसकी सीमाओं को आगे बढ़ाने के लिए जिम्मेदार है।"
         }
     };
 
@@ -1508,3 +1880,390 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeGlobalMap();
     }
 }); 
+
+// Portfolio filter
+const filterBtns = document.querySelectorAll('.filter-btn');
+const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        portfolioCards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+// Loader functionality
+window.addEventListener('load', function() {
+    // Wait for all resources to load
+    setTimeout(() => {
+        const loader = document.querySelector('.loader-screen');
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500); // Match the transition duration
+    }, 500); // Small delay to ensure everything is ready
+});
+
+// Handle page transitions
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.href && !this.href.includes('#')) {
+                e.preventDefault();
+                const loader = document.querySelector('.loader-screen');
+                loader.style.display = 'flex';
+                loader.style.opacity = '1';
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 300);
+            }
+        });
+    });
+});
+
+// Existing particles.js configuration
+document.addEventListener('DOMContentLoaded', function() {
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: "#ffffff"
+            },
+            shape: {
+                type: "circle"
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                    enable: false
+                }
+            },
+            size: {
+                value: 3,
+                random: true
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#ffffff",
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 4,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "grab"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 140,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                push: {
+                    particles_nb: 4
+                }
+            }
+        },
+        retina_detect: true
+    });
+});
+// Animation observer
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            
+            // Add staggered animation to cards within the section
+            if (entry.target.classList.contains('about-detail-section')) {
+                const cards = entry.target.querySelectorAll('.about-card');
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 200);
+                });
+            }
+            
+            if (entry.target.classList.contains('team-section')) {
+                const cards = entry.target.querySelectorAll('.team-card');
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 200);
+                });
+            }
+        }
+    });
+}, observerOptions);
+
+// Observe sections
+document.querySelectorAll('.about-detail-section, .team-section, .cta-section, .section-title, .cta-content').forEach(el => {
+    observer.observe(el);
+});
+
+// Add fade-in class to elements
+document.querySelectorAll('.about-card, .team-card').forEach(el => {
+    el.classList.add('fade-in');
+});
+// Existing particles.js configuration
+document.addEventListener('DOMContentLoaded', function() {
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: "#ffffff"
+            },
+            shape: {
+                type: "circle"
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                    enable: false
+                }
+            },
+            size: {
+                value: 3,
+                random: true
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#ffffff",
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 4,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "grab"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 140,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                push: {
+                    particles_nb: 4
+                }
+            }
+        },
+        retina_detect: true
+    });
+});
+// Existing particles.js configuration
+document.addEventListener('DOMContentLoaded', function() {
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: "#ffffff"
+            },
+            shape: {
+                type: "circle"
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                    enable: false
+                }
+            },
+            size: {
+                value: 3,
+                random: true
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#ffffff",
+                opacity: 0.4,
+                width: 1
+            },
+
+            move: {
+                enable: true,
+                speed: 4,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "grab"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 140,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                push: {
+                    particles_nb: 4
+                }
+            }
+        },
+        retina_detect: true
+    });
+});
+// Existing particles.js configuration
+document.addEventListener('DOMContentLoaded', function() {
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: "#ffffff"
+            },
+            shape: {
+                type: "circle"
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                    enable: false
+                }
+            },
+            size: {
+                value: 3,
+                random: true
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#ffffff",
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 4,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "grab"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 140,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                push: {
+                    particles_nb: 4
+                }
+            }
+        },
+        retina_detect: true
+    });
+});
