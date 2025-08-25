@@ -1,15 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Saivyy Technologies</title>
-    <meta name="description" content="Read the latest articles and insights on AI, Generative AI, and machine learning from the experts at Saivyy Technologies.">
+    <title>Blog Post | Saivyy Technologies</title>
     <link rel="icon" type="image/png" href="../saivyyweb.png">
     <link rel="apple-touch-icon" href="../saivyyweb.png">
     <meta name="msapplication-TileImage" content="../saivyyweb.png">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="blog-post.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -36,9 +36,6 @@
                     <li>
                         <a href="blog.html" data-translate="navBlog">Blog</a>
                     </li>
-                    <!-- <li>
-                        <a href="media.html" data-translate="Media"> Media</a>
-                    </li> -->
                     <li>
                         <a href="about.html" data-translate="navAbout">About</a>
                     </li>
@@ -61,76 +58,38 @@
 
     <div class="mobile-side-menu">
         <nav>
-           <ul class="main-menu">
-                    <li>
-                        <a href="solutions.html" data-translate="navSolutions">Solutions</a>
-                    </li>
-                    <li>
-                        <a href="portfolio.html" data-translate="navPortfolio">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="blog.html" data-translate="navBlog">Blog</a>
-                    </li>
-                    <li>
-                        <a href="media.html" data-translate="Media"> Media</a>
-                    </li>
-                    <li>
-                        <a href="about.html" data-translate="navAbout">About</a>
-                    </li>
-                    <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
-                </ul>
-            </nav>
+           <ul>
+                <li><a href="solutions.html"><i class="fas fa-lightbulb"></i> <span data-translate="navSolutions">Solutions</span></a></li>
+                <li><a href="about.html"><i class="fas fa-users"></i> <span data-translate="navAbout">About</span></a></li>
+                <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> <span data-translate="navPortfolio">Portfolio</span></a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> <span data-translate="navBlog">Blog</span></a></li>
+                <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span data-translate="navContact">Contact</span></a></li>
+            </ul>
+        </nav>
     </div>
 
     <main>
-        <section class="hero-section">
-            <div class="video-background">
-                <video autoplay muted loop playsinline>
-                    <source src="../uk1.mp4" type="video/mp4">
-                    <p data-translate="video-tag-not-supported">Your browser does not support the video tag.</p>
-                </video>
-                <div class="video-overlay"></div>
-            </div>
-            <div class="hero-slider">
-                <div class="slide active">
-                    <div class="slide-content scroll-animate" data-animation="fadeIn">
-                        <h2 data-translate="blogHeroTitle">Our Blogs</h2>
-                        <p data-translate="blogHeroSubtitle">Your source for the latest news, articles, and insights on AI.</p>
-                    </div>
+        <div class="blog-post-container">
+            <article class="blog-post">
+                <h1 id="blog-title"></h1>
+                <div class="post-meta">
+                    <span id="blog-date"></span>
+                    <span id="blog-category"></span>
                 </div>
-            </div>
-        </section>
-
-        <section class="blog-section">
-            <div class="section-title scroll-animate" data-animation="fadeIn">
-                <h2 data-translate="latestArticles">Latest Articles</h2>
-                <p data-translate="latestArticlesSubtitle">Stay informed with our expert analysis and commentary.</p>
-            </div>
-            <div class="blog-container">
-                <div class="blog-main">
-                    <div class="blog-grid" id="blog-grid">
-                        <!-- Blog cards will be inserted here by JavaScript -->
-                    </div>
+                <img src="" alt="" id="blog-image" class="featured-image">
+                <div id="blog-content" class="post-content">
                 </div>
-                <aside class="blog-sidebar">
-                    <div class="widget categories-widget">
-                        <h3 class="widget-title" data-translate="categories">Categories</h3>
-                        <ul id="categories-list">
-                            <!-- Categories will be inserted here by JavaScript -->
-                        </ul>
-                    </div>
-                    <div class="widget recent-posts-widget">
-                        <h3 class="widget-title" data-translate="recent-posts">Recent Posts</h3>
-                        <ul id="recent-posts-list">
-                            <!-- Recent posts will be inserted here by JavaScript -->
-                        </ul>
-                    </div>
-                </aside>
-            </div>
-        </section>
+            </article>
+            <aside class="sidebar">
+                <div class="widget recent-posts-widget">
+                    <h3 class="widget-title" data-translate="recent-posts">Recent Posts</h3>
+                    <ul id="recent-posts-list">
+                    </ul>
+                </div>
+            </aside>
+        </div>
     </main>
 
-     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -155,7 +114,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p data-translate="copyright-footer">&copy; 2025 Saivvy Technologies. All rights reserved.</p>
+            <p data-translate="copyright-footer">&copy; 2025 Saivyy Technologies. All rights reserved.</p>
         </div>
     </footer>
 
@@ -235,59 +194,30 @@
                 retina_detect: true
             });
 
-            const blogGrid = document.getElementById('blog-grid');
+            const urlParams = new URLSearchParams(window.location.search);
+            const blogId = parseInt(urlParams.get('id'));
+
+            const blog = blogs.find(b => b.id === blogId);
+
+            if (blog) {
+                document.getElementById('blog-title').textContent = blog.title;
+                document.getElementById('blog-date').textContent = blog.date;
+                document.getElementById('blog-category').textContent = blog.category;
+                document.getElementById('blog-image').src = blog.image;
+                document.getElementById('blog-image').alt = blog.title;
+                document.getElementById('blog-content').innerHTML = blog.content;
+            }
+
             const recentPostsList = document.getElementById('recent-posts-list');
-            const categoriesList = document.getElementById('categories-list');
-
-            // Sort blogs by date in descending order
-            blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-            // Populate blog grid
-            blogs.forEach(blog => {
-                const blogCard = document.createElement('div');
-                blogCard.classList.add('blog-card');
-                if (blogs.indexOf(blog) % 3 === 0) { // Make every 3rd card a featured card
-                    blogCard.classList.add('featured-card');
-                }
-
-                blogCard.innerHTML = `
-                    <img src="${blog.image}" alt="${blog.title}">
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="fas fa-calendar-alt"></i> ${blog.date}</span>
-                            <span><i class="fas fa-tags"></i> <a href="#">${blog.category}</a></span>
-                        </div>
-                        <h3>${blog.title}</h3>
-                        <p>${blog.description}</p>
-                        <a href="blog-post.html?id=${blog.id}" class="btn" data-translate="readMore">Read More</a>
-                    </div>
-                `;
-                blogGrid.appendChild(blogCard);
-            });
-
-            // Populate recent posts
             const recentBlogs = blogs.slice(0, 5);
+
             recentBlogs.forEach(blog => {
                 const li = document.createElement('li');
                 const a = document.createElement('a');
                 a.href = `blog-post.html?id=${blog.id}`;
                 a.textContent = blog.title;
-                const span = document.createElement('span');
-                span.textContent = blog.date;
                 li.appendChild(a);
-                li.appendChild(span);
                 recentPostsList.appendChild(li);
-            });
-
-            // Populate categories
-            const categories = [...new Set(blogs.map(blog => blog.category))];
-            categories.forEach(category => {
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.href = "#";
-                a.textContent = category;
-                li.appendChild(a);
-                categoriesList.appendChild(li);
             });
         });
     </script>
