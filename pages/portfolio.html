@@ -1,380 +1,1269 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Saivyy Technologies</title>
-    <meta name="description" content="Explore the portfolio of Saivyy Technologies, showcasing our successful AI and Generative AI projects and case studies.">
+    <meta name="description" content="Explore our successful AI projects and case studies across various industries.">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="../saivyyweb.png">
     <link rel="apple-touch-icon" href="../saivyyweb.png">
-    <meta name="msapplication-TileImage" content="../saivyyweb.png">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="portfolio.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <meta name="theme-color" content="#1e40af">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #1e40af, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+            background-size: 50px 50px;
+        }
+        
+        .portfolio-card {
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .portfolio-card:hover::before {
+            left: 100%;
+        }
+        
+        .stats-counter {
+            transition: all 0.3s ease;
+        }
+        
+        .stats-counter:hover {
+            transform: translateY(-5px);
+        }
+        
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-count {
+            animation: countUp 0.6s ease-out;
+        }
+    </style>
 </head>
-<body>
-    <div id="particles-js"></div>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <a href="../index.html">
-                    <img src="../saivvyMain.jpeg" alt="Saivyy Technologies Logo" class="nav-logo">
-                    <span data-translate="saivvy-technologies">Saivyy Technologies</span>
-                </a>
-                <span class="india-tag" data-translate="ai-solutions">AI Solutions</span>
+<body class="font-inter text-gray-800 overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="../index.html" class="flex items-center space-x-3 group">
+                        <div class="relative">
+                            <img src="../saivvyMain.jpeg" alt="Saivyy Technologies" class="h-10 w-10 rounded-full shadow-md group-hover:shadow-lg transition-all duration-300 animate-float">
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-indigo-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold gradient-text font-playfair">Saivyy Technologies</span>
+                            <div class="text-xs text-blue-600 font-medium">AI Solutions</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">About</a>
+                    <a href="solutions.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Solutions</a>
+                    <a href="products.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Products</a>
+                    <a href="portfolio.html" class="text-blue-600 font-medium px-3 py-2 rounded-lg bg-blue-50">Portfolio</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Blog</a>
+                    <a href="../index.html#contact" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300" id="mobileMenuBtn">
+                    <div class="w-6 h-6 flex flex-col justify-center items-center space-y-1">
+                        <span class="w-5 h-0.5 bg-gray-700 transition-all duration-300 transform" id="line1"></span>
+                        <span class="w-5 h-0.5 bg-gray-700 transition-all duration-300" id="line2"></span>
+                        <span class="w-5 h-0.5 bg-gray-700 transition-all duration-300 transform" id="line3"></span>
+                    </div>
+                </button>
             </div>
-            <nav>
-                <ul class="main-menu">
-                    <li>
-                        <a href="solutions.html" data-translate="navSolutions">Solutions</a>
-                    </li>
-                    <li>
-                        <a href="portfolio.html" data-translate="navPortfolio">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="blog.html" data-translate="navBlog">Blog</a>
-                    </li>
-                    <!-- <li>
-                        <a href="media.html" data-translate="Media"> Media</a>
-                    </li> -->
-                    <li>
-                        <a href="about.html" data-translate="navAbout">About</a>
-                    </li>
-                    <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="theme-language-container">
-                <div class="language-selector">
-                    <a href="#" class="active" data-lang="en">EN</a>
-                    <a href="#" data-lang="hi">HI</a>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="lg:hidden fixed inset-0 z-40 transform translate-x-full transition-transform duration-300 ease-in-out" id="mobileMenu">
+            <div class="absolute inset-0 bg-black/50" id="mobileMenuOverlay"></div>
+            <div class="absolute right-0 top-0 h-full w-80 bg-white shadow-xl">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-8">
+                        <span class="text-xl font-bold gradient-text">Menu</span>
+                        <button class="p-2 rounded-lg hover:bg-gray-100" id="closeMobileMenu">
+                            <i class="fas fa-times text-gray-600"></i>
+                        </button>
+                    </div>
+                    <nav class="space-y-4">
+                        <a href="../index.html" class="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">Home</a>
+                        <a href="about.html" class="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">About</a>
+                        <a href="solutions.html" class="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">Solutions</a>
+                        <a href="products.html" class="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">Products</a>
+                        <a href="portfolio.html" class="block py-3 px-4 text-blue-600 bg-blue-50 rounded-lg font-medium">Portfolio</a>
+                        <a href="blog.html" class="block py-3 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">Blog</a>
+                        <a href="../index.html#contact" class="block mt-6 py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold text-center hover:from-blue-700 hover:to-purple-700 transition-all duration-300">Contact</a>
+                    </nav>
                 </div>
             </div>
-            <button class="mobile-menu-btn" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
-    <div class="mobile-side-menu">
-        <nav>
-            <ul>
-                <li><a href="solutions.html"><i class="fas fa-lightbulb"></i> <span data-translate="navSolutions">Solutions</span></a></li>
-                <li><a href="about.html"><i class="fas fa-users"></i> <span data-translate="navAbout">About</span></a></li>
-                <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> <span data-translate="navPortfolio">Portfolio</span></a></li>
-                <li><a href="blog.html"><i class="fas fa-blog"></i> <span data-translate="navBlog">Blog</span></a></li>
-                <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> <span data-translate="navContact">Contact</span></a></li>
-            </ul>
-        </nav>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
+        <div class="absolute inset-0 hero-pattern opacity-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-10 w-32 h-32 border border-cyan-500/30 rotate-45 animate-float"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full animate-pulse"></div>
+            <div class="absolute bottom-32 left-20 w-40 h-40 border-2 border-purple-500/20 rounded-full animate-spin-slow"></div>
+            <div class="absolute top-1/2 right-1/4 w-20 h-20 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full animate-bounce-slow"></div>
+            <div class="absolute bottom-1/3 right-10 w-16 h-16 border border-purple-400/20 rotate-12 animate-pulse"></div>
+        </div>
+        
+        <div class="relative z-10 w-full max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 backdrop-blur-sm mb-8">
+                <div class="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                <span class="text-cyan-300 text-sm font-medium">Success Stories & Case Studies</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+                <span class="text-white">Our</span><br>
+                <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">Portfolio</span>
+            </h1>
+            
+            <p class="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8">
+                Discover how we've helped businesses across industries transform their operations with innovative AI solutions.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="document.getElementById('portfolio-section').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                    <i class="fas fa-folder-open mr-2"></i>View Case Studies
+                </button>
+                <button onclick="document.getElementById('cta-section').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-400 hover:text-white transition-all duration-300 hover:bg-white/10">
+                    <i class="fas fa-rocket mr-2"></i>Start Your Project
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section id="portfolio-section" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Featured Projects</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Real-world AI implementations that delivered measurable business impact.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Healthcare AI -->
+                <div class="portfolio-card bg-gradient-to-br from-blue-50 to-cyan-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-heartbeat text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">HealthCare AI Platform</h3>
+                                <p class="text-blue-600 font-medium">Medical Diagnosis System</p>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Completed</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Advanced AI system for early disease detection and diagnosis assistance, reducing diagnostic time by 60% and improving accuracy by 35%.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">95%</div>
+                            <div class="text-sm text-gray-600">Accuracy Rate</div>
+                        </div>
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">60%</div>
+                            <div class="text-sm text-gray-600">Time Reduction</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Computer Vision</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Deep Learning</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Medical AI</span>
+                    </div>
+                    <button onclick="showPortfolioModal('healthcare-ai')" class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                <!-- Financial Analytics -->
+                <div class="portfolio-card bg-gradient-to-br from-purple-50 to-pink-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Financial Analytics Suite</h3>
+                                <p class="text-purple-600 font-medium">Risk Assessment Platform</p>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Completed</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Comprehensive financial risk assessment and fraud detection system that processes millions of transactions in real-time.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-purple-600">99.8%</div>
+                            <div class="text-sm text-gray-600">Fraud Detection</div>
+                        </div>
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-purple-600">45%</div>
+                            <div class="text-sm text-gray-600">Cost Reduction</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Machine Learning</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Real-time Analytics</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">FinTech</span>
+                    </div>
+                    <button onclick="showPortfolioModal('financial-analytics')" class="w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                <!-- E-commerce Intelligence -->
+                <div class="portfolio-card bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-shopping-cart text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">E-commerce Intelligence</h3>
+                                <p class="text-green-600 font-medium">Customer Behavior Analytics</p>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Completed</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        AI-powered recommendation engine and customer behavior analysis platform that increased sales by 85% and improved customer retention by 65%.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-green-600">85%</div>
+                            <div class="text-sm text-gray-600">Sales Increase</div>
+                        </div>
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-green-600">65%</div>
+                            <div class="text-sm text-gray-600">Retention Boost</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Recommendation Engine</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Behavioral Analysis</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">E-commerce</span>
+                    </div>
+                    <button onclick="showPortfolioModal('ecommerce-intelligence')" class="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-green-500/25 transition-all duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Smart Manufacturing -->
+                <div class="portfolio-card bg-gradient-to-br from-orange-50 to-amber-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-amber-600 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-cogs text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Smart Manufacturing</h3>
+                                <p class="text-orange-600 font-medium">Predictive Maintenance</p>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Completed</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Deployed IoT sensors and AI algorithms to predict equipment failures, reducing downtime by 70% and maintenance costs by 40%.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-orange-600">70%</div>
+                            <div class="text-sm text-gray-600">Less Downtime</div>
+                        </div>
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-orange-600">40%</div>
+                            <div class="text-sm text-gray-600">Cost Savings</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">IoT Integration</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Predictive Analytics</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">Manufacturing</span>
+                    </div>
+                    <button onclick="showPortfolioModal('smart-manufacturing')" class="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Autonomous Vehicle AI -->
+                <div class="portfolio-card bg-gradient-to-br from-indigo-50 to-blue-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-car text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Autonomous Vehicle AI</h3>
+                                <p class="text-indigo-600 font-medium">Computer Vision & Navigation</p>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Completed</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Developed advanced computer vision and decision-making systems for autonomous vehicles, achieving 99.5% object detection accuracy and reducing accidents by 90%.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-indigo-600">99.5%</div>
+                            <div class="text-sm text-gray-600">Detection Accuracy</div>
+                        </div>
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-indigo-600">90%</div>
+                            <div class="text-sm text-gray-600">Accident Reduction</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Computer Vision</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Neural Networks</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Automotive</span>
+                    </div>
+                    <button onclick="showPortfolioModal('autonomous-vehicle')" class="w-full px-6 py-3 bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Supply Chain Optimization -->
+                <div class="portfolio-card bg-gradient-to-br from-teal-50 to-cyan-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-truck text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Supply Chain Optimization</h3>
+                                <p class="text-teal-600 font-medium">Logistics & Inventory Management</p>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Completed</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        AI-driven supply chain optimization platform that reduced logistics costs by 55% and improved delivery times by 40% for a global retailer.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-teal-600">55%</div>
+                            <div class="text-sm text-gray-600">Cost Reduction</div>
+                        </div>
+                        <div class="text-center p-4 bg-white/50 rounded-lg">
+                            <div class="text-2xl font-bold text-teal-600">40%</div>
+                            <div class="text-sm text-gray-600">Faster Delivery</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">Route Optimization</span>
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm rounded-full">Demand Forecasting</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Logistics</span>
+                    </div>
+                    <button onclick="showPortfolioModal('supply-chain')" class="w-full px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-teal-500/25 transition-all duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gray-50" data-aos="fade-up">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Impact</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Numbers that speak to our commitment to delivering exceptional results.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="stats-counter text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="text-5xl font-bold text-blue-600 mb-2 counter" data-target="500">0</div>
+                    <div class="text-xl font-semibold text-gray-900 mb-2">Projects Completed</div>
+                    <p class="text-gray-600">Successfully delivered AI solutions across industries</p>
+                </div>
+                
+                <div class="stats-counter text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="text-5xl font-bold text-green-600 mb-2 counter" data-target="98">0</div>
+                    <div class="text-xl font-semibold text-gray-900 mb-2">Client Satisfaction</div>
+                    <p class="text-gray-600">Clients rate our services as excellent</p>
+                </div>
+                
+                <div class="stats-counter text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="text-5xl font-bold text-purple-600 mb-2 counter" data-target="2">0</div>
+                    <div class="text-xl font-semibold text-gray-900 mb-2">Value Generated</div>
+                    <p class="text-gray-600">Total business value created for clients (Billions)</p>
+                </div>
+                
+                <div class="stats-counter text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="text-5xl font-bold text-orange-600 mb-2 counter" data-target="50">0</div>
+                    <div class="text-xl font-semibold text-gray-900 mb-2">Industries Served</div>
+                    <p class="text-gray-600">Diverse portfolio across multiple sectors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Modal -->
+    <div id="portfolioModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div id="portfolioModalOverlay" class="absolute inset-0"></div>
+        <div id="portfolioModalContent" class="relative bg-white rounded-2xl max-w-4xl max-h-[90vh] overflow-y-auto mx-4 transform scale-95 opacity-0">
+            <!-- Modal Header -->
+            <div class="sticky top-0 bg-white border-b border-gray-200 px-8 py-6 flex items-center justify-between rounded-t-2xl">
+                <div class="flex items-center">
+                    <div id="portfolioModalIcon" class="w-16 h-16 rounded-xl flex items-center justify-center mr-4">
+                        <i id="portfolioModalIconElement" class="text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 id="portfolioModalTitle" class="text-3xl font-bold text-gray-900"></h2>
+                        <p id="portfolioModalSubtitle" class="text-lg font-medium"></p>
+                    </div>
+                </div>
+                <button id="closePortfolioModal" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i class="fas fa-times text-gray-500 text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-8">
+                <!-- Project Overview -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-info-circle text-blue-500 mr-3"></i>
+                        Project Overview
+                    </h3>
+                    <p id="portfolioModalDescription" class="text-gray-700 text-lg leading-relaxed"></p>
+                </div>
+
+                <!-- Key Achievements -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-trophy text-yellow-500 mr-3"></i>
+                        Key Achievements
+                    </h3>
+                    <ul id="portfolioModalAchievements" class="space-y-3"></ul>
+                </div>
+
+                <!-- Technologies Used -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-code text-purple-500 mr-3"></i>
+                        Technologies Used
+                    </h3>
+                    <ul id="portfolioModalTechnologies" class="space-y-3"></ul>
+                </div>
+
+                <!-- Business Impact -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-chart-bar text-green-500 mr-3"></i>
+                        Business Impact
+                    </h3>
+                    <ul id="portfolioModalImpact" class="space-y-3"></ul>
+                </div>
+
+                <!-- Implementation Details -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-cogs text-orange-500 mr-3"></i>
+                        Implementation Details
+                    </h3>
+                    <ul id="portfolioModalImplementation" class="space-y-3"></ul>
+                </div>
+
+                <!-- Project Timeline & Investment -->
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-gray-50 p-6 rounded-xl">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                            <i class="fas fa-calendar text-blue-500 mr-2"></i>
+                            Project Timeline
+                        </h4>
+                        <p id="portfolioModalTimeline" class="text-gray-700"></p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                            <i class="fas fa-dollar-sign text-green-500 mr-2"></i>
+                            Investment Range
+                        </h4>
+                        <p id="portfolioModalInvestment" class="text-gray-700"></p>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
+                    <button onclick="scrollToCTA()" class="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-rocket mr-2"></i>Start Similar Project
+                    </button>
+                    <button onclick="closePortfolioModal()" class="flex-1 px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-all duration-300">
+                        <i class="fas fa-times mr-2"></i>Close
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <main>
-        <section class="hero-section">
-            <div class="video-background">
-                <video autoplay muted loop playsinline>
-                    <source src="../uk1.mp4" type="video/mp4">
-                    <p data-translate="video-tag-not-supported">Your browser does not support the video tag.</p>
-                </video>
-                <div class="video-overlay"></div>
+    <!-- CTA Section -->
+    <section id="cta-section" class="py-20 bg-gradient-to-r from-blue-600 to-purple-600" data-aos="fade-up">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Join Our Success Stories?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Let's discuss how we can help you achieve similar results with our AI solutions.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="../index.html#contact" class="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1">
+                    Start Your Project
+                </a>
+                <a href="solutions.html" class="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
+                    View Our Solutions
+                </a>
             </div>
-            <div class="hero-slider">
-                <div class="slide active">
-                    <div class="slide-content scroll-animate" data-animation="fadeIn">
-                        <h2 data-translate="portfolioHeroTitle">Our Portfolio</h2>
-                        <p data-translate="portfolioHeroSubtitle">A showcase of our successful projects and impactful results.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="portfolio-section">
-            <div class="section-title scroll-animate" data-animation="fadeIn">
-                <h2 data-translate="caseStudies">Recent works</h2>
-                <p data-translate="caseStudiesSubtitle" style="font-size: large;">Explore how we've helped businesses like yours succeed.</p>
+    <!-- Footer -->
+    <footer class="relative overflow-hidden">
+        <!-- Futuristic Footer Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+            <!-- Neural Network Pattern -->
+            <div class="absolute inset-0 opacity-20">
+                <svg class="w-full h-full" viewBox="0 0 1200 600">
+                    <defs>
+                        <pattern id="footerGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="url(#footerGridGradient)" stroke-width="0.5"/>
+                        </pattern>
+                        <linearGradient id="footerGridGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.4" />
+                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.2" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#footerGrid)" />
+                </svg>
             </div>
-            <div class="portfolio-filters scroll-animate" data-animation="fadeInUp">
-                <button class="filter-btn active" data-filter="all" data-translate="all-filter">All</button>
-                <button class="filter-btn" data-filter="gen-ai" data-translate="generative-ai-filter">Generative AI</button>
-                <button class="filter-btn" data-filter="automation" data-translate="ai-automation-filter">AI Automation</button>
-                <button class="filter-btn" data-filter="analytics" data-translate="data-analytics-ml-filter">Data Analytics & ML</button>
+            
+            <!-- Floating Elements -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute top-10 left-10 w-24 h-24 bg-blue-500/10 rounded-full animate-float"></div>
+                <div class="absolute top-20 right-20 w-32 h-32 bg-indigo-500/10 rounded-full animate-pulse-slow"></div>
+                <div class="absolute bottom-10 left-1/3 w-20 h-20 bg-purple-500/10 rounded-full animate-bounce-slow"></div>
+                <div class="absolute bottom-20 right-1/4 w-28 h-28 bg-cyan-500/10 rounded-full animate-float" style="animation-delay: 1s"></div>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-card" data-category="gen-ai">
-                    <img src="https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/349758e58a5428134a55ce17dfaec6837db690c2" alt="Project One" class="portfolio-thumbnail">
-                    <div class="portfolio-content">
-                        <h3 data-translate="project1Title">Saivyy Interview AI</h3>
-                        <p data-translate="project1Desc">An advanced recruitment solution that automates candidate screening and interviews using AI.</p>
-                        <div class="tech-stack">
-                            <span>Generative AI</span>
-                            <span>Python</span>
-                            <span>FastAPI</span>
+            
+            <!-- Circuit Lines -->
+            <div class="absolute inset-0 opacity-30">
+                <svg class="w-full h-full" viewBox="0 0 1200 600">
+                    <path class="animate-pulse" d="M0,300 Q300,150 600,300 T1200,300" stroke="url(#footerCircuitGradient)" stroke-width="1" fill="none"/>
+                    <path class="animate-pulse" d="M0,200 Q400,50 800,200 T1200,200" stroke="url(#footerCircuitGradient)" stroke-width="1" fill="none" style="animation-delay: 0.5s"/>
+                    <path class="animate-pulse" d="M0,400 Q200,550 400,400 T800,400 T1200,400" stroke="url(#footerCircuitGradient)" stroke-width="1" fill="none" style="animation-delay: 1s"/>
+                    <defs>
+                        <linearGradient id="footerCircuitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0" />
+                            <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-6 py-20 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-8">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="relative">
+                                <img src="../saivvyMain.jpeg" alt="Saivyy Technologies Logo" class="w-16 h-16 rounded-full border-2 border-blue-400/30 shadow-lg shadow-blue-400/20">
+                                <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 animate-pulse"></div>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-playfair font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Saivyy Technologies</h3>
+                                <p class="text-blue-300 font-medium">AI Innovation Leaders</p>
+                            </div>
                         </div>
-                        <div class="card-buttons">
-                            <a href="#" class="btn" data-modal="project1-modal">View Details</a>
-                            <!-- <a href="#" class="btn secondary">Live Demo</a> -->
+                        
+                        <p class="text-gray-300 leading-relaxed mb-8 max-w-lg text-lg">
+                            Pioneering the future with cutting-edge AI and Generative AI solutions. 
+                            We transform businesses through intelligent automation and innovation.
+                        </p>
+                        
+                        <!-- Social Media Links -->
+                        <div class="flex space-x-4">
+                            <a href="#" class="group relative w-12 h-12 bg-gradient-to-r from-blue-600/20 to-blue-700/20 backdrop-blur-sm border border-blue-400/30 rounded-xl flex items-center justify-center text-blue-400 hover:text-white hover:border-blue-400 transition-all duration-300 transform hover:scale-110 hover:rotate-6" target="_blank">
+                                <i class="fab fa-linkedin-in text-lg"></i>
+                                <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                            </a>
+                            <a href="https://x.com/SaivyyTech" class="group relative w-12 h-12 bg-gradient-to-r from-sky-500/20 to-sky-600/20 backdrop-blur-sm border border-sky-400/30 rounded-xl flex items-center justify-center text-sky-400 hover:text-white hover:border-sky-400 transition-all duration-300 transform hover:scale-110 hover:rotate-6" target="_blank">
+                                <i class="fab fa-twitter text-lg"></i>
+                                <div class="absolute inset-0 bg-gradient-to-r from-sky-500 to-sky-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                            </a>
+                            <a href="https://www.instagram.com/saivyy_technologies/" class="group relative w-12 h-12 bg-gradient-to-r from-pink-500/20 to-rose-500/20 backdrop-blur-sm border border-pink-400/30 rounded-xl flex items-center justify-center text-pink-400 hover:text-white hover:border-pink-400 transition-all duration-300 transform hover:scale-110 hover:rotate-6" target="_blank">
+                                <i class="fab fa-instagram text-lg"></i>
+                                <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-card" data-category="automation">
-                    <img src="https://th.bing.com/th/id/OIP.1fOtm3GZfdQSDA_6Mdp8LAHaEU?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Project Two" class="portfolio-thumbnail">
-                    <div class="portfolio-content">
-                        <h3 data-translate="project2Title">Eva AI</h3>
-                        <p data-translate="project2Desc">An intelligent medical chatbot designed to provide reliable information about medicines.</p>
-                        <div class="tech-stack">
-                            <span>AI Automation</span>
-                            <span>Dialogflow</span>
-                            <span>Node.js</span>
-                        </div>
-                        <div class="card-buttons">
-                            <a href="#" class="btn" data-modal="project2-modal">View Details</a>
-                            <!-- <a href="#" class="btn secondary">Live Demo</a> -->
-                        </div>
+                
+                <!-- Quick Links -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-xl font-bold mb-8 text-white flex items-center">
+                        <i class="fas fa-link text-blue-400 mr-3 animate-pulse"></i>
+                        Quick Links
+                    </h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="about.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                                <span class="font-medium">About Us</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="solutions.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                                <span class="font-medium">Our Solutions</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="portfolio.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                                <span class="font-medium">Portfolio</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="blog.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                                <span class="font-medium">Blog</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-xl font-bold mb-8 text-white flex items-center">
+                        <i class="fas fa-cogs text-purple-400 mr-3 animate-spin-slow"></i>
+                        Services
+                    </h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <div class="group flex items-center space-x-3 text-gray-300">
+                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                                <span class="font-medium">AI Automation</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="group flex items-center space-x-3 text-gray-300">
+                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                                <span class="font-medium">Generative AI</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="group flex items-center space-x-3 text-gray-300">
+                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                                <span class="font-medium">Machine Learning</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="group flex items-center space-x-3 text-gray-300">
+                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                                <span class="font-medium">Data Analytics</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="text-xl font-bold mb-8 text-white flex items-center">
+                        <i class="fas fa-envelope text-cyan-400 mr-3 animate-pulse"></i>
+                        Contact
+                    </h4>
+                    <ul class="space-y-6">
+                        <li class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-globe text-green-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium">Company</p>
+                                <p class="text-gray-300 text-sm">Saivyy Technologies</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-blue-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium">Phone</p>
+                                <p class="text-gray-300 text-sm">+91 9318381279</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-purple-500/20 to-purple-600/20 backdrop-blur-sm border border-purple-400/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-purple-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium">Email</p>
+                                <p class="text-gray-300 text-sm break-all">founder@saivyytechnologies.in</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700/50 mt-16 pt-8" data-aos="fade-up" data-aos-delay="500">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-center md:text-left">
+                        <p class="text-gray-400 text-lg">&copy; 2025 <span class="text-blue-400 font-semibold">Saivyy Technologies</span>. All rights reserved.</p>
+                        <p class="text-gray-500 text-sm mt-1">Pioneering AI Innovation Since 2024</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
+                        <a href="#privacy" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Privacy Policy</a>
+                        <a href="#terms" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Terms of Service</a>
+                        <a href="#cookies" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Cookie Policy</a>
                     </div>
                 </div>
-                <div class="portfolio-card" data-category="analytics">
-                    <img src="https://res.cloudinary.com/dbyioi2qq/q_auto/v1707282898/qVaWY50Y/google-metapng_1707282895_79595.png" alt="Project Three" class="portfolio-thumbnail">
-                    <div class="portfolio-content">
-                        <h3 data-translate="project3Title">Codera</h3>
-                        <p data-translate="project3Desc">An AI-powered auto-code platform that designs websites in minutes.</p>
-                        <div class="tech-stack">
-                            <span>Data Analytics</span>
-                            <span>Machine Learning</span>
-                            <span>React</span>
-                        </div>
-                        <div class="card-buttons">
-                            <a href="#" class="btn" data-modal="project3-modal">View Details</a>
-                            <!-- <a href="#" class="btn secondary">Live Demo</a> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-card" data-category="gen-ai">
-                    <img src="../media/Myra AI Logo.png" alt="Project Four" class="portfolio-thumbnail">
-                    <div class="portfolio-content">
-                        <h3 data-translate="project4Title">Myra AI</h3>
-                        <p data-translate="project4Desc">A next-gen conversational AI built to outperform other chatbots.</p>
-                        <div class="tech-stack">
-                            <span>Generative AI</span>
-                            <span>TensorFlow</span>
-                            <span>Python</span>
-                        </div>
-                        <div class="card-buttons">
-                            <a href="#" class="btn" data-modal="project4-modal">View Details</a>
-                            <!-- <a href="#" class="btn secondary">Live Demo</a> -->
-                        </div>
+                
+                <!-- Animated Divider -->
+                <div class="mt-8 relative">
+                    <div class="h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent animate-pulse"></div>
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <div class="w-3 h-3 bg-blue-400 rounded-full animate-ping"></div>
+                        <div class="absolute inset-0 w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Modals -->
-        <div id="project1-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h2 data-translate="project1Title">Saivyy Interview AI</h2>
-                <p><br>It is an advanced recruitment solution that automates candidate screening and interviews using AI.
-                    <br>It evaluates skills, communication, and cultural fit with unbiased precision. 
-                    <br>The platform shortlists top talent quickly, reducing hiring time and costs. 
-                    <br>HR teams gain data-driven insights, ensuring smarter and faster hiring decisions.</p>
-            </div>
-        </div>
-        <div id="project2-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h2 data-translate="project2Title">Eva AI</h2>
-                <p><br>It is an intelligent medical chatbot designed to provide reliable information about medicines.
-                    <br>It helps users understand drug usage, side effects, and interactions in simple language. 
-                    <br>Available 24/7, it offers quick answers to common medical queries.
-                    <br>Eva AI empowers patients and caregivers with accessible, safe, and trusted medical knowledge.</p>
-            </div>
-        </div>
-        <div id="project3-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h2 data-translate="project3Title">Codera</h2>
-                <p><br>It is an AI-powered auto-code platform that designs websites in minutes.
-                    <br>Users simply describe their idea, and Codera generates clean, responsive code instantly.
-                    <br>It supports full customization, modern UI components, and seamless deployment.
-                    <br>With Codera, anyone can launch professional websites—without manual coding hassles.</p>
-            </div>
-        </div>
-        <div id="project4-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h2 data-translate="project4Title">Myra AI</h2>
-                <p><br>It is a next-gen conversational AI built to outperform Gemini, ChatGPT, and other chatbots.
-                   <br>It delivers faster, smarter, and more context-aware responses across any domain.
-                   <br>With advanced reasoning and personalization, Myra adapts to each user seamlessly. 
-                   <br>It’s not just another chatbot—it’s the future of intelligent conversations.</p>
-            </div>
-        </div>
-    </main>
-
-     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <img src="../saivvyMain.jpeg" alt="Saivyy Technologies Logo" class="footer-logo">
-                <p data-translate="leading-ai-gen-ai-solutions-footer">Leading AI & Gen-AI Solutions</p>
-            </div>
-            <div class="footer-section">
-                <h3 data-translate="quick-links-footer">Quick Links</h3>
-                <ul>
-                    <li><a href="../index.html" data-translate="home-footer">Home</a></li>
-                    <li><a href="solutions.html" data-translate="navSolutions">Solutions</a></li>
-                    <li><a href="about.html" data-translate="navAbout">About Us</a></li>
-                    <li><a href="portfolio.html" data-translate="navPortfolio">Portfolio</a></li>
-                    <li><a href="blog.html" data-translate="navBlog">Blog</a></li>
-                    <li><a href="../index.html#contact" data-translate="navContact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3 data-translate="contact-us-footer">Contact Us</h3>
-                <p><i class="fas fa-envelope"></i> <span data-translate="email-footer">founder@saivyytechnologies.in</span></p>
-                <p><i class="fas fa-phone"></i> <span data-translate="phone-footer">+91 9318381279</span></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p data-translate="copyright-footer">&copy; 2025 Saivvy Technologies. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Particles.js configuration
-            particlesJS('particles-js', {
-                particles: {
-                    number: {
-                        value: 80,
-                        density: {
-                            enable: true,
-                            value_area: 800
-                        }
-                    },
-                    color: {
-                        value: "#ffffff"
-                    },
-                    shape: {
-                        type: "circle"
-                    },
-                    opacity: {
-                        value: 0.5,
-                        random: false,
-                        anim: {
-                            enable: false
-                        }
-                    },
-                    size: {
-                        value: 3,
-                        random: true
-                    },
-                    line_linked: {
-                        enable: true,
-                        distance: 150,
-                        color: "#ffffff",
-                        opacity: 0.4,
-                        width: 1
-                    },
-                    move: {
-                        enable: true,
-                        speed: 4,
-                        direction: "none",
-                        random: false,
-                        straight: false,
-                        out_mode: "out",
-                        bounce: false
-                    }
-                },
-                interactivity: {
-                    detect_on: "canvas",
-                    events: {
-                        onhover: {
-                            enable: true,
-                            mode: "grab"
-                        },
-                        onclick: {
-                            enable: true,
-                            mode: "push"
-                        },
-                        resize: true
-                    },
-                    modes: {
-                        grab: {
-                            distance: 140,
-                            line_linked: {
-                                opacity: 1
-                            }
-                        },
-                        push: {
-                            particles_nb: 4
-                        }
-                    }
-                },
-                retina_detect: true
-            });
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
 
-            // Portfolio filter
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const portfolioCards = document.querySelectorAll('.portfolio-card');
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
 
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    const filter = btn.dataset.filter;
-
-                    portfolioCards.forEach(card => {
-                        if (filter === 'all' || card.dataset.category === filter) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-
-            // Modal handling
-            const modalBtns = document.querySelectorAll('.btn[data-modal]');
-            console.log('Modal buttons found:', modalBtns.length);
-
-            modalBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const modalId = btn.dataset.modal;
-                    console.log('Attempting to open modal:', modalId);
-                    const modal = document.getElementById(modalId);
-                    if (modal) {
-                        modal.style.display = 'block';
-                        console.log(modalId, 'modal opened.');
+        // Case study cards stagger animation
+        gsap.from(".case-study-card", {
+            duration: 0.8,
+            y: 50,
+            opacity: 0,
+            stagger: 0.12,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".case-study-card",
+                start: "top 80%"
+            }
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('translate-x-full');
+            line1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+            line2.style.opacity = '0';
+            line3.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        }
+        
+        function closeMobileMenuFunc() {
+            mobileMenu.classList.add('translate-x-full');
+            line1.style.transform = 'rotate(0) translate(0, 0)';
+            line2.style.opacity = '1';
+            line3.style.transform = 'rotate(0) translate(0, 0)';
+        }
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+        }
+        
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        }
+        
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+        }
+        
+        // Close mobile menu when clicking on navigation links
+        const mobileNavLinks = mobileMenu?.querySelectorAll('a');
+        mobileNavLinks?.forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+        
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 20);
                     } else {
-                        console.error('Modal not found:', modalId);
+                        counter.textContent = target;
+                        if (target === 2) {
+                            counter.textContent = '$2B+';
+                        } else if (target === 500) {
+                            counter.textContent = '500+';
+                        } else if (target === 50) {
+                            counter.textContent = '50+';
+                        } else if (target === 98) {
+                            counter.textContent = '98%';
+                        }
                     }
-                });
+                };
+                
+                updateCounter();
             });
-
-            const closeBtns = document.querySelectorAll('.close-btn');
-            console.log('Close buttons found:', closeBtns.length);
-
-            closeBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const modal = btn.closest('.modal');
-                    if (modal) {
-                        modal.style.display = 'none';
-                        console.log(modal.id, 'modal closed.');
-                    }
-                });
+        }
+        
+        // Trigger counter animation when stats section is visible
+        gsap.registerPlugin(ScrollTrigger);
+        ScrollTrigger.create({
+            trigger: '.stats-counter',
+            start: 'top 80%',
+            onEnter: animateCounters,
+            once: true
+        });
+        
+        // Portfolio Modal Functionality
+        function showPortfolioModal(portfolioId) {
+            const portfolioData = {
+                'healthcare-ai': {
+                    title: 'HealthCare AI Platform',
+                    subtitle: 'Medical Diagnosis System',
+                    icon: 'fas fa-heartbeat',
+                    iconBg: 'bg-gradient-to-r from-blue-500 to-cyan-600',
+                    description: 'Revolutionary AI-powered medical diagnosis platform that combines computer vision, deep learning, and natural language processing to assist healthcare professionals in early disease detection and accurate diagnosis. The system processes medical images, patient data, and clinical notes to provide comprehensive diagnostic insights.',
+                    achievements: [
+                        'Achieved 95% diagnostic accuracy across multiple medical conditions',
+                        'Reduced average diagnostic time from 4 hours to 90 minutes',
+                        'Processed over 500,000 medical cases successfully',
+                        'Integrated with 15+ major hospital systems',
+                        'Improved early cancer detection rates by 35%'
+                    ],
+                    technologies: [
+                        'TensorFlow & PyTorch for deep learning models',
+                        'OpenCV for medical image processing',
+                        'DICOM integration for medical imaging standards',
+                        'Natural Language Processing for clinical notes',
+                        'Cloud infrastructure with 99.99% uptime',
+                        'HIPAA-compliant security architecture'
+                    ],
+                    impact: [
+                        'Saved an estimated 10,000+ patient lives through early detection',
+                        'Reduced healthcare costs by $50M annually',
+                        'Improved patient satisfaction scores by 40%',
+                        'Decreased medical errors by 60%',
+                        'Enhanced physician productivity by 75%'
+                    ],
+                    implementation: [
+                        'Custom CNN architectures for medical image analysis',
+                        'Federated learning for privacy-preserving model training',
+                        'Real-time inference with sub-second response times',
+                        'Multi-modal data fusion from various medical devices',
+                        'Continuous learning system with expert feedback loops'
+                    ],
+                    timeline: '18 months development, 6 months deployment across 15 hospitals',
+                    investment: '$2.5M - $5M (depending on scale and customization)'
+                },
+                'financial-analytics': {
+                    title: 'Financial Analytics Suite',
+                    subtitle: 'Risk Assessment Platform',
+                    icon: 'fas fa-chart-line',
+                    iconBg: 'bg-gradient-to-r from-purple-500 to-pink-600',
+                    description: 'Comprehensive financial risk assessment and fraud detection platform that processes millions of transactions in real-time. The system uses advanced machine learning algorithms to identify patterns, detect anomalies, and assess financial risks across multiple asset classes and market conditions.',
+                    achievements: [
+                        'Achieved 99.8% fraud detection accuracy with minimal false positives',
+                        'Processed 10M+ transactions daily in real-time',
+                        'Reduced financial losses by 45% through early risk identification',
+                        'Implemented across 25+ financial institutions globally',
+                        'Saved $200M+ in potential fraud losses annually'
+                    ],
+                    technologies: [
+                        'Apache Kafka for real-time data streaming',
+                        'Apache Spark for large-scale data processing',
+                        'XGBoost and Random Forest for risk modeling',
+                        'Graph databases for relationship analysis',
+                        'Kubernetes for scalable microservices architecture',
+                        'Advanced encryption and blockchain integration'
+                    ],
+                    impact: [
+                        'Prevented $200M+ in fraudulent transactions annually',
+                        'Reduced operational risk assessment time by 80%',
+                        'Improved regulatory compliance scores by 95%',
+                        'Enhanced customer trust and satisfaction by 60%',
+                        'Decreased manual review workload by 70%'
+                    ],
+                    implementation: [
+                        'Real-time anomaly detection using ensemble methods',
+                        'Graph neural networks for transaction relationship analysis',
+                        'Explainable AI for regulatory compliance and transparency',
+                        'A/B testing framework for continuous model improvement',
+                        'Multi-layered security with zero-trust architecture'
+                    ],
+                    timeline: '15 months development, 9 months phased rollout across institutions',
+                    investment: '$3M - $7M (varies by institution size and requirements)'
+                },
+                'ecommerce-intelligence': {
+                    title: 'E-commerce Intelligence',
+                    subtitle: 'Customer Behavior Analytics',
+                    icon: 'fas fa-shopping-cart',
+                    iconBg: 'bg-gradient-to-r from-green-500 to-emerald-600',
+                    description: 'AI-powered e-commerce intelligence platform that analyzes customer behavior, optimizes product recommendations, and personalizes shopping experiences. The system processes clickstream data, purchase history, and user interactions to drive sales growth and customer retention.',
+                    achievements: [
+                        'Increased online sales by 85% through personalized recommendations',
+                        'Improved customer retention rates by 65%',
+                        'Reduced cart abandonment by 40%',
+                        'Processed 50M+ customer interactions daily',
+                        'Deployed across 100+ e-commerce platforms'
+                    ],
+                    technologies: [
+                        'Collaborative and content-based filtering algorithms',
+                        'Real-time recommendation engines using Apache Kafka',
+                        'Deep learning models for customer segmentation',
+                        'A/B testing frameworks for optimization',
+                        'Elasticsearch for fast product search and discovery',
+                        'Redis for high-performance caching and session management'
+                    ],
+                    impact: [
+                        'Generated $500M+ in additional revenue for clients',
+                        'Improved average order value by 55%',
+                        'Enhanced customer lifetime value by 70%',
+                        'Reduced customer acquisition costs by 30%',
+                        'Increased cross-selling success rates by 80%'
+                    ],
+                    implementation: [
+                        'Multi-armed bandit algorithms for dynamic pricing',
+                        'Real-time personalization with sub-100ms latency',
+                        'Behavioral analytics using clickstream processing',
+                        'Predictive inventory management and demand forecasting',
+                        'Omnichannel integration across web, mobile, and in-store'
+                    ],
+                    timeline: '12 months development, 4 months integration and optimization',
+                    investment: '$1.5M - $4M (based on platform complexity and scale)'
+                },
+                'smart-manufacturing': {
+                    title: 'Smart Manufacturing',
+                    subtitle: 'Predictive Maintenance',
+                    icon: 'fas fa-cogs',
+                    iconBg: 'bg-gradient-to-r from-orange-500 to-amber-600',
+                    description: 'IoT-enabled smart manufacturing platform that combines sensor data, machine learning, and predictive analytics to optimize production processes, predict equipment failures, and minimize downtime. The system monitors thousands of industrial assets in real-time.',
+                    achievements: [
+                        'Reduced unplanned downtime by 70% across manufacturing facilities',
+                        'Decreased maintenance costs by 40% through predictive scheduling',
+                        'Improved overall equipment effectiveness (OEE) by 25%',
+                        'Monitored 10,000+ industrial assets continuously',
+                        'Prevented 500+ critical equipment failures'
+                    ],
+                    technologies: [
+                        'Industrial IoT sensors and edge computing devices',
+                        'Time-series databases for sensor data storage',
+                        'Machine learning models for failure prediction',
+                        'Digital twin technology for virtual asset modeling',
+                        'SCADA integration for industrial control systems',
+                        'Augmented reality for maintenance guidance'
+                    ],
+                    impact: [
+                        'Saved $100M+ in avoided downtime and repairs',
+                        'Increased production efficiency by 30%',
+                        'Reduced energy consumption by 20%',
+                        'Improved worker safety with 90% fewer accidents',
+                        'Enhanced product quality with 50% fewer defects'
+                    ],
+                    implementation: [
+                        'Edge AI processing for real-time anomaly detection',
+                        'Predictive models using LSTM and transformer networks',
+                        'Automated maintenance scheduling and work order generation',
+                        'Integration with existing ERP and MES systems',
+                        'Mobile applications for field technician support'
+                    ],
+                    timeline: '20 months development, 8 months phased deployment',
+                    investment: '$4M - $8M (depending on facility size and complexity)'
+                },
+                'autonomous-vehicle': {
+                    title: 'Autonomous Vehicle AI',
+                    subtitle: 'Computer Vision & Navigation',
+                    icon: 'fas fa-car',
+                    iconBg: 'bg-gradient-to-r from-indigo-500 to-blue-600',
+                    description: 'Advanced autonomous vehicle AI system featuring computer vision, sensor fusion, and decision-making algorithms for safe and efficient self-driving capabilities. The platform processes data from cameras, LiDAR, radar, and GPS to navigate complex traffic scenarios.',
+                    achievements: [
+                        'Achieved 99.5% object detection accuracy in various weather conditions',
+                        'Reduced traffic accidents by 90% in test deployments',
+                        'Successfully navigated 1M+ miles of autonomous driving',
+                        'Processed 1TB+ of sensor data per vehicle per day',
+                        'Deployed in 50+ autonomous vehicle prototypes'
+                    ],
+                    technologies: [
+                        'Convolutional Neural Networks for object detection',
+                        'LiDAR point cloud processing and SLAM algorithms',
+                        'Sensor fusion using Kalman filters and particle filters',
+                        'Path planning algorithms with A* and RRT variants',
+                        'Real-time decision making using reinforcement learning',
+                        'High-performance computing with NVIDIA Drive platforms'
+                    ],
+                    impact: [
+                        'Potential to save 1.35M lives annually through accident prevention',
+                        'Reduced transportation costs by 60% for fleet operators',
+                        'Improved traffic flow efficiency by 40%',
+                        'Enhanced mobility access for elderly and disabled populations',
+                        'Decreased carbon emissions by 30% through optimized routing'
+                    ],
+                    implementation: [
+                        'Multi-modal sensor fusion for robust perception',
+                        'Behavior prediction models for other road users',
+                        'Fail-safe systems with redundant safety mechanisms',
+                        'Over-the-air updates for continuous improvement',
+                        'Simulation environments for extensive testing and validation'
+                    ],
+                    timeline: '36 months development, 12 months testing and certification',
+                    investment: '$10M - $25M (full autonomous driving system development)'
+                },
+                'supply-chain': {
+                    title: 'Supply Chain Optimization',
+                    subtitle: 'Logistics & Inventory Management',
+                    icon: 'fas fa-truck',
+                    iconBg: 'bg-gradient-to-r from-teal-500 to-cyan-600',
+                    description: 'AI-driven supply chain optimization platform that integrates demand forecasting, inventory management, route optimization, and supplier relationship management. The system processes global supply chain data to minimize costs while maximizing service levels.',
+                    achievements: [
+                        'Reduced logistics costs by 55% through optimized routing and scheduling',
+                        'Improved delivery times by 40% with better demand forecasting',
+                        'Decreased inventory holding costs by 35% through just-in-time optimization',
+                        'Managed supply chains for 500+ global locations',
+                        'Processed 100M+ shipments and transactions annually'
+                    ],
+                    technologies: [
+                        'Machine learning for demand forecasting and trend analysis',
+                        'Genetic algorithms for vehicle routing optimization',
+                        'Blockchain for supply chain transparency and traceability',
+                        'IoT sensors for real-time shipment tracking',
+                        'Graph databases for supplier network analysis',
+                        'Optimization engines using linear and integer programming'
+                    ],
+                    impact: [
+                        'Saved $300M+ annually in logistics and inventory costs',
+                        'Reduced carbon footprint by 25% through optimized transportation',
+                        'Improved customer satisfaction with 99% on-time deliveries',
+                        'Enhanced supplier relationships through better collaboration',
+                        'Increased supply chain resilience and risk mitigation'
+                    ],
+                    implementation: [
+                        'Multi-echelon inventory optimization across global networks',
+                        'Dynamic pricing and procurement optimization',
+                        'Risk assessment models for supplier evaluation',
+                        'Real-time visibility dashboards for stakeholders',
+                        'Integration with existing ERP, WMS, and TMS systems'
+                    ],
+                    timeline: '24 months development, 12 months global rollout',
+                    investment: '$5M - $12M (varies by supply chain complexity and scale)'
+                }
+            };
+            
+            const data = portfolioData[portfolioId];
+            if (!data) return;
+            
+            // Update modal content
+            document.getElementById('portfolioModalTitle').textContent = data.title;
+            document.getElementById('portfolioModalSubtitle').textContent = data.subtitle;
+            document.getElementById('portfolioModalIconElement').className = data.icon + ' text-white text-2xl';
+            document.getElementById('portfolioModalIcon').className = 'w-16 h-16 rounded-xl flex items-center justify-center mr-4 ' + data.iconBg;
+            document.getElementById('portfolioModalDescription').textContent = data.description;
+            document.getElementById('portfolioModalTimeline').textContent = data.timeline;
+            document.getElementById('portfolioModalInvestment').textContent = data.investment;
+            
+            // Update achievements list
+            const achievementsContainer = document.getElementById('portfolioModalAchievements');
+            achievementsContainer.innerHTML = data.achievements.map(achievement => 
+                `<li class="flex items-center text-gray-700"><i class="fas fa-trophy text-yellow-500 mr-3"></i>${achievement}</li>`
+            ).join('');
+            
+            // Update technologies list
+            const technologiesContainer = document.getElementById('portfolioModalTechnologies');
+            technologiesContainer.innerHTML = data.technologies.map(tech => 
+                `<li class="flex items-center text-gray-700"><i class="fas fa-code text-purple-500 mr-3"></i>${tech}</li>`
+            ).join('');
+            
+            // Update impact list
+            const impactContainer = document.getElementById('portfolioModalImpact');
+            impactContainer.innerHTML = data.impact.map(impact => 
+                `<li class="flex items-center text-gray-700"><i class="fas fa-chart-bar text-green-500 mr-3"></i>${impact}</li>`
+            ).join('');
+            
+            // Update implementation list
+            const implementationContainer = document.getElementById('portfolioModalImplementation');
+            implementationContainer.innerHTML = data.implementation.map(impl => 
+                `<li class="flex items-center text-gray-700"><i class="fas fa-cogs text-orange-500 mr-3"></i>${impl}</li>`
+            ).join('');
+            
+            // Show modal with animation
+            const modal = document.getElementById('portfolioModal');
+            const modalContent = document.getElementById('portfolioModalContent');
+            
+            modal.classList.remove('hidden');
+            
+            // Animate modal in
+            gsap.to(modalContent, {
+                duration: 0.3,
+                scale: 1,
+                opacity: 1,
+                ease: "back.out(1.7)"
             });
-
-            window.addEventListener('click', (e) => {
-                if (e.target.classList.contains('modal')) {
-                    e.target.style.display = 'none';
-                    console.log(e.target.id, 'modal closed by outside click.');
+        }
+        
+        // Close modal functionality
+        function closePortfolioModal() {
+            const modal = document.getElementById('portfolioModal');
+            const modalContent = document.getElementById('portfolioModalContent');
+            
+            gsap.to(modalContent, {
+                duration: 0.2,
+                scale: 0.95,
+                opacity: 0,
+                ease: "power2.in",
+                onComplete: () => {
+                    modal.classList.add('hidden');
                 }
             });
+        }
+        
+        // Scroll to CTA function
+        function scrollToCTA() {
+            document.getElementById('cta-section').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            closePortfolioModal();
+        }
+        
+        // Modal event listeners
+        document.getElementById('closePortfolioModal').addEventListener('click', closePortfolioModal);
+        document.getElementById('portfolioModalOverlay').addEventListener('click', closePortfolioModal);
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePortfolioModal();
+            }
+        });
+
+        // Enhanced portfolio card animations
+        gsap.from(".portfolio-card", {
+            duration: 0.6,
+            y: 40,
+            opacity: 0,
+            stagger: 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".portfolio-card",
+                start: "top 85%"
+            }
         });
     </script>
 </body>

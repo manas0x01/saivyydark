@@ -1,5 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Entry Overlay: role selection (removed redirect logic)
+    (function setupEntryOverlay() {
+        try {
+            const entryOverlay = document.getElementById('entryOverlay');
+            const chooseViewer = document.getElementById('chooseViewer');
+            const chooseClient = document.getElementById('chooseClient');
+
+            // Remove any stored role to prevent redirects
+            localStorage.removeItem('siteRole');
+
+            if (chooseViewer) {
+                chooseViewer.addEventListener('click', () => {
+                    if (entryOverlay) entryOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            if (chooseClient) {
+                chooseClient.addEventListener('click', () => {
+                    if (entryOverlay) entryOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            }
+        } catch (e) {
+            console.error('Entry overlay setup failed:', e);
+        }
+    })();
+
     const translations = {
         en: {
             // Nav
@@ -1756,6 +1784,155 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add click event listener to all links
     document.addEventListener('click', handlePageTransition);
 
+    // --- GSAP & ScrollTrigger Animations ---
+    // Initialize AOS if available (keep existing AOS animations working alongside GSAP)
+    if (window.AOS && typeof AOS.init === 'function') {
+        AOS.init({ once: true, duration: 600, easing: 'ease-out' });
+    }
+
+    // Register GSAP plugins if available
+    if (window.gsap) {
+        if (window.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+        }
+        if (window.TextPlugin) {
+            gsap.registerPlugin(TextPlugin);
+        }
+
+        // Staggered reveal for generic scroll-animate items
+        gsap.utils.toArray('.scroll-animate').forEach((el) => {
+            gsap.from(el, {
+                opacity: 0,
+                y: 40,
+                duration: 0.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+
+        // Section card staggers
+        const staggerGroups = [
+            '.team-card',
+            '.about-card',
+            '.service-item',
+            '.portfolio-card',
+            '.client-logo',
+            '.case-study-card'
+        ];
+        staggerGroups.forEach((selector) => {
+            const items = gsap.utils.toArray(selector);
+            if (items.length) {
+                gsap.from(items, {
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.7,
+                    ease: 'power2.out',
+                    stagger: 0.12,
+                    scrollTrigger: {
+                        trigger: items[0].closest('section') || items[0],
+                        start: 'top 80%'
+                    }
+                });
+            }
+        });
+
+        // Parallax effect on particles layer (subtle)
+        const particlesEl = document.getElementById('particles-js');
+        if (particlesEl && window.ScrollTrigger) {
+            gsap.to(particlesEl, {
+                yPercent: 10,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: document.body,
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: true
+                }
+            });
+        }
+
+        // Micro-interactions for interactive elements
+        const microSelectors = ['.business-card', '.service-item', '.client-logo', 'button', '.btn'];
+        microSelectors.forEach((sel) => {
+            gsap.utils.toArray(sel).forEach((el) => {
+                el.addEventListener('mouseenter', () => {
+                    gsap.to(el, { duration: 0.25, y: -4, scale: 1.03, boxShadow: '0 12px 24px rgba(0,0,0,0.12)', ease: 'power2.out' });
+                });
+                el.addEventListener('mouseleave', () => {
+                    gsap.to(el, { duration: 0.25, y: 0, scale: 1, boxShadow: '0 8px 16px rgba(0,0,0,0.08)', ease: 'power2.inOut' });
+                });
+                el.addEventListener('focus', () => {
+                    gsap.to(el, { duration: 0.2, scale: 1.02, ease: 'power2.out' });
+                });
+                el.addEventListener('blur', () => {
+                    gsap.to(el, { duration: 0.2, scale: 1, ease: 'power2.inOut' });
+                });
+            });
+        });
+
+        // Advanced text animations for hero section
+        const heroWords = gsap.utils.toArray('.hero-word');
+        if (heroWords.length && window.TextPlugin) {
+            heroWords.forEach((word, index) => {
+                const span = word.querySelector('span');
+                if (span) {
+                    gsap.from(span, {
+                        opacity: 0,
+                        y: 100,
+                        rotationX: 90,
+                        duration: 1.2,
+                        ease: 'back.out(1.7)',
+                        delay: index * 0.3,
+                        scrollTrigger: {
+                            trigger: word,
+                            start: 'top 90%'
+                        }
+                    });
+                }
+            });
+        }
+
+        // Enhanced counter animations with easing
+        const statNumbers = gsap.utils.toArray('.stat-number');
+        statNumbers.forEach((stat) => {
+            const finalValue = parseInt(stat.textContent) || 0;
+            gsap.from(stat, {
+                textContent: 0,
+                duration: 2.5,
+                ease: 'power2.out',
+                snap: { textContent: 1 },
+                scrollTrigger: {
+                    trigger: stat,
+                    start: 'top 85%'
+                },
+                onUpdate: function() {
+                    stat.textContent = Math.ceil(this.targets()[0].textContent);
+                }
+            });
+        });
+
+        // Typing effect for subtitle
+        const heroSubtitle = document.querySelector('.hero-subtitle span');
+        if (heroSubtitle && window.TextPlugin) {
+            const originalText = heroSubtitle.textContent;
+            heroSubtitle.textContent = '';
+            gsap.to(heroSubtitle, {
+                text: originalText,
+                duration: 3,
+                ease: 'none',
+                delay: 1.5,
+                scrollTrigger: {
+                    trigger: heroSubtitle,
+                    start: 'top 90%'
+                }
+            });
+        }
+    }
+
     // Initialization for global map
     function initializeGlobalMap() {
         // Check if the map element exists
@@ -1933,79 +2110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Existing particles.js configuration
-document.addEventListener('DOMContentLoaded', function() {
-    particlesJS('particles-js', {
-        particles: {
-            number: {
-                value: 80,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-            color: {
-                value: "#ffffff"
-            },
-            shape: {
-                type: "circle"
-            },
-            opacity: {
-                value: 0.5,
-                random: false,
-                anim: {
-                    enable: false
-                }
-            },
-            size: {
-                value: 3,
-                random: true
-            },
-            line_linked: {
-                enable: true,
-                distance: 150,
-                color: "#ffffff",
-                opacity: 0.4,
-                width: 1
-            },
-            move: {
-                enable: true,
-                speed: 4,
-                direction: "none",
-                random: false,
-                straight: false,
-                out_mode: "out",
-                bounce: false
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: "grab"
-                },
-                onclick: {
-                    enable: true,
-                    mode: "push"
-                },
-                resize: true
-            },
-            modes: {
-                grab: {
-                    distance: 140,
-                    line_linked: {
-                        opacity: 1
-                    }
-                },
-                push: {
-                    particles_nb: 4
-                }
-            }
-        },
-        retina_detect: true
-    });
-});
+// (Removed duplicate particles.js initialization)
 // Animation observer
 const observerOptions = {
     root: null,
@@ -2049,223 +2154,4 @@ document.querySelectorAll('.about-detail-section, .team-section, .cta-section, .
 document.querySelectorAll('.about-card, .team-card').forEach(el => {
     el.classList.add('fade-in');
 });
-// Existing particles.js configuration
-document.addEventListener('DOMContentLoaded', function() {
-    particlesJS('particles-js', {
-        particles: {
-            number: {
-                value: 80,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-            color: {
-                value: "#ffffff"
-            },
-            shape: {
-                type: "circle"
-            },
-            opacity: {
-                value: 0.5,
-                random: false,
-                anim: {
-                    enable: false
-                }
-            },
-            size: {
-                value: 3,
-                random: true
-            },
-            line_linked: {
-                enable: true,
-                distance: 150,
-                color: "#ffffff",
-                opacity: 0.4,
-                width: 1
-            },
-            move: {
-                enable: true,
-                speed: 4,
-                direction: "none",
-                random: false,
-                straight: false,
-                out_mode: "out",
-                bounce: false
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: "grab"
-                },
-                onclick: {
-                    enable: true,
-                    mode: "push"
-                },
-                resize: true
-            },
-            modes: {
-                grab: {
-                    distance: 140,
-                    line_linked: {
-                        opacity: 1
-                    }
-                },
-                push: {
-                    particles_nb: 4
-                }
-            }
-        },
-        retina_detect: true
-    });
-});
-// Existing particles.js configuration
-document.addEventListener('DOMContentLoaded', function() {
-    particlesJS('particles-js', {
-        particles: {
-            number: {
-                value: 80,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-            color: {
-                value: "#ffffff"
-            },
-            shape: {
-                type: "circle"
-            },
-            opacity: {
-                value: 0.5,
-                random: false,
-                anim: {
-                    enable: false
-                }
-            },
-            size: {
-                value: 3,
-                random: true
-            },
-            line_linked: {
-                enable: true,
-                distance: 150,
-                color: "#ffffff",
-                opacity: 0.4,
-                width: 1
-            },
-
-            move: {
-                enable: true,
-                speed: 4,
-                direction: "none",
-                random: false,
-                straight: false,
-                out_mode: "out",
-                bounce: false
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: "grab"
-                },
-                onclick: {
-                    enable: true,
-                    mode: "push"
-                },
-                resize: true
-            },
-            modes: {
-                grab: {
-                    distance: 140,
-                    line_linked: {
-                        opacity: 1
-                    }
-                },
-                push: {
-                    particles_nb: 4
-                }
-            }
-        },
-        retina_detect: true
-    });
-});
-// Existing particles.js configuration
-document.addEventListener('DOMContentLoaded', function() {
-    particlesJS('particles-js', {
-        particles: {
-            number: {
-                value: 80,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-            color: {
-                value: "#ffffff"
-            },
-            shape: {
-                type: "circle"
-            },
-            opacity: {
-                value: 0.5,
-                random: false,
-                anim: {
-                    enable: false
-                }
-            },
-            size: {
-                value: 3,
-                random: true
-            },
-            line_linked: {
-                enable: true,
-                distance: 150,
-                color: "#ffffff",
-                opacity: 0.4,
-                width: 1
-            },
-            move: {
-                enable: true,
-                speed: 4,
-                direction: "none",
-                random: false,
-                straight: false,
-                out_mode: "out",
-                bounce: false
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: "grab"
-                },
-                onclick: {
-                    enable: true,
-                    mode: "push"
-                },
-                resize: true
-            },
-            modes: {
-                grab: {
-                    distance: 140,
-                    line_linked: {
-                        opacity: 1
-                    }
-                },
-                push: {
-                    particles_nb: 4
-                }
-            }
-        },
-        retina_detect: true
-    });
-});
+// Duplicate particles.js init removed. Single initialization exists earlier guarded by element check.
