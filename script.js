@@ -661,7 +661,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const languageSelector = document.querySelector('.language-selector');
 
-    languageSelector.addEventListener('click', (e) => {
+    if (languageSelector) {
+        languageSelector.addEventListener('click', (e) => {
         if (e.target.tagName === 'A') {
             const lang = e.target.dataset.lang;
             setLanguage(lang);
@@ -1182,15 +1183,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth <= 992 && 
                 mainMenu && 
                 mainMenu.classList.contains('active') && 
-                !mainMenu.contains(e.target) && 
-                mobileMenuBtn && 
-                !mobileMenuBtn.contains(e.target)) {
-                closeMobileMenu();
+                !e.target.closest('.main-menu') && 
+                !e.target.closest('.mobile-menu-btn')) {
+                mainMenu.classList.remove('active');
             }
         });
-    });
+    }
 
-    // Language selector
+    // Initialize language on page load
+    setLanguage('en');
     const languageLinks = document.querySelectorAll('.language-selector a');
     languageLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -2058,7 +2059,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         initializeGlobalMap();
     }
-}); 
+});
 
 // Portfolio filter
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -2085,10 +2086,12 @@ window.addEventListener('load', function() {
     // Wait for all resources to load
     setTimeout(() => {
         const loader = document.querySelector('.loader-screen');
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 500); // Match the transition duration
+        if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500); // Match the transition duration
+        }
     }, 500); // Small delay to ensure everything is ready
 });
 
