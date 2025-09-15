@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Saivyy Technologies</title>
-    <meta name="description" content="Learn about Saivyy Technologies - our mission, vision, team, and commitment to delivering cutting-edge AI solutions.">
+    <title>About Us | Saivyy Technologies - Leading AI Solutions</title>
+    <meta name="description" content="Learn about Saivyy Technologies - our story, values, team, and commitment to revolutionizing business through AI innovation.">
+    <meta name="keywords" content="About Saivyy Technologies, AI company, team, values, innovation, artificial intelligence">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../saivyyweb.png">
+    <link rel="icon" type="image/png" href="../saivvyMain.jpeg">
     <link rel="apple-touch-icon" href="../saivyyweb.png">
     <meta name="theme-color" content="#1e40af">
     
@@ -15,17 +16,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <!-- Tailwind Config -->
     <script>
@@ -37,17 +32,7 @@
                         'playfair': ['Playfair Display', 'serif']
                     },
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'bounce-slow': 'bounce 3s infinite',
-                        'spin-slow': 'spin 8s linear infinite',
                     },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' }
-                        }
-                    }
                 }
             }
         }
@@ -71,39 +56,32 @@
             background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
             background-size: 50px 50px;
         }
-        
-        .team-card:hover {
-            transform: translateY(-8px) scale(1.02);
-        }
-        
-        .value-card {
-            transition: all 0.3s ease;
-        }
-        
-        .value-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-slide-up {
-            animation: slideInUp 0.6s ease-out;
-        }
     </style>
 </head>
-<body class="font-inter text-gray-800 overflow-x-hidden">
+<body class="font-inter text-gray-800 overflow-x-hidden relative">
+
+    <!-- Global Animated Background -->
+    <div class="fixed inset-0 z-0 overflow-hidden">
+        <!-- Primary Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 opacity-95"></div>
+        
+        <!-- Floating Data Streams -->
+        <div class="data-streams absolute inset-0">
+            <div class="stream-particle absolute top-1/4 left-10 w-1 h-20 bg-gradient-to-b from-cyan-400 to-transparent opacity-60 animate-pulse"></div>
+            <div class="stream-particle absolute top-1/3 right-20 w-1 h-16 bg-gradient-to-b from-blue-400 to-transparent opacity-50 animate-pulse" style="animation-delay: 1s"></div>
+            <div class="stream-particle absolute bottom-1/3 left-1/4 w-1 h-24 bg-gradient-to-b from-purple-400 to-transparent opacity-70 animate-pulse" style="animation-delay: 2s"></div>
+        </div>
+        
+        <!-- Ambient Glow Orbs -->
+        <div class="glow-orbs absolute inset-0">
+            <div class="glow-orb absolute top-20 left-1/4 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-float"></div>
+            <div class="glow-orb absolute top-1/3 right-1/4 w-40 h-40 bg-purple-500/10 rounded-full blur-xl animate-bounce-slow"></div>
+            <div class="glow-orb absolute bottom-1/3 left-1/3 w-36 h-36 bg-cyan-500/10 rounded-full blur-xl animate-pulse-slow"></div>
+        </div>
+    </div>
+
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
+    <header class="fixed top-0 left-0 right-0 z-[60] bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
@@ -128,10 +106,10 @@
                     <a href="products.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Products</a>
                     <a href="portfolio.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Portfolio</a>
                     <a href="blog.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Blog</a>
-                    <a href="../index.html#contact" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Contact</a>
+                    <a href="#contact" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Contact</a>
                 </nav>
 
-                <!-- Modern Mobile Menu Button -->
+                <!-- Mobile Menu Button -->
                 <button class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500/50" id="modernMobileMenuBtn">
                     <div class="relative w-5 h-5">
                         <span class="absolute top-0 left-0 w-full h-0.5 bg-gray-700 rounded-full transition-all duration-300 ease-out" id="modernLine1"></span>
@@ -142,7 +120,7 @@
             </div>
         </div>
         
-        <!-- Modern Mobile Menu Sidebar -->
+        <!-- Mobile Menu Sidebar -->
         <div class="lg:hidden fixed inset-0 z-[100] pointer-events-none transition-all duration-500 ease-out" id="modernMobileMenu">
             <!-- Backdrop -->
             <div class="absolute inset-0 bg-black/0 backdrop-blur-0 transition-all duration-500 ease-out pointer-events-none" id="modernBackdrop"></div>
@@ -175,39 +153,33 @@
                         <a href="../index.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:text-blue-600 transition-all duration-200 group shadow-sm">
                             <i class="fas fa-home w-4 text-center text-gray-500 group-hover:text-blue-600 transition-colors duration-200"></i>
                             <span>Home</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200"></i>
                         </a>
                         <a href="about.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-md">
                             <i class="fas fa-users w-4 text-center"></i>
                             <span>About</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs"></i>
                         </a>
                         <a href="solutions.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:text-blue-600 transition-all duration-200 group shadow-sm">
                             <i class="fas fa-cog w-4 text-center text-gray-500 group-hover:text-blue-600 transition-colors duration-200"></i>
                             <span>Solutions</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200"></i>
                         </a>
                         <a href="products.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:text-blue-600 transition-all duration-200 group shadow-sm">
                             <i class="fas fa-cube w-4 text-center text-gray-500 group-hover:text-blue-600 transition-colors duration-200"></i>
                             <span>Products</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200"></i>
                         </a>
                         <a href="portfolio.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:text-blue-600 transition-all duration-200 group shadow-sm">
                             <i class="fas fa-briefcase w-4 text-center text-gray-500 group-hover:text-blue-600 transition-colors duration-200"></i>
                             <span>Portfolio</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200"></i>
                         </a>
                         <a href="blog.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:text-blue-600 transition-all duration-200 group shadow-sm">
                             <i class="fas fa-blog w-4 text-center text-gray-500 group-hover:text-blue-600 transition-colors duration-200"></i>
                             <span>Blog</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200"></i>
                         </a>
                         
                         <!-- Divider -->
                         <div class="my-4 border-t border-gray-300"></div>
                         
                         <!-- CTA Button -->
-                        <a href="../index.html#contact" class="flex items-center justify-center space-x-3 px-4 py-4 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold shadow-lg hover:shadow-xl hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105">
+                        <a href="#contact" class="flex items-center justify-center space-x-3 px-4 py-4 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold shadow-lg hover:shadow-xl hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105">
                             <i class="fas fa-paper-plane"></i>
                             <span>Get in Touch</span>
                         </a>
@@ -240,14 +212,14 @@
             <div class="absolute top-20 left-10 w-32 h-32 border border-cyan-500/30 rotate-45 animate-float"></div>
             <div class="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full animate-pulse"></div>
             <div class="absolute bottom-32 left-20 w-40 h-40 border-2 border-purple-500/20 rounded-full animate-spin-slow"></div>
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-white/10 rounded-full animate-pulse"></div>
-            <div class="absolute top-1/4 right-1/4 w-16 h-16 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 rounded-lg rotate-12 animate-bounce-slow"></div>
+            <div class="absolute top-1/2 right-1/4 w-20 h-20 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full animate-bounce-slow"></div>
+            <div class="absolute bottom-1/3 right-10 w-16 h-16 border border-purple-400/20 rotate-12 animate-pulse"></div>
         </div>
         
         <div class="relative z-10 w-full max-w-4xl mx-auto px-6 text-center">
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 backdrop-blur-sm mb-8">
                 <div class="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-                <span class="text-cyan-300 text-sm font-medium">About Saivyy Technologies</span>
+                <span class="text-cyan-300 text-sm font-medium">Pioneering AI Innovation</span>
             </div>
             
             <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
@@ -256,428 +228,670 @@
             </h1>
             
             <p class="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8">
-                We are a team of passionate innovators, engineers, and visionaries dedicated to transforming businesses through cutting-edge artificial intelligence solutions.
+                We're not just crafting the future — we're delivering unprecedented AI-driven growth for forward-thinking businesses worldwide.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <button onclick="document.getElementById('story-section').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                    <i class="fas fa-book-open mr-2"></i>Our Story
+                    <i class="fas fa-rocket mr-2"></i>Discover Our Journey
                 </button>
-                <button onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-400 hover:text-white transition-all duration-300 hover:bg-white/10">
-                    <i class="fas fa-users mr-2"></i>Meet the Team
+                <button onclick="document.getElementById('team-section').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-400 hover:text-white transition-all duration-300 hover:bg-white/10">
+                    <i class="fas fa-users mr-2"></i>Meet Our Visionaries
                 </button>
             </div>
         </div>
     </section>
+                    
+                    
+                </div>
+            </div>
+        </section>
 
-    <!-- Our Story Section -->
-    <section id="story-section" class="py-20 bg-white" data-aos="fade-up">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
-                    <p class="text-xl text-gray-600 leading-relaxed">
-                        Founded with a vision to democratize AI technology, Saivyy Technologies has grown from a small startup to a leading provider of enterprise AI solutions.
+        <!-- Our Story Section -->
+        <section id="our-story" class="py-24 relative overflow-hidden bg-gradient-to-br from-gray-50 to-blue-50">
+            <!-- Background Elements -->
+            <div class="absolute inset-0">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500"></div>
+                <div class="absolute inset-0 opacity-5">
+                    <div class="absolute top-20 left-10 w-32 h-32 border-2 border-blue-300 rounded-full animate-pulse"></div>
+                    <div class="absolute bottom-20 right-10 w-40 h-40 border border-purple-300 rotate-45 animate-float"></div>
+                </div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative">
+                <div class="text-center mb-20">
+                    <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-6">
+                        <i class="fas fa-history text-blue-600 mr-2"></i>
+                        <span class="text-blue-800 font-semibold text-sm uppercase tracking-widest">Our Journey</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-black mb-8">
+                        <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">Revolutionizing</span>
+                        <br>
+                        <span class="text-gray-900">Business Intelligence</span>
+                    </h2>
+                    <p class="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light">
+                        From visionary concept to AI revolution leader – our mission is to democratize artificial intelligence and make it accessible to businesses of all sizes
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-10">
+                        <!-- Enhanced Mission Card -->
+                        <div class="group bg-white rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 border border-blue-100">
+                            <div class="flex items-start mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-bullseye text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-bold text-gray-900 mb-2">Our Mission</h3>
+                                    <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed font-light">
+                                To <span class="font-semibold text-blue-600">empower businesses</span> with cutting-edge AI solutions that drive innovation, efficiency, and growth. We believe in making artificial intelligence <span class="font-semibold text-purple-600">accessible, practical, and transformative</span> for organizations across all industries.
+                            </p>
+                        </div>
+
+                        <!-- Enhanced Vision Card -->
+                        <div class="group bg-white rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 border border-purple-100">
+                            <div class="flex items-start mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-eye text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-bold text-gray-900 mb-2">Our Vision</h3>
+                                    <div class="w-12 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed font-light">
+                                To be the <span class="font-semibold text-purple-600">global leader</span> in AI-driven business transformation, creating a world where intelligent automation <span class="font-semibold text-blue-600">enhances human potential</span> and drives unprecedented economic growth and innovation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Innovation Showcase -->
+                    <div class="relative">
+                        <div class="bg-gradient-to-br from-blue-600 to-purple-700 rounded-4xl p-12 text-white relative overflow-hidden">
+                            <!-- Background Pattern -->
+                            <div class="absolute inset-0 opacity-10">
+                                <div class="absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.3)_2px,transparent_0)] bg-[length:40px_40px]"></div>
+                            </div>
+                            
+                            <div class="relative z-10 text-center space-y-8">
+                                <!-- Innovation Icon with Animation -->
+                                <div class="relative">
+                                    <div class="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <i class="fas fa-rocket text-white text-4xl animate-bounce"></i>
+                                    </div>
+                                    <div class="absolute inset-0 w-24 h-24 bg-white/10 rounded-full mx-auto animate-ping"></div>
+                                </div>
+                                
+                                <h4 class="text-4xl font-black mb-4">Innovation at Core</h4>
+                                <p class="text-xl leading-relaxed font-light opacity-90 max-w-md mx-auto">
+                                    We're not just following AI trends – we're <span class="font-bold text-yellow-300">setting them</span>. Our team of visionaries and technologists work tirelessly to push the boundaries of what's possible.
+                                </p>
+                                
+                                <!-- Enhanced Stats -->
+                                <div class="grid grid-cols-2 gap-8 pt-8">
+                                    <div class="text-center group">
+                                        <div class="text-5xl font-black text-cyan-300 mb-2 group-hover:scale-110 transition-transform duration-300">2024</div>
+                                        <div class="text-sm text-blue-200 uppercase tracking-widest font-semibold">Founded</div>
+                                        <div class="w-8 h-1 bg-cyan-300 rounded-full mx-auto mt-2"></div>
+                                    </div>
+                                    <div class="text-center group">
+                                        <div class="text-5xl font-black text-yellow-300 mb-2 group-hover:scale-110 transition-transform duration-300">50+</div>
+                                        <div class="text-sm text-purple-200 uppercase tracking-widest font-semibold">Innovators</div>
+                                        <div class="w-8 h-1 bg-yellow-300 rounded-full mx-auto mt-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Our Values Section -->
+        <section class="relative py-24 bg-gradient-to-br from-slate-900 to-gray-800 text-white overflow-hidden">
+            <!-- Dynamic Background -->
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:60px_60px] opacity-20"></div>
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative">
+                <div class="text-center mb-20">
+                    <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full mb-8 border border-blue-400/30">
+                        <i class="fas fa-gem text-blue-400 mr-3"></i>
+                        <span class="text-blue-200 font-semibold uppercase tracking-widest text-sm">Our Core Values</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-black mb-8">
+                        <span class="bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">Values That</span>
+                        <br>
+                        <span class="text-white">Drive Innovation</span>
+                    </h2>
+                    <p class="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
+                        These fundamental principles shape our culture, guide our decisions, and inspire our approach to revolutionizing AI solutions.
                     </p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="space-y-6">
-                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-lightbulb text-white"></i>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Innovation Card -->
+                    <div class="group relative">
+                        <div class="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-lg rounded-3xl p-8 border border-blue-400/30 hover:border-blue-400/60 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105">
+                            <div class="relative">
+                                <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-lightbulb text-white text-3xl"></i>
                                 </div>
-                                <h3 class="text-xl font-semibold text-gray-900">Our Mission</h3>
+                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-blue-400 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
-                            <p class="text-gray-700">
-                                To empower businesses with intelligent solutions that drive innovation, efficiency, and sustainable growth in the digital age.
-                            </p>
-                        </div>
-                        
-                        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-eye text-white"></i>
-                                </div>
-                                <h3 class="text-xl font-semibold text-gray-900">Our Vision</h3>
-                            </div>
-                            <p class="text-gray-700">
-                                To be the global leader in AI innovation, creating a future where artificial intelligence enhances human potential and transforms industries.
+                            <h3 class="text-2xl font-bold mb-6 text-center text-white">Innovation</h3>
+                            <p class="text-gray-300 text-center leading-relaxed">
+                                Constantly <span class="text-blue-300 font-semibold">pushing boundaries</span> and exploring new possibilities in AI technology to create breakthrough solutions.
                             </p>
                         </div>
                     </div>
                     
-                    <div class="relative">
-                        <div class="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
-                            <h3 class="text-2xl font-bold mb-6">Why Choose Saivyy?</h3>
-                            <ul class="space-y-4">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-cyan-300 mr-3"></i>
-                                    <span>10+ years of AI expertise</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-cyan-300 mr-3"></i>
-                                    <span>500+ successful projects</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-cyan-300 mr-3"></i>
-                                    <span>98% client satisfaction rate</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-cyan-300 mr-3"></i>
-                                    <span>24/7 dedicated support</span>
-                                </li>
-                            </ul>
+                    <!-- Integrity Card -->
+                    <div class="group relative">
+                        <div class="bg-gradient-to-br from-green-600/20 to-emerald-600/20 backdrop-blur-lg rounded-3xl p-8 border border-green-400/30 hover:border-green-400/60 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105">
+                            <div class="relative">
+                                <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-shield-alt text-white text-3xl"></i>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-green-400 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 text-center text-white">Integrity</h3>
+                            <p class="text-gray-300 text-center leading-relaxed">
+                                Building <span class="text-green-300 font-semibold">unwavering trust</span> through transparency, ethical practices, and reliable AI solutions that respect user privacy.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Collaboration Card -->
+                    <div class="group relative">
+                        <div class="bg-gradient-to-br from-purple-600/20 to-indigo-600/20 backdrop-blur-lg rounded-3xl p-8 border border-purple-400/30 hover:border-purple-400/60 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105">
+                            <div class="relative">
+                                <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-handshake text-white text-3xl"></i>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-purple-400 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 text-center text-white">Collaboration</h3>
+                            <p class="text-gray-300 text-center leading-relaxed">
+                                Working <span class="text-purple-300 font-semibold">hand-in-hand</span> with clients to understand their vision and exceed expectations through partnership.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Excellence Card -->
+                    <div class="group relative">
+                        <div class="bg-gradient-to-br from-orange-600/20 to-red-600/20 backdrop-blur-lg rounded-3xl p-8 border border-orange-400/30 hover:border-orange-400/60 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105">
+                            <div class="relative">
+                                <div class="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-8 mx-auto group-hover:rotate-12 transition-transform duration-300">
+                                    <i class="fas fa-star text-white text-3xl"></i>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-6 h-6 bg-orange-400 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 text-center text-white">Excellence</h3>
+                            <p class="text-gray-300 text-center leading-relaxed">
+                                Delivering <span class="text-orange-300 font-semibold">world-class quality</span> in every project, interaction, and AI solution we create.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Values Impact Statement -->
+                <div class="text-center mt-20">
+                    <div class="max-w-4xl mx-auto bg-gradient-to-r from-blue-600/10 to-purple-600/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+                        <h4 class="text-2xl font-bold text-white mb-4">These values aren't just words on a wall</h4>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            They're the foundation of every AI solution we build, every partnership we forge, and every innovation we bring to life in our mission to pioneer the AI revolution.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Revolutionary Partnership Section -->
+        <section class="relative py-24 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute inset-0">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-cyan-200/20 to-blue-200/20 rounded-full blur-3xl"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative">
+                <div class="text-center mb-20">
+                    <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-8 border border-blue-200">
+                        <i class="fas fa-handshake text-blue-600 mr-3"></i>
+                        <span class="text-blue-800 font-bold uppercase tracking-widest text-sm">Partnership Excellence</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-black mb-8">
+                        <span class="text-gray-900">Why Choose</span>
+                        <br>
+                        <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">Saivvy Technologies?</span>
+                    </h2>
+                    <p class="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light">
+                        Experience the transformative power of AI with partners who don't just deliver solutions – <span class="font-semibold text-blue-600">we architect your digital revolution</span>.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 mb-16">
+                    <!-- Revolutionary Technology -->
+                    <div class="group relative">
+                        <div class="bg-white rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-4 border border-blue-100 hover:border-blue-300 relative overflow-hidden">
+                            <!-- Card Background Effect -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-cyan-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            <div class="relative z-10">
+                                <div class="flex items-center mb-8">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mr-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300">
+                                        <i class="fas fa-microchip text-white text-3xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-3xl font-bold text-gray-900 mb-2">Revolutionary Technology</h3>
+                                        <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-gray-700 leading-relaxed font-light">
+                                    Leveraging <span class="font-semibold text-blue-600">cutting-edge AI frameworks</span>, quantum computing principles, and next-generation machine learning algorithms to deliver solutions that redefine industry standards.
+                                </p>
+                                <div class="flex items-center mt-6 text-blue-600 font-semibold">
+                                    <i class="fas fa-arrow-right mr-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+                                    <span>Explore Our Tech Stack</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Expertise -->
+                    <div class="group relative">
+                        <div class="bg-white rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-4 border border-purple-100 hover:border-purple-300 relative overflow-hidden">
+                            <!-- Card Background Effect -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-indigo-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            <div class="relative z-10">
+                                <div class="flex items-center mb-8">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mr-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300">
+                                        <i class="fas fa-brain text-white text-3xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-3xl font-bold text-gray-900 mb-2">AI Expertise Unmatched</h3>
+                                        <div class="w-16 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-gray-700 leading-relaxed font-light">
+                                    Our team of <span class="font-semibold text-purple-600">world-class AI specialists</span> brings decades of combined experience in deep learning, neural networks, and intelligent automation across diverse industries.
+                                </p>
+                                <div class="flex items-center mt-6 text-purple-600 font-semibold">
+                                    <i class="fas fa-arrow-right mr-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+                                    <span>Meet Our Experts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Row -->
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Strategic Partnership -->
+                    <div class="group relative">
+                        <div class="bg-white rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-4 border border-green-100 hover:border-green-300 relative overflow-hidden">
+                            <!-- Card Background Effect -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-green-50/50 to-emerald-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            <div class="relative z-10">
+                                <div class="flex items-center mb-8">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300">
+                                        <i class="fas fa-users-cog text-white text-3xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-3xl font-bold text-gray-900 mb-2">Strategic Partnership</h3>
+                                        <div class="w-16 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-gray-700 leading-relaxed font-light">
+                                    We don't just build solutions – we become <span class="font-semibold text-green-600">strategic partners</span> in your growth journey, providing ongoing support, optimization, and innovation aligned with your business goals.
+                                </p>
+                                <div class="flex items-center mt-6 text-green-600 font-semibold">
+                                    <i class="fas fa-arrow-right mr-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+                                    <span>Partnership Benefits</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Measurable Impact -->
+                    <div class="group relative">
+                        <div class="bg-white rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-4 border border-orange-100 hover:border-orange-300 relative overflow-hidden">
+                            <!-- Card Background Effect -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            <div class="relative z-10">
+                                <div class="flex items-center mb-8">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl flex items-center justify-center mr-6 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300">
+                                        <i class="fas fa-chart-line text-white text-3xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-3xl font-bold text-gray-900 mb-2">Measurable Revolution</h3>
+                                        <div class="w-16 h-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-gray-700 leading-relaxed font-light">
+                                    Every AI solution delivers <span class="font-semibold text-orange-600">quantifiable business value</span> – increased efficiency, reduced costs, enhanced customer experience, and accelerated growth that you can measure and celebrate.
+                                </p>
+                                <div class="flex items-center mt-6 text-orange-600 font-semibold">
+                                    <i class="fas fa-arrow-right mr-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+                                    <span>View Success Stories</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Call-to-Action Banner -->
+                <div class="text-center mt-20">
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-white relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.1)_2px,transparent_0)] bg-[length:50px_50px] opacity-30"></div>
+                        <div class="relative z-10">
+                            <h4 class="text-3xl md:text-4xl font-bold mb-6">Ready to Pioneer Your AI Revolution?</h4>
+                            <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+                                Join industry leaders who've transformed their businesses with Saivvy Technologies. Let's discuss how we can craft your intelligent future.
+                            </p>
+                            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-white text-blue-600 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg">
+                                <i class="fas fa-rocket mr-3"></i>
+                                Start Your Transformation
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-
-    <!-- Values Section -->
-    <section class="py-20 bg-white" data-aos="fade-up">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Values</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    These core principles guide everything we do and shape our approach to AI innovation.
-                </p>
+        <!-- Our Achievements Section -->
+        <section class="relative py-20 bg-gray-900 text-white overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute inset-0 hero-pattern"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-rocket text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Innovation</h3>
-                    <p class="text-gray-600">
-                        Constantly pushing boundaries and exploring new possibilities in AI technology.
+            <div class="container mx-auto px-6 relative">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Achievements</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Numbers that speak to our commitment and success
                     </p>
                 </div>
                 
-                <div class="text-center group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- AI Projects Delivered -->
+                    <div class="text-center">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+                            <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                                <i class="fas fa-rocket text-white text-2xl"></i>
+                            </div>
+                            <div class="text-4xl md:text-5xl font-bold text-cyan-400 mb-2" data-counter="500">500+</div>
+                            <h3 class="text-xl font-semibold mb-2">AI Projects Delivered</h3>
+                            <p class="text-gray-400 text-sm">Successfully completed projects across various industries</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Integrity</h3>
-                    <p class="text-gray-600">
-                        Building trust through transparency, ethical practices, and reliable solutions.
-                    </p>
-                </div>
-                
-                <div class="text-center group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-users text-white text-xl"></i>
+                    
+                    <!-- Client Satisfaction Rate -->
+                    <div class="text-center">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                                <i class="fas fa-thumbs-up text-white text-2xl"></i>
+                            </div>
+                            <div class="text-4xl md:text-5xl font-bold text-green-400 mb-2" data-counter="98">98%</div>
+                            <h3 class="text-xl font-semibold mb-2">Client Satisfaction Rate</h3>
+                            <p class="text-gray-400 text-sm">Exceptional client satisfaction across all projects</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Collaboration</h3>
-                    <p class="text-gray-600">
-                        Working closely with clients to understand and exceed their expectations.
-                    </p>
-                </div>
-                
-                <div class="text-center group">
-                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-star text-white text-xl"></i>
+                    
+                    <!-- Industries Served -->
+                    <div class="text-center">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                                <i class="fas fa-building text-white text-2xl"></i>
+                            </div>
+                            <div class="text-4xl md:text-5xl font-bold text-purple-400 mb-2" data-counter="35">35+</div>
+                            <h3 class="text-xl font-semibold mb-2">Industries Served</h3>
+                            <p class="text-gray-400 text-sm">Diverse industry experience and expertise</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Excellence</h3>
-                    <p class="text-gray-600">
-                        Delivering exceptional quality in every project and interaction.
-                    </p>
+                    
+                    <!-- Sectors Automated -->
+                    <div class="text-center">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+                            <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                                <i class="fas fa-cogs text-white text-2xl"></i>
+                            </div>
+                            <div class="text-4xl md:text-5xl font-bold text-orange-400 mb-2" data-counter="43">43+</div>
+                            <h3 class="text-xl font-semibold mb-2">Sectors Automated with AI</h3>
+                            <p class="text-gray-400 text-sm">Transforming business processes through automation</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Why Partner With Saivvy Section -->
-    <section class="py-20 bg-white relative overflow-hidden" id="why-partner">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-blue-100/50 to-indigo-100/50 rounded-full animate-spin-slow"></div>
-            <div class="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-br from-purple-100/50 to-pink-100/50 rounded-full animate-pulse-slow"></div>
-        </div>
+        <!-- Revolutionary Team Section -->
+        <section id="meet-team" class="relative py-24 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 text-white overflow-hidden">
+            <!-- Dynamic Background -->
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:40px_40px] opacity-20"></div>
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500"></div>
+                
+                <!-- Floating Elements -->
+                <div class="absolute inset-0 overflow-hidden">
+                    <div class="absolute top-20 left-20 w-32 h-32 border border-blue-500/20 rounded-full animate-pulse"></div>
+                    <div class="absolute bottom-20 right-20 w-40 h-40 border border-purple-500/20 rotate-45 animate-float"></div>
+                </div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-20">
+                    <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full mb-8 border border-blue-400/30">
+                        <i class="fas fa-users text-blue-400 mr-3"></i>
+                        <span class="text-blue-200 font-bold uppercase tracking-widest text-sm">Our Visionaries</span>
+                    </div>
+                    
+                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
+                        <span class="bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-500 bg-clip-text text-transparent">Meet the</span>
+                        <br>
+                        <span class="text-white">Revolutionaries</span>
+                    </h1>
+                    
+                    <p class="text-2xl md:text-3xl text-gray-300 mb-12 max-w-5xl mx-auto leading-relaxed font-light">
+                        The brilliant minds behind <span class="text-cyan-300 font-semibold">Saivvy Technologies</span> – where innovation meets expertise, and where your <span class="text-yellow-300 font-bold">AI revolution begins</span>.
+                    </p>
+                </div>
+                
+                <!-- Revolutionary Team Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                    <!-- Keshav Madan - CEO -->
+                    <div class="group relative">
+                        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-lg border border-blue-400/30 transition-all duration-700 transform group-hover:-translate-y-6 group-hover:scale-105">
+                            <!-- Card Glow Effect -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                            
+                            <div class="relative p-8 text-center">
+                                <!-- Avatar Section -->
+                                <div class="relative mb-8">
+                                    <div class="relative mx-auto">
+                                        <div class="w-32 h-32 mx-auto rounded-full p-1 bg-gradient-to-r from-blue-400 to-cyan-500 group-hover:from-blue-300 group-hover:to-cyan-400 transition-all duration-500">
+                                            <img src="../KESHAV.jpeg" alt="Keshav Madan" class="w-full h-full rounded-full object-cover border-4 border-white shadow-2xl">
+                                        </div>
+                                        <!-- Status Indicator -->
+                                        <div class="absolute -top-2 -right-2">
+                                            <div class="relative">
+                                                <div class="w-6 h-6 bg-green-400 rounded-full border-3 border-white"></div>
+                                                <div class="absolute inset-0 w-6 h-6 bg-green-400 rounded-full animate-ping opacity-30"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Role Badge -->
+                                        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+                                            <div class="px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-xs font-bold rounded-full shadow-lg">
+                                                <i class="fas fa-crown mr-1"></i>Founder & CEO
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content -->
+                                <div class="space-y-4">
+                                    <h3 class="text-2xl font-bold text-white group-hover:text-blue-200 transition-colors duration-300">Keshav Madan</h3>
+                                    <p class="text-gray-300 leading-relaxed font-light">
+                                        <span class="text-blue-300 font-semibold">Visionary Leader</span> with 10+ years orchestrating AI transformations and pioneering machine learning solutions across global enterprises.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Lakshay Gupta - Founding Team -->
+                    <div class="group relative">
+                        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-600/20 to-emerald-600/20 backdrop-blur-lg border border-green-400/30 transition-all duration-700 transform group-hover:-translate-y-6 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                            
+                            <div class="relative p-8 text-center">
+                                <div class="relative mb-8">
+                                    <div class="relative mx-auto">
+                                        <div class="w-32 h-32 mx-auto rounded-full p-1 bg-gradient-to-r from-green-400 to-emerald-500 group-hover:from-green-300 group-hover:to-emerald-400 transition-all duration-500">
+                                            <img src="../LAKSHAY.jpg" alt="Lakshay Gupta" class="w-full h-full rounded-full object-cover border-4 border-white shadow-2xl">
+                                        </div>
+                                        <div class="absolute -top-2 -right-2">
+                                            <div class="relative">
+                                                <div class="w-6 h-6 bg-green-400 rounded-full border-3 border-white"></div>
+                                                <div class="absolute inset-0 w-6 h-6 bg-green-400 rounded-full animate-ping opacity-30"></div>
+                                            </div>
+                                        </div>
+                                        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+                                            <div class="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full shadow-lg">
+                                                <i class="fas fa-star mr-1"></i>Founding Team Member
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <h3 class="text-2xl font-bold text-white group-hover:text-green-200 transition-colors duration-300">Lakshay Gupta</h3>
+                                    <p class="text-gray-300 leading-relaxed font-light">
+                                        <span class="text-green-300 font-semibold">Strategic Catalyst</span> driving revenue optimization and operational excellence through innovative sales automation and growth strategies.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Manas Saxena - Marketing -->
+                    <div class="group relative">
+                        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-lg border border-purple-400/30 transition-all duration-700 transform group-hover:-translate-y-6 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                            
+                            <div class="relative p-8 text-center">
+                                <div class="relative mb-8">
+                                    <div class="relative mx-auto">
+                                        <div class="w-32 h-32 mx-auto rounded-full p-1 bg-gradient-to-r from-purple-400 to-pink-500 group-hover:from-purple-300 group-hover:to-pink-400 transition-all duration-500">
+                                            <img src="../MAN.jpg" alt="Manas Saxena" class="w-full h-full rounded-full object-cover border-4 border-white shadow-2xl">
+                                        </div>
+                                        <div class="absolute -top-2 -right-2">
+                                            <div class="relative">
+                                                <div class="w-6 h-6 bg-green-400 rounded-full border-3 border-white"></div>
+                                                <div class="absolute inset-0 w-6 h-6 bg-green-400 rounded-full animate-ping opacity-30"></div>
+                                            </div>
+                                        </div>
+                                        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+                                            <div class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold rounded-full shadow-lg">
+                                                <i class="fas fa-bullhorn mr-1"></i>Marketing
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <h3 class="text-2xl font-bold text-white group-hover:text-purple-200 transition-colors duration-300">Manas Saxena</h3>
+                                    <p class="text-gray-300 leading-relaxed font-light">
+                                        <span class="text-purple-300 font-semibold">Brand Architect</span> orchestrating digital marketing symphonies that amplify our AI revolution message across global markets.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Raikant Chaudhary - Developer -->
+                    <div class="group relative">
+                        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-600/20 to-red-600/20 backdrop-blur-lg border border-orange-400/30 transition-all duration-700 transform group-hover:-translate-y-6 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                            
+                            <div class="relative p-8 text-center">
+                                <div class="relative mb-8">
+                                    <div class="relative mx-auto">
+                                        <div class="w-32 h-32 mx-auto rounded-full p-1 bg-gradient-to-r from-orange-400 to-red-500 group-hover:from-orange-300 group-hover:to-red-400 transition-all duration-500">
+                                            <img src="../RAI.jpg" alt="Raikant Chaudhary" class="w-full h-full rounded-full object-cover border-4 border-white shadow-2xl">
+                                        </div>
+                                        <div class="absolute -top-2 -right-2">
+                                            <div class="relative">
+                                                <div class="w-6 h-6 bg-green-400 rounded-full border-3 border-white"></div>
+                                                <div class="absolute inset-0 w-6 h-6 bg-green-400 rounded-full animate-ping opacity-30"></div>
+                                            </div>
+                                        </div>
+                                        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+                                            <div class="px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold rounded-full shadow-lg">
+                                                <i class="fas fa-code mr-1"></i>Developer
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <h3 class="text-2xl font-bold text-white group-hover:text-orange-200 transition-colors duration-300">Raikant Chaudhary</h3>
+                                    <p class="text-gray-300 leading-relaxed font-light">
+                                        <span class="text-orange-300 font-semibold">Code Virtuoso</span> crafting robust, scalable AI applications that power tomorrow's intelligent enterprises with precision and innovation.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Unity Message -->
+                <div class="text-center mt-20">
+                    <div class="max-w-4xl mx-auto bg-gradient-to-r from-blue-600/10 to-purple-600/10 backdrop-blur-sm rounded-3xl p-10 border border-white/20">
+                        <h4 class="text-3xl font-bold text-white mb-6">United in Innovation</h4>
+                        <p class="text-xl text-gray-300 leading-relaxed font-light">
+                            Together, we're not just colleagues – we're <span class="text-cyan-300 font-semibold">AI revolutionaries</span> committed to transforming your business landscape through intelligent automation, strategic innovation, and relentless pursuit of excellence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="relative py-20 bg-gray-900 text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Let's discuss how our AI solutions can help you achieve your goals. Contact us today to get started.
+                    </p>
+                </div>
+                
+                <div class="flex justify-center">
+                    <a href="mailto:founder@saivyytechnologies.in" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg">
+                        <i class="fas fa-envelope mr-3"></i>
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </section>
         
-        <div class="container mx-auto px-6 relative z-10">
-            <!-- Section Header -->
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-playfair font-bold gradient-text mb-6" data-translate="why-partner-with-saivvy">Why Partner With Saivvy?</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-translate="why-partner-with-saivvy-desc">Experience the future of AI-driven success</p>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-6 rounded-full"></div>
-            </div>
-            
-            <!-- Services Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Cutting-Edge Tech -->
-                <div class="text-center">
-                    <div class="relative mb-6">
-                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl mx-auto flex items-center justify-center">
-                            <i class="fas fa-cogs text-white text-2xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4" data-translate="cutting-edge-tech">Cutting-Edge Tech</h3>
-                    <p class="text-gray-600 leading-relaxed" data-translate="cutting-edge-tech-desc">Leveraging the latest advancements in AI and machine learning.</p>
-                </div>
-                
-                <!-- Expert Team -->
-                <div class="text-center">
-                    <div class="relative mb-6">
-                        <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-3xl mx-auto flex items-center justify-center">
-                            <i class="fas fa-users-cog text-white text-2xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4" data-translate="expert-team">Expert Team</h3>
-                    <p class="text-gray-600 leading-relaxed" data-translate="expert-team-desc">Dedicated AI specialists committed to your project's success.</p>
-                </div>
-                
-                <!-- Collaborative Approach -->
-                <div class="text-center">
-                    <div class="relative mb-6">
-                        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl mx-auto flex items-center justify-center">
-                            <i class="fas fa-handshake text-white text-2xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4" data-translate="collaborative-approach">Collaborative Approach</h3>
-                    <p class="text-gray-600 leading-relaxed" data-translate="collaborative-approach-desc">Working closely with you to tailor solutions to your exact needs.</p>
-                </div>
-                
-                <!-- Measurable Results -->
-                <div class="text-center">
-                    <div class="relative mb-6">
-                        <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-3xl mx-auto flex items-center justify-center">
-                            <i class="fas fa-chart-line text-white text-2xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4" data-translate="measurable-results">Measurable Results</h3>
-                    <p class="text-gray-600 leading-relaxed" data-translate="measurable-results-desc">Focusing on delivering tangible business value and ROI.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-20 relative overflow-hidden" style="background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(241,245,249,0.98) 100%)">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-10 left-10 w-32 h-32 bg-blue-100/30 rounded-full animate-float"></div>
-            <div class="absolute bottom-10 right-10 w-40 h-40 bg-indigo-100/30 rounded-full animate-pulse-slow"></div>
-        </div>
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-playfair font-bold gradient-text mb-6">Our Achievements</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Numbers that speak to our commitment and success</p>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-6 rounded-full"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- AI Projects Delivered -->
-                <div class="text-center">
-                    <div class="relative w-32 h-32 mx-auto mb-6">
-                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="40" stroke="#e5e7eb" stroke-width="8" fill="none"/>
-                            <circle cx="50" cy="50" r="40" stroke="url(#gradient1)" stroke-width="8" fill="none" 
-                                    stroke-dasharray="251" stroke-dashoffset="226"/>
-                            <defs>
-                                <linearGradient id="gradient1">
-                                    <stop offset="0%" stop-color="#3b82f6"/>
-                                    <stop offset="100%" stop-color="#1d4ed8"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="text-3xl font-bold gradient-text" data-translate="ai-projects-delivered-value">500+</span>
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-800" data-translate="ai-projects-delivered">AI Projects Delivered</h3>
-                </div>
-                
-                <!-- Client Satisfaction -->
-                <div class="text-center">
-                    <div class="relative w-32 h-32 mx-auto mb-6">
-                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="40" stroke="#e5e7eb" stroke-width="8" fill="none"/>
-                            <circle cx="50" cy="50" r="40" stroke="url(#gradient2)" stroke-width="8" fill="none" 
-                                    stroke-dasharray="251" stroke-dashoffset="5"/>
-                            <defs>
-                                <linearGradient id="gradient2">
-                                    <stop offset="0%" stop-color="#10b981"/>
-                                    <stop offset="100%" stop-color="#059669"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="text-3xl font-bold gradient-text" data-translate="client-satisfaction-rate-value">98%</span>
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-800" data-translate="client-satisfaction-rate">Client Satisfaction Rate</h3>
-                </div>
-                
-                <!-- Industries Served -->
-                <div class="text-center">
-                    <div class="relative w-32 h-32 mx-auto mb-6">
-                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="40" stroke="#e5e7eb" stroke-width="8" fill="none"/>
-                            <circle cx="50" cy="50" r="40" stroke="url(#gradient3)" stroke-width="8" fill="none" 
-                                    stroke-dasharray="251" stroke-dashoffset="163"/>
-                            <defs>
-                                <linearGradient id="gradient3">
-                                    <stop offset="0%" stop-color="#8b5cf6"/>
-                                    <stop offset="100%" stop-color="#7c3aed"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="text-3xl font-bold gradient-text" data-translate="industries-served-value">35+</span>
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-800" data-translate="industries-served">Industries Served</h3>
-                </div>
-                
-                <!-- Sectors Automated -->
-                <div class="text-center">
-                    <div class="relative w-32 h-32 mx-auto mb-6">
-                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="40" stroke="#e5e7eb" stroke-width="8" fill="none"/>
-                            <circle cx="50" cy="50" r="40" stroke="url(#gradient4)" stroke-width="8" fill="none" 
-                                    stroke-dasharray="251" stroke-dashoffset="143"/>
-                            <defs>
-                                <linearGradient id="gradient4">
-                                    <stop offset="0%" stop-color="#f59e0b"/>
-                                    <stop offset="100%" stop-color="#d97706"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="text-3xl font-bold gradient-text" data-translate="sectors-automated-value">43+</span>
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-800" data-translate="sectors-automated">Sectors Automated with AI</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden" id="team">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-playfair font-bold gradient-text mb-6">Meet Our Team</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">AI experts passionate about transforming businesses</p>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-6 rounded-full"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                <div class="team-card bg-white rounded-3xl p-8 shadow-xl">
-                    <div class="text-center">
-                        <div class="relative w-32 h-32 mx-auto mb-6">
-                            <img src="../KESHAV.jpeg" alt="Keshav Madan" class="w-full h-full rounded-full object-cover shadow-lg">
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Keshav Madan</h3>
-                        <p class="text-blue-600 font-semibold mb-4">CEO</p>
-                        <p class="text-gray-600 text-sm">AI visionary with 10+ years in machine learning and business transformation</p>
-                    </div>
-                </div>
-                
-                <div class="team-card bg-white rounded-3xl p-8 shadow-xl">
-                    <div class="text-center">
-                        <div class="relative w-32 h-32 mx-auto mb-6">
-                            <img src="../LAKSHAY.jpg" alt="Lakshay Gupta" class="w-full h-full rounded-full object-cover shadow-lg">
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Lakshay Gupta</h3>
-                        <p class="text-orange-600 font-semibold mb-4">Founding Team Member</p>
-                        <p class="text-gray-600 text-sm">Sales operations expert optimizing processes and driving revenue growth</p>
-                    </div>
-                </div>
-                
-                <div class="team-card bg-white rounded-3xl p-8 shadow-xl">
-                    <div class="text-center">
-                        <div class="relative w-32 h-32 mx-auto mb-6">
-                            <img src="../MAN.jpg" alt="Manas Saxena" class="w-full h-full rounded-full object-cover shadow-lg">
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Manas Saxena</h3>
-                        <p class="text-green-600 font-semibold mb-4">Marketing Lead</p>
-                        <p class="text-gray-600 text-sm">Marketing strategist driving brand growth and customer engagement initiatives</p>
-                    </div>
-                </div>
-                
-                <div class="team-card bg-white rounded-3xl p-8 shadow-xl">
-                    <div class="text-center">
-                        <div class="relative w-32 h-32 mx-auto mb-6">
-                            <img src="../RAI.jpg" alt="Raikant Chaudhary" class="w-full h-full rounded-full object-cover shadow-lg">
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Raikant Chaudhary</h3>
-                        <p class="text-purple-600 font-semibold mb-4">Software Developer</p>
-                        <p class="text-gray-600 text-sm">Full-stack developer creating robust AI-powered applications and solutions</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Awards & Certifications Section -->
-    <section class="py-20 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden" id="awards">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-playfair font-bold gradient-text mb-6">Awards & Certifications</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Recognition for excellence in AI innovation and implementation</p>
-                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-6 rounded-full"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white rounded-3xl p-6 shadow-xl text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-trophy text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">AI Innovation Award</h3>
-                    <p class="text-gray-600 text-sm">Tech Excellence Summit 2024</p>
-                </div>
-                
-                <div class="bg-white rounded-3xl p-6 shadow-xl text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-certificate text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">AWS Certified</h3>
-                    <p class="text-gray-600 text-sm">Machine Learning Specialty</p>
-                </div>
-                
-                <div class="bg-white rounded-3xl p-6 shadow-xl text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-medal text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">Best AI Startup</h3>
-                    <p class="text-gray-600 text-sm">India Tech Awards 2023</p>
-                </div>
-                
-                <div class="bg-white rounded-3xl p-6 shadow-xl text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-star text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">ISO 27001</h3>
-                    <p class="text-gray-600 text-sm">Information Security Certified</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600" data-aos="fade-up">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
-            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Join hundreds of companies that trust Saivyy Technologies to deliver innovative AI solutions.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="../index.html#contact" class="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1">
-                    Get Started Today
-                </a>
-                <a href="solutions.html" class="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
-                    View Our Solutions
-                </a>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="relative overflow-hidden">
@@ -727,7 +941,7 @@
         <div class="container mx-auto px-6 py-20 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                 <!-- Company Info -->
-                <div class="lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="lg:col-span-2">
                     <div class="mb-8">
                         <div class="flex items-center space-x-4 mb-6">
                             <div class="relative">
@@ -747,7 +961,7 @@
                         
                         <!-- Social Media Links -->
                         <div class="flex space-x-4">
-                            <a href="#" class="group relative w-12 h-12 bg-gradient-to-r from-blue-600/20 to-blue-700/20 backdrop-blur-sm border border-blue-400/30 rounded-xl flex items-center justify-center text-blue-400 hover:text-white hover:border-blue-400 transition-all duration-300 transform hover:scale-110 hover:rotate-6" target="_blank">
+                            <a href="https://www.linkedin.com/company/saivyy-technologies/" class="group relative w-12 h-12 bg-gradient-to-r from-blue-600/20 to-blue-700/20 backdrop-blur-sm border border-blue-400/30 rounded-xl flex items-center justify-center text-blue-400 hover:text-white hover:border-blue-400 transition-all duration-300 transform hover:scale-110 hover:rotate-6" target="_blank">
                                 <i class="fab fa-linkedin-in text-lg"></i>
                                 <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
                             </a>
@@ -764,16 +978,22 @@
                 </div>
                 
                 <!-- Quick Links -->
-                <div data-aos="fade-up">
+                <div>
                     <h4 class="text-xl font-bold mb-8 text-white flex items-center">
                         <i class="fas fa-link text-blue-400 mr-3 animate-pulse"></i>
                         Quick Links
                     </h4>
                     <ul class="space-y-4">
                         <li>
-                            <a href="about.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
+                            <a href="../index.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
                                 <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">About Us</span>
+                                <span class="font-medium">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="group flex items-center space-x-3 text-blue-400 font-semibold">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                                <span>About Us</span>
                             </a>
                         </li>
                         <li>
@@ -798,7 +1018,7 @@
                 </div>
                 
                 <!-- Services -->
-                <div data-aos="fade-up" data-aos-delay="300">
+                <div>
                     <h4 class="text-xl font-bold mb-8 text-white flex items-center">
                         <i class="fas fa-cogs text-purple-400 mr-3 animate-spin-slow"></i>
                         Services
@@ -832,7 +1052,7 @@
                 </div>
                 
                 <!-- Contact Info -->
-                <div data-aos="fade-up" data-aos-delay="400">
+                <div>
                     <h4 class="text-xl font-bold mb-8 text-white flex items-center">
                         <i class="fas fa-envelope text-cyan-400 mr-3 animate-pulse"></i>
                         Contact
@@ -870,18 +1090,13 @@
             </div>
             
             <!-- Footer Bottom -->
-            <div class="border-t border-gray-700/50 mt-16 pt-8" data-aos="fade-up" data-aos-delay="500">
+            <div class="border-t border-gray-700/50 mt-16 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <div class="text-center md:text-left">
                         <p class="text-gray-400 text-lg">&copy; 2025 <span class="text-blue-400 font-semibold">Saivyy Technologies</span>. All rights reserved.</p>
                         <p class="text-gray-500 text-sm mt-1">Pioneering AI Innovation Since 2024</p>
                     </div>
                     
-                    <div class="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
-                        <a href="#privacy" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Privacy Policy</a>
-                        <a href="#terms" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Terms of Service</a>
-                        <a href="#cookies" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Cookie Policy</a>
-                    </div>
                 </div>
                 
                 <!-- Animated Divider -->
@@ -896,121 +1111,101 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Functionality
+            const mobileMenuBtn = document.getElementById('modernMobileMenuBtn');
+            const mobileMenu = document.getElementById('modernMobileMenu');
+            const modernBackdrop = document.getElementById('modernBackdrop');
+            const modernSidebar = document.getElementById('modernSidebar');
+            const modernCloseBtn = document.getElementById('modernCloseBtn');
+            const modernLine1 = document.getElementById('modernLine1');
+            const modernLine2 = document.getElementById('modernLine2');
+            const modernLine3 = document.getElementById('modernLine3');
 
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
+            let isMenuOpen = false;
 
-        // Team cards stagger animation
-        gsap.from(".team-card", {
-            duration: 0.8,
-            y: 50,
-            opacity: 0,
-            stagger: 0.12,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".team-card",
-                start: "top 80%"
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                
+                if (isMenuOpen) {
+                    // Open menu
+                    mobileMenu.classList.remove('pointer-events-none');
+                    modernBackdrop.classList.remove('bg-black/0', 'backdrop-blur-0', 'pointer-events-none');
+                    modernBackdrop.classList.add('bg-black/50', 'backdrop-blur-sm', 'pointer-events-auto');
+                    modernSidebar.classList.remove('translate-x-full');
+                    modernSidebar.classList.add('translate-x-0');
+                    
+                    // Animate hamburger to X
+                    modernLine1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    modernLine2.style.opacity = '0';
+                    modernLine3.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                    
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    // Close menu
+                    mobileMenu.classList.add('pointer-events-none');
+                    modernBackdrop.classList.add('bg-black/0', 'backdrop-blur-0', 'pointer-events-none');
+                    modernBackdrop.classList.remove('bg-black/50', 'backdrop-blur-sm', 'pointer-events-auto');
+                    modernSidebar.classList.add('translate-x-full');
+                    modernSidebar.classList.remove('translate-x-0');
+                    
+                    // Animate X back to hamburger
+                    modernLine1.style.transform = '';
+                    modernLine2.style.opacity = '';
+                    modernLine3.style.transform = '';
+                    
+                    document.body.style.overflow = '';
+                }
             }
-        });
 
-        // Enhanced scroll animations for values section
-        gsap.from(".group", {
-            duration: 0.6,
-            y: 30,
-            opacity: 0,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".group",
-                start: "top 85%"
-            }
-        });
-        
-        // Add parallax effect to floating elements
-        gsap.to(".animate-float", {
-            y: -30,
-            duration: 2,
-            ease: "power1.inOut",
-            yoyo: true,
-            repeat: -1
-        });
+            // Event listeners
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
+            if (modernCloseBtn) modernCloseBtn.addEventListener('click', toggleMenu);
+            if (modernBackdrop) modernBackdrop.addEventListener('click', toggleMenu);
 
-        // Modern Mobile Menu Toggle Functions
-        function openModernMenu() {
-            const menu = document.getElementById('modernMobileMenu');
-            const backdrop = document.getElementById('modernBackdrop');
-            const sidebar = document.getElementById('modernSidebar');
-            const btn = document.getElementById('modernMobileMenuBtn');
-            const lines = btn.querySelectorAll('.hamburger-line');
-            
-            menu.classList.remove('pointer-events-none');
-            backdrop.classList.add('bg-black/50', 'backdrop-blur-sm', 'pointer-events-auto');
-            sidebar.classList.remove('translate-x-full');
-            
-            // Animate hamburger to X
-            lines[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
-            lines[1].style.opacity = '0';
-            lines[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
-        }
-
-        function closeModernMenu() {
-            const menu = document.getElementById('modernMobileMenu');
-            const backdrop = document.getElementById('modernBackdrop');
-            const sidebar = document.getElementById('modernSidebar');
-            const btn = document.getElementById('modernMobileMenuBtn');
-            const lines = btn.querySelectorAll('.hamburger-line');
-            
-            backdrop.classList.remove('bg-black/50', 'backdrop-blur-sm', 'pointer-events-auto');
-            sidebar.classList.add('translate-x-full');
-            
-            // Reset hamburger lines
-            lines.forEach(line => {
-                line.style.transform = 'none';
-                line.style.opacity = '1';
-            });
-            
-            setTimeout(() => {
-                menu.classList.add('pointer-events-none');
-            }, 500);
-        }
-
-        // Event Listeners for Modern Menu
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuBtn = document.getElementById('modernMobileMenuBtn');
-            const closeBtn = document.getElementById('modernCloseBtn');
-            const backdrop = document.getElementById('modernBackdrop');
-            const navLinks = document.querySelectorAll('#modernSidebar nav a');
-            
-            if (menuBtn) {
-                menuBtn.addEventListener('click', openModernMenu);
-            }
-            
-            if (closeBtn) {
-                closeBtn.addEventListener('click', closeModernMenu);
-            }
-            
-            if (backdrop) {
-                backdrop.addEventListener('click', closeModernMenu);
-            }
-            
-            // Close menu when navigation link is clicked
-            navLinks.forEach(link => {
-                link.addEventListener('click', closeModernMenu);
-            });
-            
-            // Close menu on Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeModernMenu();
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isMenuOpen) {
+                    toggleMenu();
                 }
             });
+
+            // Counter Animation for Statistics
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.dataset.counter);
+                        let current = 0;
+                        const increment = target / 100;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                counter.textContent = target + (counter.textContent.includes('%') ? '%' : '+');
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current) + (counter.textContent.includes('%') ? '%' : '+');
+                            }
+                        }, 20);
+                        counterObserver.unobserve(counter);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all counters
+            document.querySelectorAll('[data-counter]').forEach(counter => {
+                counterObserver.observe(counter);
+            });
+
+
+            console.log('About page loaded successfully (animations disabled)');
         });
     </script>
 </body>
