@@ -29,18 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Achievement cards animation
-    gsap.from(".achievement-card", {
-        duration: 0.8,
-        y: 50,
-        opacity: 0,
-        stagger: 0.15,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: ".achievement-card",
-            start: "top 85%"
-        }
-    });
+    // Achievement cards animation - REMOVED
 
     // Timeline items animation
     gsap.from(".timeline-item", {
