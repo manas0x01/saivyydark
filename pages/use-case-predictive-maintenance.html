@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictive Maintenance | Saivyy Technologies Use Case</title>
+    <meta name="description" content="Optimize operations with Saivyy Technologies' AI-powered predictive maintenance. Reduce downtime by 75%, cut maintenance costs by 50%, and prevent equipment failures through intelligent monitoring.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../saivyyweb.png">
+    <link rel="apple-touch-icon" href="../saivyyweb.png">
+    <meta name="theme-color" content="#7c3aed">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #7c3aed, #8b5cf6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+            background-size: 50px 50px;
+        }
+
+        .use-case-card {
+            transition: all 0.3s ease;
+        }
+        
+        .use-case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body class="font-inter text-gray-800 overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="../index.html" class="flex items-center space-x-3 group">
+                        <div class="relative">
+                            <img src="../saivvyMain.jpeg" alt="Saivyy Technologies" class="h-10 w-10 rounded-full shadow-md group-hover:shadow-lg transition-all duration-300 animate-float">
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-indigo-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold gradient-text font-playfair">Saivyy Technologies</span>
+                            <div class="text-xs text-blue-600 font-medium">AI Solutions</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">About</a>
+                    <a href="solutions.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Solutions</a>
+                    <a href="products.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Products</a>
+                    <a href="portfolio.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Portfolio</a>
+                    <a href="blog.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Blog</a>
+                    <a href="use-cases.html" class="text-blue-600 font-medium px-3 py-2 rounded-lg bg-blue-50">Use Cases</a>
+                    <a href="../index.html#contact" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden relative z-[105] w-12 h-12 rounded-xl bg-white bg-opacity-90 backdrop-blur-sm shadow-lg border border-gray-200 hover:bg-opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300" id="modernMobileMenuBtn" aria-label="Toggle mobile menu">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center space-y-1.5">
+                        <div class="w-5 h-0.5 bg-gray-700 transition-all duration-300 ease-out hamburger-line"></div>
+                        <div class="w-5 h-0.5 bg-gray-700 transition-all duration-300 ease-out hamburger-line"></div>
+                        <div class="w-5 h-0.5 bg-gray-700 transition-all duration-300 ease-out hamburger-line"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-violet-900 to-purple-900">
+        <div class="absolute inset-0 hero-pattern opacity-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-10 w-32 h-32 border border-violet-500/30 rotate-45 animate-float"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full animate-pulse"></div>
+            <div class="absolute bottom-32 left-20 w-40 h-40 border-2 border-purple-500/20 rounded-full animate-spin-slow"></div>
+        </div>
+        
+        <div class="relative z-10 w-full max-w-6xl mx-auto px-6">
+            <div class="text-center space-y-8">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-500/30 backdrop-blur-sm">
+                    <div class="w-2 h-2 bg-violet-400 rounded-full mr-3 animate-pulse"></div>
+                    <span class="text-violet-300 text-sm font-medium">AI Use Case Study</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-white max-w-5xl mx-auto">
+                    Predictive
+                    <span class="bg-gradient-to-r from-violet-400 via-purple-500 to-fuchsia-600 bg-clip-text text-transparent block">
+                        Maintenance
+                    </span>
+                </h1>
+                
+                <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                    Optimize industrial operations with AI-powered predictive maintenance that reduces equipment downtime by 75%, cuts maintenance costs by 50%, and prevents failures through intelligent monitoring and analysis.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="document.getElementById('overview').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-gradient-to-r from-violet-500 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-violet-500/25 transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fas fa-cogs mr-2"></i>View Overview
+                    </button>
+                    <button onclick="document.getElementById('implementation').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-400 hover:text-white transition-all duration-300 hover:bg-white/10">
+                        <i class="fas fa-wrench mr-2"></i>Implementation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-white" data-aos="fade-up">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Use Case Overview</h2>
+                    <p class="text-xl text-gray-600">Transforming industrial maintenance through intelligent prediction and automation</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-gray-900">The Challenge</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Traditional reactive maintenance approaches lead to costly downtime, unexpected failures, and inefficient resource allocation:
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-exclamation-triangle text-red-500 mt-1"></i>
+                                <span class="text-gray-700">30-50% of maintenance budget wasted on unnecessary tasks</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-clock text-red-500 mt-1"></i>
+                                <span class="text-gray-700">Average 4-hour downtime per equipment failure</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-dollar-sign text-red-500 mt-1"></i>
+                                <span class="text-gray-700">$50K-500K cost per hour of unplanned downtime</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-tools text-red-500 mt-1"></i>
+                                <span class="text-gray-700">Lack of visibility into equipment health and performance</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-violet-50 to-purple-100 p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Our AI Solution</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-violet-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-white text-sm"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">Predictive Analytics</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-sensor text-white text-sm"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">IoT Sensor Integration</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-fuchsia-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-robot text-white text-sm"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">Automated Scheduling</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-pink-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-bell text-white text-sm"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">Real-Time Alerts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-50 via-violet-50 to-purple-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Key Features & Capabilities</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive predictive maintenance features designed to maximize equipment uptime and efficiency
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="use-case-card bg-white/70 backdrop-blur-sm border border-white/30 p-6 rounded-2xl shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-400 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Failure Prediction</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Advanced machine learning algorithms analyze equipment patterns to predict failures 2-8 weeks in advance with 95% accuracy.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="use-case-card bg-white/70 backdrop-blur-sm border border-white/30 p-6 rounded-2xl shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-fuchsia-400 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-sensor text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Condition Monitoring</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Real-time monitoring of vibration, temperature, pressure, and other critical parameters through IoT sensors and edge computing.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="use-case-card bg-white/70 backdrop-blur-sm border border-white/30 p-6 rounded-2xl shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-fuchsia-500 to-pink-400 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-calendar-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Optimal Scheduling</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        AI-powered maintenance scheduling optimizes resource allocation, minimizes production disruption, and maximizes equipment lifecycle.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="use-case-card bg-white/70 backdrop-blur-sm border border-white/30 p-6 rounded-2xl shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-400 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tools text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Root Cause Analysis</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Intelligent analysis identifies root causes of equipment issues and recommends specific maintenance actions and parts replacement.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="use-case-card bg-white/70 backdrop-blur-sm border border-white/30 p-6 rounded-2xl shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-violet-400 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Mobile Workforce</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Mobile applications provide technicians with real-time equipment data, maintenance instructions, and augmented reality guidance.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="use-case-card bg-white/70 backdrop-blur-sm border border-white/30 p-6 rounded-2xl shadow-xl">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-400 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-bar text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Performance Analytics</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Comprehensive dashboards and analytics provide insights into equipment performance, maintenance efficiency, and cost optimization.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-50 via-violet-50 to-purple-100">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Real-World Case Study</h2>
+                    <p class="text-xl text-gray-600">Success story from a leading manufacturing company</p>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="inline-flex items-center px-4 py-2 bg-violet-100 text-violet-800 rounded-full text-sm font-medium mb-6">
+                                Global Manufacturing Success
+                            </div>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-6">Automotive Manufacturer Eliminates 75% of Downtime</h3>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                A Fortune 100 automotive manufacturer with 15 global facilities deployed our predictive maintenance platform across their production lines, achieving remarkable improvements in operational efficiency and cost savings.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-green-600"></i>
+                                    </div>
+                                    <span class="text-gray-700">Reduced unplanned downtime by 75%</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-green-600"></i>
+                                    </div>
+                                    <span class="text-gray-700">Cut maintenance costs by 50%</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-green-600"></i>
+                                    </div>
+                                    <span class="text-gray-700">Increased equipment efficiency by 65%</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-green-600"></i>
+                                    </div>
+                                    <span class="text-gray-700">Improved product quality by 30%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-8">
+                            <div class="bg-gradient-to-br from-violet-50 to-purple-100 p-6 rounded-2xl">
+                                <h4 class="text-lg font-bold text-gray-900 mb-3">Implementation Timeline</h4>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Equipment Assessment</span>
+                                        <span class="text-violet-600 font-medium">4 weeks</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Sensor Installation</span>
+                                        <span class="text-violet-600 font-medium">8 weeks</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">AI System Training</span>
+                                        <span class="text-violet-600 font-medium">12 weeks</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Full Production</span>
+                                        <span class="text-violet-600 font-medium">4 weeks</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-purple-50 to-fuchsia-100 p-6 rounded-2xl">
+                                <h4 class="text-lg font-bold text-gray-900 mb-3">Financial Impact</h4>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Annual Cost Savings</span>
+                                        <span class="text-purple-600 font-medium">$45M</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Implementation Investment</span>
+                                        <span class="text-gray-600 font-medium">$3.8M</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Additional Revenue</span>
+                                        <span class="text-purple-600 font-medium">$28M</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">3-Year ROI</span>
+                                        <span class="text-purple-600 font-bold">5,750%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-violet-600 to-purple-600 text-white text-center">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-6">Ready to Optimize Your Maintenance Operations?</h2>
+                <p class="text-xl mb-8 leading-relaxed">
+                    Transform industrial maintenance with AI-powered predictive solutions. Reduce downtime by 75%, cut costs by 50%, and prevent equipment failures. Get started with a free maintenance assessment today.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="../index.html#contact" class="inline-flex items-center px-8 py-4 bg-white text-violet-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-cogs mr-3"></i>
+                        Get Free Maintenance Assessment
+                    </a>
+                    <a href="tel:+1234567890" class="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-violet-600 transition-all duration-300">
+                        <i class="fas fa-phone mr-3"></i>
+                        Call Maintenance Experts: +1 (234) 567-890
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-6 md:mb-0">
+                    <img src="../saivvyMain.jpeg" alt="Saivyy Technologies" class="h-10 w-10 rounded-full">
+                    <span class="text-xl font-bold">Saivyy Technologies</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/saivyy_technologies/?utm_source=ig_web_button_share_sheet" class="hover:text-violet-400 transition-colors duration-300" title="Follow us on Instagram">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/saivyy-technologies/" class="hover:text-violet-400 transition-colors duration-300" title="Connect with us on LinkedIn">
+                        <i class="fab fa-linkedin-in text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Saivyy Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero section animations
+        gsap.timeline()
+            .from("h1", { duration: 1, y: 50, opacity: 0, ease: "power2.out" })
+            .from("h1 + p", { duration: 0.8, y: 30, opacity: 0, ease: "power2.out" }, "-=0.5");
+
+        // Use case cards animation
+        gsap.from(".use-case-card", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".use-case-card",
+                start: "top 80%"
+            }
+        });
+    </script>
+</body>
+</html>
