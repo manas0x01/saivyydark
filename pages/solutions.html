@@ -54,6 +54,35 @@
     </script>
     
     <style>
+        /* Performance optimizations */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        section {
+            contain: layout style paint;
+        }
+        
+        .gpu-accelerate {
+            will-change: transform;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        /* Disable animations on reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
         .gradient-text {
             background: linear-gradient(135deg, #1e40af, #3b82f6, #06b6d4);
             -webkit-background-clip: text;
@@ -64,12 +93,23 @@
         .glass {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .hero-pattern {
             background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
             background-size: 50px 50px;
+        }
+        
+        /* Smooth solution cards */
+        .solution-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-8px);
         }
     </style>
 </head>
@@ -218,24 +258,33 @@
         <div class="relative z-10 w-full max-w-4xl mx-auto px-6 text-center">
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 backdrop-blur-sm mb-8">
                 <div class="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-                <span class="text-cyan-300 text-sm font-medium">AI Solutions Portfolio</span>
+                <span class="text-cyan-300 text-sm font-medium">12+ Enterprise AI Solutions</span>
             </div>
             
             <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
-                <span class="text-white">Intelligent</span><br>
-                <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">Solutions</span>
+                <span class="text-white">Next-Gen AI &</span><br>
+                <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">Big Data Solutions</span>
             </h1>
             
-            <p class="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8">
-                Transform your business with our comprehensive suite of AI-powered solutions designed to drive efficiency, innovation, and growth.
+            <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8">
+                From Machine Learning and Generative AI to Autonomous Databases and Big Data Analytics — discover our comprehensive portfolio of intelligent solutions engineered to transform enterprises, optimize operations, and unlock exponential growth.
             </p>
+            
+            <!-- Solution Highlights -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-brain mr-1 text-cyan-400"></i>Machine Learning</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-database mr-1 text-blue-400"></i>Big Data</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-server mr-1 text-purple-400"></i>Autonomous DB</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-wand-magic-sparkles mr-1 text-pink-400"></i>Generative AI</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-cloud mr-1 text-indigo-400"></i>Cloud & DevOps</span>
+            </div>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <button onclick="scrollToSolutions()" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                    <i class="fas fa-cogs mr-2"></i>Explore Solutions
+                    <i class="fas fa-rocket mr-2"></i>Explore All Solutions
                 </button>
                 <button onclick="scrollToCTA()" class="px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-400 hover:text-white transition-all duration-300 hover:bg-white/10">
-                    <i class="fas fa-calendar mr-2"></i>Schedule Demo
+                    <i class="fas fa-video mr-2"></i>Book a Demo
                 </button>
             </div>
         </div>
@@ -257,7 +306,7 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Machine Learning -->
-                <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="solution-card bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-xl shadow-lg">
                     <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-brain text-white text-2xl"></i>
                     </div>
@@ -275,8 +324,46 @@
                     </button>
                 </div>
                 
+                <!-- Big Data Analytics - NEW -->
+                <div class="solution-card bg-gradient-to-br from-indigo-50 to-purple-100 p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-database text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Big Data Analytics</h3>
+                    <p class="text-gray-700 mb-6">
+                        Process and analyze massive datasets with our scalable big data infrastructure for real-time insights and decision making.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-indigo-500 mr-2"></i>Petabyte-Scale Processing</li>
+                        <li class="flex items-center"><i class="fas fa-check text-indigo-500 mr-2"></i>Data Lake Architecture</li>
+                        <li class="flex items-center"><i class="fas fa-check text-indigo-500 mr-2"></i>Stream Processing</li>
+                    </ul>
+                    <button onclick="showLearnMore('big-data')" class="text-indigo-600 font-semibold hover:text-indigo-700 transition-colors duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Autonomous Database Solutions - NEW -->
+                <div class="solution-card bg-gradient-to-br from-slate-50 to-gray-100 p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-r from-slate-600 to-gray-700 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-server text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Autonomous Database</h3>
+                    <p class="text-gray-700 mb-6">
+                        Self-managing, self-securing database solutions that handle large-scale data operations with AI-driven automation.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-slate-500 mr-2"></i>Auto-Scaling & Optimization</li>
+                        <li class="flex items-center"><i class="fas fa-check text-slate-500 mr-2"></i>Self-Healing Systems</li>
+                        <li class="flex items-center"><i class="fas fa-check text-slate-500 mr-2"></i>Intelligent Query Processing</li>
+                    </ul>
+                    <button onclick="showLearnMore('autonomous-db')" class="text-slate-600 font-semibold hover:text-slate-700 transition-colors duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
                 <!-- Natural Language Processing -->
-                <div class="bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="solution-card bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-xl shadow-lg">
                     <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-comments text-white text-2xl"></i>
                     </div>
@@ -295,7 +382,7 @@
                 </div>
                 
                 <!-- Computer Vision -->
-                <div class="bg-gradient-to-br from-purple-50 to-violet-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="solution-card bg-gradient-to-br from-purple-50 to-violet-100 p-8 rounded-xl shadow-lg">
                     <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-eye text-white text-2xl"></i>
                     </div>
@@ -314,7 +401,7 @@
                 </div>
                 
                 <!-- Data Analytics -->
-                <div class="bg-gradient-to-br from-orange-50 to-amber-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="solution-card bg-gradient-to-br from-orange-50 to-amber-100 p-8 rounded-xl shadow-lg">
                     <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-amber-600 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-chart-line text-white text-2xl"></i>
                     </div>
@@ -333,7 +420,7 @@
                 </div>
                 
                 <!-- Process Automation -->
-                <div class="bg-gradient-to-br from-cyan-50 to-teal-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="solution-card bg-gradient-to-br from-cyan-50 to-teal-100 p-8 rounded-xl shadow-lg">
                     <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-cogs text-white text-2xl"></i>
                     </div>
@@ -351,8 +438,65 @@
                     </button>
                 </div>
                 
+                <!-- Generative AI - NEW -->
+                <div class="solution-card bg-gradient-to-br from-fuchsia-50 to-pink-100 p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-r from-fuchsia-500 to-pink-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-wand-magic-sparkles text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Generative AI</h3>
+                    <p class="text-gray-700 mb-6">
+                        Create content, code, and creative assets with state-of-the-art generative AI models and LLM integrations.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-fuchsia-500 mr-2"></i>Custom LLM Solutions</li>
+                        <li class="flex items-center"><i class="fas fa-check text-fuchsia-500 mr-2"></i>Content Generation</li>
+                        <li class="flex items-center"><i class="fas fa-check text-fuchsia-500 mr-2"></i>Code Assistants</li>
+                    </ul>
+                    <button onclick="showLearnMore('generative-ai')" class="text-fuchsia-600 font-semibold hover:text-fuchsia-700 transition-colors duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Cloud & DevOps - NEW -->
+                <div class="solution-card bg-gradient-to-br from-sky-50 to-blue-100 p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-r from-sky-500 to-blue-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cloud text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Cloud & DevOps</h3>
+                    <p class="text-gray-700 mb-6">
+                        Scalable cloud infrastructure and CI/CD pipelines to deploy and manage AI solutions at enterprise scale.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-sky-500 mr-2"></i>Multi-Cloud Architecture</li>
+                        <li class="flex items-center"><i class="fas fa-check text-sky-500 mr-2"></i>Kubernetes & Containers</li>
+                        <li class="flex items-center"><i class="fas fa-check text-sky-500 mr-2"></i>MLOps Pipelines</li>
+                    </ul>
+                    <button onclick="showLearnMore('cloud-devops')" class="text-sky-600 font-semibold hover:text-sky-700 transition-colors duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- IoT & Edge AI - NEW -->
+                <div class="solution-card bg-gradient-to-br from-teal-50 to-emerald-100 p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-emerald-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-microchip text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">IoT & Edge AI</h3>
+                    <p class="text-gray-700 mb-6">
+                        Deploy intelligent AI models at the edge for real-time processing and low-latency decision making.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-teal-500 mr-2"></i>Edge Computing</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-500 mr-2"></i>Sensor Analytics</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-500 mr-2"></i>Predictive Maintenance</li>
+                    </ul>
+                    <button onclick="showLearnMore('iot-edge')" class="text-teal-600 font-semibold hover:text-teal-700 transition-colors duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
                 <!-- AI Consulting -->
-                <div class="bg-gradient-to-br from-pink-50 to-rose-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="solution-card bg-gradient-to-br from-pink-50 to-rose-100 p-8 rounded-xl shadow-lg">
                     <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-rose-600 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-lightbulb text-white text-2xl"></i>
                     </div>
@@ -366,6 +510,25 @@
                         <li class="flex items-center"><i class="fas fa-check text-pink-500 mr-2"></i>ROI Analysis</li>
                     </ul>
                     <button onclick="showLearnMore('ai-consulting')" class="text-pink-600 font-semibold hover:text-pink-700 transition-colors duration-300">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- API & Integration - NEW -->
+                <div class="solution-card bg-gradient-to-br from-violet-50 to-indigo-100 p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-r from-violet-500 to-indigo-600 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-plug text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">API & Integration</h3>
+                    <p class="text-gray-700 mb-6">
+                        Connect AI capabilities to your existing systems with robust APIs and seamless integrations.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-violet-500 mr-2"></i>RESTful APIs</li>
+                        <li class="flex items-center"><i class="fas fa-check text-violet-500 mr-2"></i>Legacy System Integration</li>
+                        <li class="flex items-center"><i class="fas fa-check text-violet-500 mr-2"></i>Real-time Data Sync</li>
+                    </ul>
+                    <button onclick="showLearnMore('api-integration')" class="text-violet-600 font-semibold hover:text-violet-700 transition-colors duration-300">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </button>
                 </div>
@@ -528,31 +691,31 @@
                 <!-- Quick Links -->
                 <div data-aos="fade-up" data-aos-delay="200">
                     <h4 class="text-xl font-bold mb-8 text-white flex items-center">
-                        <i class="fas fa-link text-blue-400 mr-3 animate-pulse"></i>
+                        <i class="fas fa-link text-blue-400 mr-3"></i>
                         Quick Links
                     </h4>
                     <ul class="space-y-4">
                         <li>
-                            <a href="about.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                            <a href="about.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
                                 <span class="font-medium">About Us</span>
                             </a>
                         </li>
                         <li>
-                            <a href="solutions.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                            <a href="solutions.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
                                 <span class="font-medium">Our Solutions</span>
                             </a>
                         </li>
                         <li>
-                            <a href="portfolio.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                            <a href="portfolio.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
                                 <span class="font-medium">Portfolio</span>
                             </a>
                         </li>
                         <li>
-                            <a href="blog.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                            <a href="blog.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
                                 <span class="font-medium">Blog</span>
                             </a>
                         </li>
@@ -562,32 +725,32 @@
                 <!-- Services -->
                 <div data-aos="fade-up" data-aos-delay="300">
                     <h4 class="text-xl font-bold mb-8 text-white flex items-center">
-                        <i class="fas fa-cogs text-purple-400 mr-3 animate-spin-slow"></i>
+                        <i class="fas fa-cogs text-purple-400 mr-3"></i>
                         Services
                     </h4>
                     <ul class="space-y-4">
                         <li>
                             <div class="group flex items-center space-x-3 text-gray-300">
-                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">AI Automation</span>
+                                <div class="w-2 h-2 bg-purple-400 rounded-full"></div>
+                                <span class="font-medium">Big Data Analytics</span>
                             </div>
                         </li>
                         <li>
                             <div class="group flex items-center space-x-3 text-gray-300">
-                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                                <div class="w-2 h-2 bg-purple-400 rounded-full"></div>
                                 <span class="font-medium">Generative AI</span>
                             </div>
                         </li>
                         <li>
                             <div class="group flex items-center space-x-3 text-gray-300">
-                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                                <div class="w-2 h-2 bg-purple-400 rounded-full"></div>
                                 <span class="font-medium">Machine Learning</span>
                             </div>
                         </li>
                         <li>
                             <div class="group flex items-center space-x-3 text-gray-300">
-                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">Data Analytics</span>
+                                <div class="w-2 h-2 bg-purple-400 rounded-full"></div>
+                                <span class="font-medium">Autonomous DB</span>
                             </div>
                         </li>
                     </ul>
@@ -596,7 +759,7 @@
                 <!-- Contact Info -->
                 <div data-aos="fade-up" data-aos-delay="400">
                     <h4 class="text-xl font-bold mb-8 text-white flex items-center">
-                        <i class="fas fa-envelope text-cyan-400 mr-3 animate-pulse"></i>
+                        <i class="fas fa-envelope text-cyan-400 mr-3"></i>
                         Contact
                     </h4>
                     <ul class="space-y-6">
@@ -641,12 +804,11 @@
                     
                 </div>
                 
-                <!-- Animated Divider -->
+                <!-- Simple Divider -->
                 <div class="mt-8 relative">
-                    <div class="h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent animate-pulse"></div>
+                    <div class="h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
                     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <div class="w-3 h-3 bg-blue-400 rounded-full animate-ping"></div>
-                        <div class="absolute inset-0 w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+                        <div class="w-3 h-3 bg-blue-400 rounded-full"></div>
                     </div>
                 </div>
             </div>
@@ -701,26 +863,27 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Optimized AOS config for smooth scrolling
         AOS.init({
-            duration: 1000,
-            once: true
+            duration: 600,
+            once: true,
+            offset: 50,
+            easing: 'ease-out',
+            throttleDelay: 99,
+            debounceDelay: 50,
+            disable: window.innerWidth < 768
         });
+        
+        // Passive scroll listeners for performance
+        document.addEventListener('scroll', function() {}, { passive: true });
+        document.addEventListener('touchstart', function() {}, { passive: true });
+        document.addEventListener('touchmove', function() {}, { passive: true });
 
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
 
-        // Service items stagger animation
-        gsap.from(".service-item", {
-            duration: 0.8,
-            y: 50,
-            opacity: 0,
-            stagger: 0.15,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".service-item",
-                start: "top 80%"
-            }
-        });
+        // Service items stagger animation - disabled for performance
+        // Use CSS transitions instead
 
  // Smooth scroll functions
         function scrollToSolutions() {
@@ -865,6 +1028,132 @@
                         'Build internal AI capabilities',
                         'Stay ahead of industry competition'
                     ]
+                },
+                'big-data': {
+                    title: 'Big Data Analytics',
+                    icon: 'fas fa-database',
+                    iconBg: 'bg-gradient-to-r from-indigo-500 to-purple-600',
+                    description: 'Process and analyze massive datasets with our scalable big data infrastructure. Handle petabyte-scale data processing with distributed computing, real-time stream processing, and advanced analytics for enterprise-grade insights.',
+                    features: [
+                        'Petabyte-Scale Data Processing',
+                        'Data Lake & Warehouse Architecture',
+                        'Real-time Stream Processing (Kafka, Spark)',
+                        'Distributed Computing (Hadoop, Spark)',
+                        'Data Pipeline Orchestration',
+                        'Advanced Data Visualization'
+                    ],
+                    benefits: [
+                        'Process millions of records in seconds',
+                        'Unified view of all enterprise data',
+                        'Real-time analytics and reporting',
+                        'Cost-effective storage solutions',
+                        'Scalable infrastructure that grows with you'
+                    ]
+                },
+                'autonomous-db': {
+                    title: 'Autonomous Database Solutions',
+                    icon: 'fas fa-server',
+                    iconBg: 'bg-gradient-to-r from-slate-600 to-gray-700',
+                    description: 'Self-managing, self-securing, and self-repairing database solutions that leverage AI for automatic optimization. Handle large-scale data operations with zero downtime and intelligent query processing.',
+                    features: [
+                        'Auto-Scaling & Load Balancing',
+                        'Self-Healing & Recovery',
+                        'Intelligent Query Optimization',
+                        'Automated Backup & Security',
+                        'Multi-Region Replication',
+                        'AI-Driven Performance Tuning'
+                    ],
+                    benefits: [
+                        'Reduce DBA workload by 80%',
+                        '99.999% uptime guarantee',
+                        'Automatic security patching',
+                        'Horizontal scaling on demand',
+                        'Lower total cost of ownership'
+                    ]
+                },
+                'generative-ai': {
+                    title: 'Generative AI Solutions',
+                    icon: 'fas fa-wand-magic-sparkles',
+                    iconBg: 'bg-gradient-to-r from-fuchsia-500 to-pink-600',
+                    description: 'Harness the power of large language models and generative AI for content creation, code generation, and creative automation. Build custom LLM solutions tailored to your business needs.',
+                    features: [
+                        'Custom LLM Fine-tuning',
+                        'Content & Copy Generation',
+                        'AI Code Assistants',
+                        'Image & Video Generation',
+                        'RAG (Retrieval-Augmented Generation)',
+                        'Conversational AI Agents'
+                    ],
+                    benefits: [
+                        'Accelerate content creation by 10x',
+                        'Reduce development time with AI assistants',
+                        'Create personalized customer experiences',
+                        'Automate creative workflows',
+                        'Unlock new product opportunities'
+                    ]
+                },
+                'cloud-devops': {
+                    title: 'Cloud & DevOps',
+                    icon: 'fas fa-cloud',
+                    iconBg: 'bg-gradient-to-r from-sky-500 to-blue-600',
+                    description: 'Build scalable, resilient cloud infrastructure with modern DevOps practices. Deploy AI solutions with confidence using CI/CD pipelines, containerization, and MLOps best practices.',
+                    features: [
+                        'Multi-Cloud Architecture (AWS, Azure, GCP)',
+                        'Kubernetes & Container Orchestration',
+                        'CI/CD Pipeline Automation',
+                        'MLOps & Model Deployment',
+                        'Infrastructure as Code',
+                        'Monitoring & Observability'
+                    ],
+                    benefits: [
+                        'Deploy models in minutes, not weeks',
+                        'Achieve 99.9% service availability',
+                        'Reduce infrastructure costs by 40%',
+                        'Scale automatically based on demand',
+                        'Streamline collaboration between teams'
+                    ]
+                },
+                'iot-edge': {
+                    title: 'IoT & Edge AI',
+                    icon: 'fas fa-microchip',
+                    iconBg: 'bg-gradient-to-r from-teal-500 to-emerald-600',
+                    description: 'Deploy intelligent AI models at the edge for real-time processing and low-latency decision making. Connect IoT devices to cloud analytics for comprehensive industrial intelligence.',
+                    features: [
+                        'Edge Computing & Inference',
+                        'IoT Sensor Integration',
+                        'Predictive Maintenance',
+                        'Real-time Anomaly Detection',
+                        'Industrial IoT Platforms',
+                        'Smart Device Management'
+                    ],
+                    benefits: [
+                        'Sub-millisecond response times',
+                        'Reduce downtime by 50%',
+                        'Process data locally for privacy',
+                        'Lower bandwidth and cloud costs',
+                        'Enable offline AI capabilities'
+                    ]
+                },
+                'api-integration': {
+                    title: 'API & Integration',
+                    icon: 'fas fa-plug',
+                    iconBg: 'bg-gradient-to-r from-violet-500 to-indigo-600',
+                    description: 'Connect AI capabilities to your existing systems with robust APIs and seamless integrations. Build unified data pipelines and enable real-time synchronization across your enterprise.',
+                    features: [
+                        'RESTful & GraphQL APIs',
+                        'Legacy System Integration',
+                        'Real-time Data Sync',
+                        'Webhook & Event-driven Architecture',
+                        'API Gateway & Management',
+                        'Custom Middleware Development'
+                    ],
+                    benefits: [
+                        'Connect any system in days',
+                        'Eliminate data silos',
+                        'Enable real-time workflows',
+                        'Reduce integration maintenance',
+                        'Future-proof your architecture'
+                    ]
                 }
             };
             
@@ -929,31 +1218,6 @@
             if (e.key === 'Escape') {
                 closeServiceModal();
             }
-        });
-        
-        // Add hover effects for service cards
-        document.addEventListener('DOMContentLoaded', function() {
-            const serviceCards = document.querySelectorAll('.service-item');
-            
-            serviceCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    gsap.to(this, {
-                        duration: 0.3,
-                        scale: 1.02,
-                        y: -8,
-                        ease: "power2.out"
-                    });
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    gsap.to(this, {
-                        duration: 0.3,
-                        scale: 1,
-                        y: 0,
-                        ease: "power2.out"
-                    });
-                });
-            });
         });
 
         // Modern Mobile Menu Toggle Functions

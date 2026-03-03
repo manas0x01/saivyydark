@@ -54,6 +54,35 @@
     </script>
     
     <style>
+        /* Performance optimizations */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        section {
+            contain: layout style paint;
+        }
+        
+        .gpu-accelerate {
+            will-change: transform;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        /* Disable animations on reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
         .gradient-text {
             background: linear-gradient(135deg, #1e40af, #3b82f6, #06b6d4);
             -webkit-background-clip: text;
@@ -70,6 +99,16 @@
         .hero-pattern {
             background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
             background-size: 50px 50px;
+        }
+        
+        /* Smooth product cards */
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
         }
     </style>
 </head>
@@ -215,27 +254,56 @@
             <div class="absolute bottom-32 left-20 w-40 h-40 border-2 border-purple-500/20 rounded-full animate-spin-slow"></div>
         </div>
         
-        <div class="relative z-10 w-full max-w-4xl mx-auto px-6 text-center">
+        <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center">
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 backdrop-blur-sm mb-8">
                 <div class="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-                <span class="text-cyan-300 text-sm font-medium">AI Products & Platforms</span>
+                <span class="text-cyan-300 text-sm font-medium">10+ Enterprise AI Products</span>
             </div>
             
             <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
-                <span class="text-white">Next-Gen</span><br>
-                <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">AI Products</span>
+                <span class="text-white">Enterprise-Grade</span><br>
+                <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">AI Platforms</span>
             </h1>
             
-            <p class="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8">
-                Discover our suite of cutting-edge AI products designed to accelerate your digital transformation and drive business innovation.
+            <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8">
+                From intelligent automation and Generative AI studios to Big Data platforms and Autonomous Database solutions — discover production-ready AI products engineered for enterprise scale, security, and performance.
             </p>
+            
+            <!-- Product Highlights -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-brain mr-1 text-cyan-400"></i>AI Engine</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-wand-magic-sparkles mr-1 text-purple-400"></i>GenAI Studio</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-database mr-1 text-blue-400"></i>Big Data</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-server mr-1 text-green-400"></i>AutoDB</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-shield-halved mr-1 text-red-400"></i>AI Security</span>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 max-w-3xl mx-auto">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white">99.9%</div>
+                    <div class="text-sm text-gray-400">Uptime SLA</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white">50ms</div>
+                    <div class="text-sm text-gray-400">Avg Response</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white">SOC2</div>
+                    <div class="text-sm text-gray-400">Compliant</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white">24/7</div>
+                    <div class="text-sm text-gray-400">Support</div>
+                </div>
+            </div>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <button onclick="scrollToProducts()" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                    <i class="fas fa-rocket mr-2"></i>Explore Products
+                    <i class="fas fa-rocket mr-2"></i>View All Products
                 </button>
                 <button onclick="scrollToCTA()" class="px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-400 hover:text-white transition-all duration-300 hover:bg-white/10">
-                    <i class="fas fa-play mr-2"></i>Request Demo
+                    <i class="fas fa-video mr-2"></i>Schedule Demo
                 </button>
             </div>
         </div>
@@ -247,11 +315,11 @@
             <div class="text-center mb-16">
                 <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-6">
                     <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    <span class="text-blue-600 text-sm font-medium">Our Product Suite</span>
+                    <span class="text-blue-600 text-sm font-medium">Enterprise AI Product Suite</span>
                 </div>
-                <h2 class="text-4xl font-bold text-gray-900 mb-6">Innovative AI Solutions</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Comprehensive AI platforms and tools built to solve real-world business challenges with cutting-edge technology.
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Production-Ready AI Platforms</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    From intelligent decision engines and Generative AI studios to Big Data platforms and Autonomous Database solutions — enterprise-grade AI products engineered for scale, security, and performance.
                 </p>
             </div>
             
@@ -471,82 +539,411 @@
                         <span class="text-2xl font-bold text-gray-900">$449/mo</span>
                     </div>
                 </div>
+                
+                <!-- Saivyy BigData -->
+                <div class="bg-gradient-to-br from-slate-50 to-zinc-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-slate-600 to-zinc-700 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-database text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">Saivyy BigData</h3>
+                            <p class="text-slate-600 font-medium">Big Data Analytics Platform</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Enterprise-scale big data platform for processing petabytes of data with distributed computing, real-time streaming, and advanced analytics.
+                    </p>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-slate-500 mr-3"></i>
+                            <span>Petabyte-scale processing</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-slate-500 mr-3"></i>
+                            <span>Real-time data streaming</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-slate-500 mr-3"></i>
+                            <span>Data lake & warehouse integration</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button onclick="showProductModal('saivyy-bigdata')" class="px-6 py-3 bg-gradient-to-r from-slate-600 to-zinc-700 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-slate-500/25 transition-all duration-300">
+                            Learn More
+                        </button>
+                        <span class="text-2xl font-bold text-gray-900">$599/mo</span>
+                    </div>
+                </div>
+                
+                <!-- Saivyy GenAI Studio -->
+                <div class="bg-gradient-to-br from-fuchsia-50 to-violet-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-fuchsia-500 to-violet-600 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-wand-magic-sparkles text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">Saivyy GenAI</h3>
+                            <p class="text-fuchsia-600 font-medium">Generative AI Studio</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Build and deploy generative AI applications with LLM fine-tuning, RAG pipelines, prompt engineering, and enterprise AI assistants.
+                    </p>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-fuchsia-500 mr-3"></i>
+                            <span>LLM fine-tuning & deployment</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-fuchsia-500 mr-3"></i>
+                            <span>RAG pipeline builder</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-fuchsia-500 mr-3"></i>
+                            <span>Enterprise AI assistants</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button onclick="showProductModal('saivyy-genai')" class="px-6 py-3 bg-gradient-to-r from-fuchsia-500 to-violet-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-fuchsia-500/25 transition-all duration-300">
+                            Learn More
+                        </button>
+                        <span class="text-2xl font-bold text-gray-900">$799/mo</span>
+                    </div>
+                </div>
+                
+                <!-- Saivyy AutoDB -->
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-server text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">Saivyy AutoDB</h3>
+                            <p class="text-emerald-600 font-medium">Autonomous Database</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Self-managing, self-tuning autonomous database with AI-driven optimization, automatic scaling, and intelligent query processing.
+                    </p>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-emerald-500 mr-3"></i>
+                            <span>Self-healing & auto-tuning</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-emerald-500 mr-3"></i>
+                            <span>AI-powered query optimization</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-emerald-500 mr-3"></i>
+                            <span>Automatic scaling & failover</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button onclick="showProductModal('saivyy-autodb')" class="px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
+                            Learn More
+                        </button>
+                        <span class="text-2xl font-bold text-gray-900">$699/mo</span>
+                    </div>
+                </div>
+                
+                <!-- Saivyy Cloud -->
+                <div class="bg-gradient-to-br from-sky-50 to-blue-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-r from-sky-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-cloud text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">Saivyy Cloud</h3>
+                            <p class="text-sky-600 font-medium">AI Cloud Platform</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Complete cloud infrastructure for AI workloads with GPU clusters, MLOps pipelines, and seamless deployment across multi-cloud environments.
+                    </p>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-sky-500 mr-3"></i>
+                            <span>GPU cluster management</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-sky-500 mr-3"></i>
+                            <span>MLOps & CI/CD pipelines</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-sky-500 mr-3"></i>
+                            <span>Multi-cloud deployment</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button onclick="showProductModal('saivyy-cloud')" class="px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-sky-500/25 transition-all duration-300">
+                            Learn More
+                        </button>
+                        <span class="text-2xl font-bold text-gray-900">$549/mo</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="py-20 bg-gray-50" data-aos="fade-up">
+    <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-6">Why Choose Our Products?</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Built with enterprise-grade security, scalability, and performance in mind.
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-6">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                    <span class="text-blue-600 text-sm font-medium">Enterprise-Grade Platform</span>
+                </div>
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Why Choose Saivyy Products?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Built for enterprise scale with bank-grade security, 99.9% uptime SLA, and dedicated support — trusted by Fortune 500 companies worldwide.
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                     <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                        <i class="fas fa-shield-halved text-white text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Enterprise Security</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">SOC 2 Compliant</h3>
                     <p class="text-gray-600">
-                        Bank-level security with end-to-end encryption and compliance certifications.
+                        Bank-level security with SOC 2 Type II, GDPR, HIPAA compliance, and end-to-end encryption.
                     </p>
                 </div>
                 
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-expand-arrows-alt text-white text-xl"></i>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Scalable</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Auto-Scaling</h3>
                     <p class="text-gray-600">
-                        Seamlessly scale from startup to enterprise with our flexible architecture.
+                        Intelligent auto-scaling from startup to enterprise — handle millions of requests seamlessly.
                     </p>
                 </div>
                 
-                <div class="text-center">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                     <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-plug text-white text-xl"></i>
+                        <i class="fas fa-code text-white text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Easy Integration</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Developer-First</h3>
                     <p class="text-gray-600">
-                        RESTful APIs and SDKs for quick integration with existing systems.
+                        REST APIs, Python/JS SDKs, webhooks, and comprehensive documentation for rapid integration.
                     </p>
                 </div>
                 
-                <div class="text-center">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                     <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center">
                         <i class="fas fa-headset text-white text-xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-3">24/7 Support</h3>
                     <p class="text-gray-600">
-                        Dedicated support team available around the clock for assistance.
+                        Dedicated success managers, 4-hour SLA response, and enterprise onboarding assistance.
                     </p>
+                </div>
+            </div>
+            
+            <!-- Additional Features Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="flex items-start space-x-4 p-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-bolt text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-1">50ms Latency</h4>
+                        <p class="text-sm text-gray-600">Ultra-low latency with global edge deployment</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4 p-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-server text-green-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-1">99.9% Uptime</h4>
+                        <p class="text-sm text-gray-600">Enterprise SLA with multi-region redundancy</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4 p-4">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-cloud text-purple-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-1">Multi-Cloud</h4>
+                        <p class="text-sm text-gray-600">Deploy on AWS, Azure, GCP, or on-premise</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4 p-4">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-database text-orange-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-1">Petabyte Scale</h4>
+                        <p class="text-sm text-gray-600">Process massive datasets with distributed computing</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4 p-4">
+                    <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-lock text-cyan-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-1">Data Privacy</h4>
+                        <p class="text-sm text-gray-600">Your data stays yours — no model training on customer data</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4 p-4">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-sync text-red-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-1">Version Control</h4>
+                        <p class="text-sm text-gray-600">Model versioning, rollback, and A/B testing built-in</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Comparison -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-50 border border-green-200 mb-6">
+                    <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                    <span class="text-green-600 text-sm font-medium">Flexible Pricing</span>
+                </div>
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Choose Your Plan</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Start with what you need and scale as you grow. All plans include 14-day free trial.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-blue-300 transition-colors duration-300">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
+                        <p class="text-gray-600 mb-4">For small teams getting started</p>
+                        <div class="text-5xl font-bold text-gray-900">$199<span class="text-lg text-gray-500">/mo</span></div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>Up to 5 team members
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>1 AI product access
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>100K API calls/month
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>Email support
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-gray-400 mr-3"></i>Custom integrations
+                        </li>
+                    </ul>
+                    <button class="w-full py-3 border-2 border-blue-500 text-blue-600 font-semibold rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300">
+                        Start Free Trial
+                    </button>
+                </div>
+                
+                <!-- Professional Plan -->
+                <div class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 text-white transform scale-105 shadow-2xl relative">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <span class="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">Most Popular</span>
+                    </div>
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                        <p class="text-blue-100 mb-4">For growing businesses</p>
+                        <div class="text-5xl font-bold">$499<span class="text-lg text-blue-200">/mo</span></div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>Up to 25 team members
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>5 AI products access
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>1M API calls/month
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>Priority support
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>Custom integrations
+                        </li>
+                    </ul>
+                    <button class="w-full py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300">
+                        Start Free Trial
+                    </button>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-blue-300 transition-colors duration-300">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
+                        <p class="text-gray-600 mb-4">For large organizations</p>
+                        <div class="text-5xl font-bold text-gray-900">Custom</div>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>Unlimited team members
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>All AI products access
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>Unlimited API calls
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>Dedicated support manager
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check text-green-500 mr-3"></i>On-premise deployment
+                        </li>
+                    </ul>
+                    <a href="../index.html#contact" class="block w-full py-3 border-2 border-blue-500 text-blue-600 font-semibold rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300 text-center">
+                        Contact Sales
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section id="cta" class="py-20 bg-gradient-to-r from-blue-600 to-purple-600" data-aos="fade-up">
+    <section id="cta" class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
         <div class="container mx-auto px-6 text-center">
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-6">
                 <div class="w-2 h-2 bg-white rounded-full mr-3 animate-pulse"></div>
-                <span class="text-white text-sm font-medium">Ready to Get Started?</span>
+                <span class="text-white text-sm font-medium">14-Day Free Trial • No Credit Card Required</span>
             </div>
-            <h2 class="text-4xl font-bold text-white mb-6">Transform Your Business with AI</h2>
-            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Start your AI journey today with our cutting-edge products and expert support. Join hundreds of companies already transforming their operations.
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Deploy Enterprise AI?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                Join 500+ companies using Saivyy products to power their AI initiatives. Get started with a free trial or schedule a personalized demo with our solutions team.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <div class="flex flex-wrap gap-4 justify-center mb-8">
                 <a href="../index.html#contact" class="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-xl">
-                    <i class="fas fa-rocket mr-2"></i>Get Started
+                    <i class="fas fa-rocket mr-2"></i>Start Free Trial
                 </a>
-                <a href="portfolio.html" class="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 hover:scale-105">
-                    <i class="fas fa-chart-bar mr-2"></i>View Success Stories
+                <a href="../index.html#contact" class="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 hover:scale-105">
+                    <i class="fas fa-video mr-2"></i>Schedule Demo
                 </a>
+                <a href="solutions.html" class="px-8 py-4 border-2 border-white/50 text-white font-semibold rounded-lg hover:border-white hover:bg-white/10 transition-all duration-300">
+                    <i class="fas fa-cogs mr-2"></i>View Solutions
+                </a>
+            </div>
+            <!-- Trust Badges -->
+            <div class="flex flex-wrap justify-center items-center gap-6 text-white/80 text-sm">
+                <span><i class="fas fa-shield-halved mr-1"></i>SOC 2 Certified</span>
+                <span><i class="fas fa-lock mr-1"></i>GDPR Compliant</span>
+                <span><i class="fas fa-server mr-1"></i>99.9% Uptime SLA</span>
+                <span><i class="fas fa-headset mr-1"></i>24/7 Support</span>
             </div>
         </div>
     </section>
@@ -669,35 +1066,35 @@
                     </ul>
                 </div>
                 
-                <!-- Services -->
-                <div data-aos="fade-up" data-aos-delay="300">
+                <!-- Products -->
+                <div>
                     <h4 class="text-xl font-bold mb-8 text-white flex items-center">
-                        <i class="fas fa-cogs text-purple-400 mr-3 animate-spin-slow"></i>
-                        Services
+                        <i class="fas fa-cube text-purple-400 mr-3"></i>
+                        Products
                     </h4>
                     <ul class="space-y-4">
                         <li>
                             <div class="group flex items-center space-x-3 text-gray-300">
                                 <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">AI Automation</span>
+                                <span class="font-medium">Saivyy Brain</span>
                             </div>
                         </li>
                         <li>
                             <div class="group flex items-center space-x-3 text-gray-300">
                                 <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">Generative AI</span>
+                                <span class="font-medium">Saivyy GenAI</span>
                             </div>
                         </li>
                         <li>
                             <div class="group flex items-center space-x-3 text-gray-300">
                                 <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">Machine Learning</span>
+                                <span class="font-medium">Saivyy BigData</span>
                             </div>
                         </li>
                         <li>
                             <div class="group flex items-center space-x-3 text-gray-300">
                                 <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">Data Analytics</span>
+                                <span class="font-medium">Saivyy AutoDB</span>
                             </div>
                         </li>
                     </ul>
@@ -847,26 +1244,21 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Optimized AOS config for smooth scrolling
         AOS.init({
-            duration: 1000,
-            once: true
+            duration: 600,
+            once: true,
+            throttleDelay: 99,
+            debounceDelay: 50,
+            disable: window.innerWidth < 768
         });
+        
+        // Add passive event listeners for better scroll performance
+        document.addEventListener('scroll', function() {}, { passive: true });
+        document.addEventListener('touchstart', function() {}, { passive: true });
 
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
-
-        // Product cards stagger animation
-        gsap.from(".product-card", {
-            duration: 0.8,
-            y: 50,
-            opacity: 0,
-            stagger: 0.15,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".product-card",
-                start: "top 80%"
-            }
-        });
 
         // Counter animations
         function animateCounters() {

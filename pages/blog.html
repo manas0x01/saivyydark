@@ -39,6 +39,35 @@
     </script>
     
     <style>
+        /* Performance optimizations */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        section {
+            contain: layout style paint;
+        }
+        
+        .gpu-accelerate {
+            will-change: transform;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        /* Disable animations on reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
         .gradient-text {
             background: linear-gradient(135deg, #1e40af, #3b82f6, #06b6d4);
             -webkit-background-clip: text;
@@ -49,6 +78,7 @@
         .glass {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
@@ -60,10 +90,13 @@
         .blog-card {
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
         }
         
         .blog-card:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         
         .featured-article {
@@ -216,24 +249,36 @@
             <div class="absolute bottom-1/4 right-10 w-16 h-16 border border-cyan-400/20 rotate-45"></div>
         </div>
         
-        <div class="relative z-10 w-full max-w-4xl mx-auto px-6 text-center">
+        <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center">
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 backdrop-blur-sm mb-8">
                 <div class="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
-                <span class="text-cyan-300 text-sm font-medium">AI Insights & Trends</span>
+                <span class="text-cyan-300 text-sm font-medium">Weekly AI Insights & Research</span>
             </div>
             
             <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
-                <span class="text-white">AI</span><br>
-                <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">Insights</span>
+                <span class="text-white">AI & Tech</span><br>
+                <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">Intelligence Hub</span>
             </h1>
             
-            <p class="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8">
-                Stay ahead of the curve with expert insights, industry trends, and practical guides from our AI specialists.
+            <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8">
+                Expert analysis on AI Agents, Multimodal AI, Big Data, Generative AI, and the latest breakthroughs shaping enterprise technology in 2026 and beyond.
             </p>
             
+            <!-- Topic Tags -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-robot mr-1 text-cyan-400"></i>AI Agents</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-wand-magic-sparkles mr-1 text-purple-400"></i>Generative AI</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-database mr-1 text-blue-400"></i>Big Data</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-eye mr-1 text-pink-400"></i>Multimodal AI</span>
+                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-microchip mr-1 text-green-400"></i>Edge AI</span>
+            </div>
+            
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="document.getElementById('articles-section').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/25">
+                <button onclick="document.getElementById('articles-section').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300">
                     <i class="fas fa-newspaper mr-2"></i>Latest Articles
+                </button>
+                <button onclick="document.getElementById('newsletter').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-400 hover:text-white transition-all duration-300 hover:bg-white/10">
+                    <i class="fas fa-envelope mr-2"></i>Subscribe
                 </button>
             </div>
         </div>
@@ -242,40 +287,48 @@
     <!-- Featured Article -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-12">
-                    <span class="px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">Featured Article</span>
+                    <span class="px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-600 rounded-full text-sm font-medium"><i class="fas fa-star mr-2"></i>Featured Article</span>
                 </div>
                 
                 <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 lg:p-12">
                     <div class="grid lg:grid-cols-2 gap-8 items-center">
                         <div>
                             <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mr-4">
                                     <i class="fas fa-robot text-white"></i>
                                 </div>
                                 <div>
-                                    <div class="text-sm text-blue-600 font-medium">AI Trends 2024</div>
-                                    <div class="text-sm text-gray-500">December 15, 2024</div>
+                                    <div class="text-sm text-purple-600 font-medium">AI Agents Revolution</div>
+                                    <div class="text-sm text-gray-500">March 1, 2026</div>
                                 </div>
                             </div>
-                            <h2 class="text-3xl font-bold text-gray-900 mb-4">The Future of Generative AI: What to Expect in 2024</h2>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-4">The Rise of AI Agents: From Assistants to Autonomous Systems</h2>
                             <p class="text-gray-700 mb-6">
-                                Explore the latest developments in generative AI technology and how they're reshaping industries. From advanced language models to creative AI applications, discover what's coming next.
+                                2026 marks the inflection point for AI agents — autonomous systems that can reason, plan, and execute complex multi-step tasks. From coding assistants to enterprise workflow automation, discover how AI agents are reshaping how we work and build software.
                             </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">AI Agents</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Agentic AI</span>
+                                <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm">Automation</span>
+                            </div>
                             <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-4">
-                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">AI Trends</span>
-                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Machine Learning</span>
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <i class="fas fa-clock mr-2"></i>12 min read
                                 </div>
-                                <button onclick="showBlogModal('featured-ai-future')" class="text-blue-600 font-semibold hover:text-blue-700">
-                                    Read More <i class="fas fa-arrow-right ml-2"></i>
+                                <button onclick="showBlogModal('featured-ai-agents')" class="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                                    Read Article <i class="fas fa-arrow-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
                         <div class="relative">
-                            <div class="w-full h-64 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-                                <i class="fas fa-brain text-white text-6xl"></i>
+                            <div class="w-full h-72 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-br from-purple-600/50 to-pink-600/50"></div>
+                                <div class="relative z-10 text-center">
+                                    <i class="fas fa-robot text-white text-6xl mb-4"></i>
+                                    <div class="text-white/80 text-sm">Autonomous AI Systems</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -288,359 +341,351 @@
     <section id="articles-section" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-6">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                    <span class="text-blue-600 text-sm font-medium">Latest Insights</span>
+                </div>
                 <h2 class="text-4xl font-bold text-gray-900 mb-6">Latest Articles</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Dive deep into AI technology with our comprehensive guides and expert analysis.
+                    Deep dives into AI Agents, Multimodal AI, Big Data, and the technologies reshaping enterprise software in 2026.
                 </p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                <!-- Article 1 -->
-                <article class="bg-white rounded-2xl shadow-lg hover:shadow-xl overflow-hidden h-full flex flex-col">
+                <!-- Article 1: Multimodal AI -->
+                <article class="blog-card bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col">
                     <div class="relative overflow-hidden">
-                        <div class="h-64 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center relative overflow-hidden">
-                            <i class="fas fa-brain text-white text-6xl"></i>
+                        <div class="h-56 bg-gradient-to-br from-fuchsia-600 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                            <i class="fas fa-layer-group text-white text-5xl"></i>
                         </div>
                         <div class="absolute top-4 left-4">
-                            <span class="px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded-full">AI Technology</span>
+                            <span class="px-3 py-1 bg-fuchsia-600 text-white text-sm font-medium rounded-full">Multimodal AI</span>
                         </div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
                         <div class="flex items-center text-sm text-gray-500 mb-4">
                             <i class="fas fa-calendar mr-2"></i>
-                            <span>Dec 10, 2024</span>
+                            <span>Feb 28, 2026</span>
                             <span class="mx-2">•</span>
                             <i class="fas fa-clock mr-2"></i>
-                            <span>8 min read</span>
+                            <span>10 min read</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">The Future of Artificial Intelligence: Trends to Watch</h3>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Multimodal AI: Beyond Text — Understanding Images, Audio & Video</h3>
                         <p class="text-gray-600 mb-6 flex-1">
-                            Explore the cutting-edge developments in AI technology and discover what the future holds for artificial intelligence across various industries.
+                            How models like GPT-5, Gemini 2.0, and Claude 4 process multiple modalities simultaneously, and why multimodal reasoning is the next frontier.
                         </p>
                         <div class="flex items-center justify-between mt-auto">
                             <div class="flex items-center">
-                                <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-white font-bold text-sm">SC</span>
+                                <div class="w-10 h-10 bg-gradient-to-r from-fuchsia-500 to-purple-500 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold text-sm">MS</span>
                                 </div>
                                 <div>
-                                    <p class="text-sm font-semibold text-gray-900">Dr. Sarah Chen</p>
-                                    <p class="text-xs text-gray-500">AI Research Lead</p>
+                                    <p class="text-sm font-semibold text-gray-900">Manas Saxena</p>
+                                    <p class="text-xs text-gray-500">CTO</p>
                                 </div>
                             </div>
-                            <button onclick="showBlogModal('ai-future-trends')" class="text-blue-600 font-semibold hover:text-blue-700">
+                            <button onclick="showBlogModal('multimodal-ai')" class="text-fuchsia-600 font-semibold hover:text-fuchsia-700">
                                 Read More <i class="fas fa-arrow-right ml-2"></i>
                             </button>
                         </div>
                     </div>
                 </article>
                 
-                <!-- Article 2 -->
-                <article class="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden h-full flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center relative overflow-hidden">
-                        <i class="fas fa-eye text-white text-4xl"></i>
+                <!-- Article 2: Big Data & Lakehouse -->
+                <article class="blog-card bg-white rounded-xl shadow-lg overflow-hidden h-full flex flex-col">
+                    <div class="h-56 bg-gradient-to-br from-slate-600 to-zinc-700 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-database text-white text-5xl"></i>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex items-center mb-3">
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Computer Vision</span>
-                            <span class="text-gray-500 text-sm ml-auto flex items-center"><i class="fas fa-calendar-alt mr-1"></i>Dec 8, 2024</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium">Big Data</span>
+                            <span class="text-gray-500 text-sm ml-auto flex items-center"><i class="fas fa-calendar-alt mr-1"></i>Feb 25, 2026</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Computer Vision in Healthcare: Saving Lives with AI</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Data Lakehouse Architecture: Unifying Analytics at Scale</h3>
                         <p class="text-gray-600 mb-4 flex-1">
-                            Discover how computer vision technology is revolutionizing medical diagnosis and improving patient outcomes worldwide.
+                            Why enterprises are adopting lakehouse architectures combining data lake flexibility with warehouse performance for AI-ready data pipelines.
                         </p>
                         <div class="flex items-center justify-between mt-auto">
                             <div class="flex items-center">
-                                <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-white font-bold text-xs">MR</span>
+                                <div class="w-8 h-8 bg-gradient-to-r from-slate-500 to-zinc-600 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold text-xs">KS</span>
                                 </div>
-                                <span class="text-sm text-gray-600">Michael Rodriguez</span>
+                                <span class="text-sm text-gray-600">Keshav Sharma</span>
                             </div>
-                            <button onclick="showBlogModal('computer-vision')" class="text-purple-600 font-medium hover:text-purple-700 flex items-center">
+                            <button onclick="showBlogModal('data-lakehouse')" class="text-slate-600 font-medium hover:text-slate-700 flex items-center">
                                 Read More <i class="fas fa-arrow-right ml-1"></i>
                             </button>
                         </div>
                     </div>
                 </article>
                 
-                <!-- Article 3 -->
-                <article class="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden h-full flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center relative overflow-hidden">
-                        <i class="fas fa-comments text-white text-4xl"></i>
+                <!-- Article 3: Generative AI in Enterprise -->
+                <article class="blog-card bg-white rounded-xl shadow-lg overflow-hidden h-full flex flex-col">
+                    <div class="h-56 bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-wand-magic-sparkles text-white text-5xl"></i>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex items-center mb-3">
-                            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">NLP</span>
-                            <span class="text-gray-500 text-sm ml-auto flex items-center"><i class="fas fa-calendar-alt mr-1"></i>Dec 5, 2024</span>
+                            <span class="px-3 py-1 bg-violet-100 text-violet-700 rounded-full text-sm font-medium">Generative AI</span>
+                            <span class="text-gray-500 text-sm ml-auto flex items-center"><i class="fas fa-calendar-alt mr-1"></i>Feb 22, 2026</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Building Intelligent Chatbots: A Complete Guide</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Enterprise RAG: Building Production-Ready AI Knowledge Systems</h3>
                         <p class="text-gray-600 mb-4 flex-1">
-                            Step-by-step guide to creating conversational AI that understands context and delivers exceptional user experiences.
+                            Complete guide to implementing Retrieval-Augmented Generation with vector databases, chunking strategies, and evaluation frameworks.
                         </p>
                         <div class="flex items-center justify-between mt-auto">
                             <div class="flex items-center">
-                                <div class="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-white font-bold text-xs">EW</span>
+                                <div class="w-8 h-8 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold text-xs">AP</span>
                                 </div>
-                                <span class="text-sm text-gray-600">Emily Watson</span>
+                                <span class="text-sm text-gray-600">Dr. Ananya Patel</span>
                             </div>
-                            <button onclick="showBlogModal('chatbots-guide')" class="text-orange-600 font-medium hover:text-orange-700 flex items-center">
+                            <button onclick="showBlogModal('enterprise-rag')" class="text-violet-600 font-medium hover:text-violet-700 flex items-center">
                                 Read More <i class="fas fa-arrow-right ml-1"></i>
                             </button>
                         </div>
                     </div>
                 </article>
                 
-                <!-- Article 4 -->
-                <article class="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-white text-4xl"></i>
+                <!-- Article 4: Autonomous Database -->
+                <article class="blog-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                        <i class="fas fa-server text-white text-4xl"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-3">
-                            <span class="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm">AI Ethics</span>
-                            <span class="text-gray-500 text-sm ml-auto">Dec 3, 2024</span>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm">AutoDB</span>
+                            <span class="text-gray-500 text-sm ml-auto">Feb 18, 2026</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">AI Ethics: Building Responsible AI Systems</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Self-Healing Databases: AI-Driven Query Optimization</h3>
                         <p class="text-gray-600 mb-4">
-                            Explore the critical importance of ethical AI development and how to implement responsible AI practices in your organization.
+                            How autonomous databases use machine learning for automatic indexing, query planning, and performance tuning without DBA intervention.
                         </p>
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
-                                <div class="w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-white font-bold text-xs">JL</span>
+                                <div class="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold text-xs">RK</span>
                                 </div>
-                                <span class="text-sm text-gray-600">Dr. James Liu</span>
+                                <span class="text-sm text-gray-600">Raj Kumar</span>
                             </div>
-                            <button onclick="showBlogModal('ai-ethics')" class="text-cyan-600 font-medium hover:text-cyan-700">
+                            <button onclick="showBlogModal('autonomous-db')" class="text-emerald-600 font-medium hover:text-emerald-700">
                                 Read More <i class="fas fa-arrow-right ml-1"></i>
                             </button>
                         </div>
                     </div>
                 </article>
                 
-                <!-- Article 5 -->
-                <article class="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden">
+                <!-- Article 5: AI Coding Assistants -->
+                <article class="blog-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
+                        <i class="fas fa-code text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Dev Tools</span>
+                            <span class="text-gray-500 text-sm ml-auto">Feb 15, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">AI Coding Assistants: Copilot, Cursor & The Future of Development</h3>
+                        <p class="text-gray-600 mb-4">
+                            Comparing the latest AI coding tools and how they're transforming software development workflows for 10x productivity gains.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold text-xs">MS</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Manas Saxena</span>
+                            </div>
+                            <button onclick="showBlogModal('ai-coding')" class="text-blue-600 font-medium hover:text-blue-700">
+                                Read More <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 6: Edge AI & IoT -->
+                <article class="blog-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <i class="fas fa-microchip text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">Edge AI</span>
+                            <span class="text-gray-500 text-sm ml-auto">Feb 12, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Edge AI: Running LLMs on Local Devices & IoT</h3>
+                        <p class="text-gray-600 mb-4">
+                            Deploying compact AI models on edge devices for real-time inference without cloud dependency — privacy, latency, and offline capabilities.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold text-xs">VN</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Vikram Nair</span>
+                            </div>
+                            <button onclick="showBlogModal('edge-ai')" class="text-orange-600 font-medium hover:text-orange-700">
+                                Read More <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 7: AI Security -->
+                <article class="blog-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center">
+                        <i class="fas fa-shield-halved text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">AI Security</span>
+                            <span class="text-gray-500 text-sm ml-auto">Feb 8, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Securing AI Systems: Prompt Injection & Model Safety</h3>
+                        <p class="text-gray-600 mb-4">
+                            Best practices for defending against adversarial attacks, prompt injection, and building robust guardrails for production AI systems.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-gradient-to-r from-red-500 to-rose-600 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-white font-bold text-xs">SC</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Dr. Sarah Chen</span>
+                            </div>
+                            <button onclick="showBlogModal('ai-security')" class="text-red-600 font-medium hover:text-red-700">
+                                Read More <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 8: MLOps & Model Lifecycle -->
+                <article class="blog-card bg-white rounded-xl shadow-lg overflow-hidden">
                     <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
                         <i class="fas fa-cogs text-white text-4xl"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-3">
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">Automation</span>
-                            <span class="text-gray-500 text-sm ml-auto">Dec 1, 2024</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">MLOps</span>
+                            <span class="text-gray-500 text-sm ml-auto">Feb 5, 2026</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">RPA vs AI: Choosing the Right Automation Strategy</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">MLOps 2.0: Model Versioning, A/B Testing & Continuous Learning</h3>
                         <p class="text-gray-600 mb-4">
-                            Compare robotic process automation and AI-powered automation to determine the best approach for your business needs.
+                            Modern MLOps practices for deploying, monitoring, and iterating on AI models in production with feature stores and experiment tracking.
                         </p>
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
                                 <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-white font-bold text-xs">AT</span>
+                                    <span class="text-white font-bold text-xs">KS</span>
                                 </div>
-                                <span class="text-sm text-gray-600">Alex Thompson</span>
+                                <span class="text-sm text-gray-600">Keshav Sharma</span>
                             </div>
-                            <button onclick="showBlogModal('rpa-vs-ai')" class="text-indigo-600 font-medium hover:text-indigo-700">
+                            <button onclick="showBlogModal('mlops')" class="text-indigo-600 font-medium hover:text-indigo-700">
                                 Read More <i class="fas fa-arrow-right ml-1"></i>
                             </button>
                         </div>
                     </div>
                 </article>
                 
-                <!-- Article 6 -->
-                <article class="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-teal-500 to-green-600 flex items-center justify-center">
-                        <i class="fas fa-leaf text-white text-4xl"></i>
+                <!-- Article 9: AI Ethics & Governance -->
+                <article class="blog-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-balance-scale text-white text-4xl"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-3">
-                            <span class="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm">Sustainability</span>
-                            <span class="text-gray-500 text-sm ml-auto">Nov 28, 2024</span>
+                            <span class="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm">AI Ethics</span>
+                            <span class="text-gray-500 text-sm ml-auto">Feb 1, 2026</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Green AI: Sustainable Machine Learning Practices</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">AI Governance: Compliance Frameworks & Responsible AI</h3>
                         <p class="text-gray-600 mb-4">
-                            Learn how to develop environmentally conscious AI solutions that minimize carbon footprint while maximizing performance.
+                            Navigating EU AI Act, NIST frameworks, and building responsible AI programs with bias detection and explainability requirements.
                         </p>
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
-                                <div class="w-8 h-8 bg-gradient-to-r from-teal-500 to-green-600 rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-white font-bold text-xs">MG</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Maria Garcia</span>
-                            </div>
-                            <button onclick="showBlogModal('green-ai')" class="text-teal-600 font-medium hover:text-teal-700">
-                                Read More <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-                
-                <!-- Article 7 -->
-                <article class="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
-                        <i class="fas fa-network-wired text-white text-4xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">Neural Networks</span>
-                            <span class="text-gray-500 text-sm ml-auto">Nov 22, 2024</span>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Deep Learning Architecture Design Patterns</h3>
-                        <p class="text-gray-600 mb-4">
-                            Master the art of designing neural network architectures with proven patterns and best practices for optimal performance.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-white font-bold text-xs">KZ</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Dr. Kevin Zhang</span>
-                            </div>
-                            <button onclick="showBlogModal('deep-learning-patterns')" class="text-yellow-600 font-medium hover:text-yellow-700">
-                                Read More <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-                
-                <!-- Article 8 -->
-                <article class="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center">
-                        <i class="fas fa-microchip text-white text-4xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Edge Computing</span>
-                            <span class="text-gray-500 text-sm ml-auto">Nov 18, 2024</span>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Edge AI: Bringing Intelligence to IoT Devices</h3>
-                        <p class="text-gray-600 mb-4">
-                            Explore how edge computing is enabling real-time AI processing on IoT devices with minimal latency and power consumption.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-gradient-to-r from-red-500 to-pink-600 rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-white font-bold text-xs">LP</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Lisa Park</span>
-                            </div>
-                            <button onclick="showBlogModal('edge-ai-iot')" class="text-red-600 font-medium hover:text-red-700">
-                                Read More <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </article>
-                
-                <!-- Article 9 -->
-                <article class="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                        <i class="fas fa-language text-white text-4xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm">NLP</span>
-                            <span class="text-gray-500 text-sm ml-auto">Nov 15, 2024</span>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Multilingual AI: Breaking Language Barriers</h3>
-                        <p class="text-gray-600 mb-4">
-                            Discover how modern NLP models are enabling seamless communication across languages and cultures in global applications.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center mr-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mr-3">
                                     <span class="text-white font-bold text-xs">AP</span>
                                 </div>
-                                <span class="text-sm text-gray-600">Dr. Aisha Patel</span>
+                                <span class="text-sm text-gray-600">Dr. Ananya Patel</span>
                             </div>
-                            <button onclick="showBlogModal('multilingual-ai')" class="text-emerald-600 font-medium hover:text-emerald-700">
+                            <button onclick="showBlogModal('ai-governance')" class="text-cyan-600 font-medium hover:text-cyan-700">
                                 Read More <i class="fas fa-arrow-right ml-1"></i>
                             </button>
                         </div>
                     </div>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="py-20 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-purple-300 text-sm font-semibold mb-4">
+                    <i class="fas fa-envelope mr-2"></i>Stay Updated
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Subscribe to Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">AI Newsletter</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Get weekly insights on AI Agents, GenAI, Big Data, and emerging technologies delivered straight to your inbox. Join 15,000+ tech leaders.
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <form class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <input type="email" placeholder="Enter your email address" 
+                           class="flex-1 px-6 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    <button type="submit" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-semibold rounded-xl hover:from-purple-500 hover:to-cyan-500 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 whitespace-nowrap">
+                        <i class="fas fa-paper-plane mr-2"></i>Subscribe Now
+                    </button>
+                </form>
                 
-                <!-- Article 10 -->
-                <article class="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
-                        <i class="fas fa-lock text-white text-4xl"></i>
+                <div class="flex flex-wrap justify-center gap-6 text-gray-400 text-sm">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                        Weekly AI Insights
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="px-3 py-1 bg-violet-100 text-violet-700 rounded-full text-sm">Security</span>
-                            <span class="text-gray-500 text-sm ml-auto">Nov 12, 2024</span>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">AI Security: Protecting Models from Adversarial Attacks</h3>
-                        <p class="text-gray-600 mb-4">
-                            Learn essential techniques to secure AI models against adversarial attacks and ensure robust deployment in production.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-white font-bold text-xs">MJ</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Mark Johnson</span>
-                            </div>
-                            <button onclick="showBlogModal('ai-security')" class="text-violet-600 font-medium hover:text-violet-700">
-                                Read More <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                        Exclusive Research
                     </div>
-                </article>
-                
-                <!-- Article 11 -->
-                <article class="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-slate-500 to-gray-600 flex items-center justify-center">
-                        <i class="fas fa-database text-white text-4xl"></i>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                        Industry Trends
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm">Data Science</span>
-                            <span class="text-gray-500 text-sm ml-auto">Nov 8, 2024</span>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Feature Engineering for Machine Learning Success</h3>
-                        <p class="text-gray-600 mb-4">
-                            Master the art of feature engineering with advanced techniques that can dramatically improve your ML model performance.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-gradient-to-r from-slate-500 to-gray-600 rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-white font-bold text-xs">RK</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Dr. Rachel Kim</span>
-                            </div>
-                            <button onclick="showBlogModal('feature-engineering')" class="text-slate-600 font-medium hover:text-slate-700">
-                                Read More <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                        No Spam, Unsubscribe Anytime
                     </div>
-                </article>
-                
-                <!-- Article 12 -->
-                <article class="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center">
-                        <i class="fas fa-chart-pie text-white text-4xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">Analytics</span>
-                            <span class="text-gray-500 text-sm ml-auto">Nov 5, 2024</span>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Real-time Analytics with Streaming AI</h3>
-                        <p class="text-gray-600 mb-4">
-                            Build powerful real-time analytics systems using streaming AI technologies for instant insights and decision-making.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-full flex items-center justify-center mr-3">
-                                    <span class="text-white font-bold text-xs">TW</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Tom Wilson</span>
-                            </div>
-                            <button onclick="showBlogModal('streaming-analytics')" class="text-amber-600 font-medium hover:text-amber-700">
-                                Read More <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </article>
+                </div>
+            </div>
+
+            <!-- Newsletter Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto">
+                <div class="text-center p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+                    <div class="text-3xl font-bold text-white mb-2">15K+</div>
+                    <div class="text-gray-400 text-sm">Subscribers</div>
+                </div>
+                <div class="text-center p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+                    <div class="text-3xl font-bold text-white mb-2">200+</div>
+                    <div class="text-gray-400 text-sm">Articles Published</div>
+                </div>
+                <div class="text-center p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+                    <div class="text-3xl font-bold text-white mb-2">45%</div>
+                    <div class="text-gray-400 text-sm">Avg Open Rate</div>
+                </div>
+                <div class="text-center p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+                    <div class="text-3xl font-bold text-white mb-2">100+</div>
+                    <div class="text-gray-400 text-sm">Companies Trust Us</div>
+                </div>
             </div>
         </div>
     </section>
