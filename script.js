@@ -1406,69 +1406,67 @@ document.addEventListener('DOMContentLoaded', () => {
         map.setView([20, 0], 2);
     }
     
-    // Initialize Particles.js
+    // Initialize Particles.js - OPTIMIZED for performance
     if (document.getElementById('particles-js')) {
+        // Detect mobile/low-power devices
+        const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isLowPerf = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+        
+        // Adjust particle count based on device capability
+        const particleCount = isMobile ? 20 : (isLowPerf ? 35 : 50);
+        const particleSpeed = isMobile ? 1 : 2;
+        const lineDistance = isMobile ? 100 : 120;
+        
         particlesJS("particles-js", {
             "particles": {
               "number": {
-                "value": 80,
+                "value": particleCount,
                 "density": {
                   "enable": true,
-                  "value_area": 800
+                  "value_area": 1000
                 }
               },
               "color": {
-                "value": "#ffffff"
+                "value": "#22d3ee"
               },
               "shape": {
                 "type": "circle",
                 "stroke": {
                   "width": 0,
                   "color": "#000000"
-                },
-                "polygon": {
-                  "nb_sides": 5
                 }
               },
               "opacity": {
-                "value": 0.5,
-                "random": false,
+                "value": 0.4,
+                "random": true,
                 "anim": {
-                  "enable": false,
-                  "speed": 1,
-                  "opacity_min": 0.1,
-                  "sync": false
+                  "enable": false
                 }
               },
               "size": {
-                "value": 3,
+                "value": 2,
                 "random": true,
                 "anim": {
-                  "enable": false,
-                  "speed": 40,
-                  "size_min": 0.1,
-                  "sync": false
+                  "enable": false
                 }
               },
               "line_linked": {
-                "enable": true,
-                "distance": 150,
-                "color": "#ffffff",
-                "opacity": 0.4,
+                "enable": !isMobile,
+                "distance": lineDistance,
+                "color": "#06b6d4",
+                "opacity": 0.2,
                 "width": 1
               },
               "move": {
                 "enable": true,
-                "speed": 6,
+                "speed": particleSpeed,
                 "direction": "none",
-                "random": false,
+                "random": true,
                 "straight": false,
                 "out_mode": "out",
                 "bounce": false,
                 "attract": {
-                  "enable": false,
-                  "rotateX": 600,
-                  "rotateY": 1200
+                  "enable": false
                 }
               }
             },
@@ -1476,42 +1474,24 @@ document.addEventListener('DOMContentLoaded', () => {
               "detect_on": "canvas",
               "events": {
                 "onhover": {
-                  "enable": true,
-                  "mode": "repulse"
+                  "enable": !isMobile,
+                  "mode": "grab"
                 },
                 "onclick": {
-                  "enable": true,
-                  "mode": "push"
+                  "enable": false
                 },
                 "resize": true
               },
               "modes": {
                 "grab": {
-                  "distance": 400,
+                  "distance": 120,
                   "line_linked": {
-                    "opacity": 1
+                    "opacity": 0.3
                   }
-                },
-                "bubble": {
-                  "distance": 400,
-                  "size": 40,
-                  "duration": 2,
-                  "opacity": 8,
-                  "speed": 3
-                },
-                "repulse": {
-                  "distance": 200,
-                  "duration": 0.4
-                },
-                "push": {
-                  "particles_nb": 4
-                },
-                "remove": {
-                  "particles_nb": 2
                 }
               }
             },
-            "retina_detect": true
+            "retina_detect": false
           });
     }
 
@@ -1785,35 +1765,50 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add click event listener to all links
     document.addEventListener('click', handlePageTransition);
 
+    // Performance detection
+    const isMobileDevice = window.innerWidth < 768 || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+
     // --- GSAP & ScrollTrigger Animations ---
     // Initialize AOS if available (keep existing AOS animations working alongside GSAP)
     if (window.AOS && typeof AOS.init === 'function') {
-        AOS.init({ once: true, duration: 600, easing: 'ease-out' });
+        AOS.init({ 
+            once: true, 
+            duration: isMobileDevice ? 400 : 600, 
+            easing: 'ease-out',
+            disable: window.innerWidth < 640, // Disable on very small screens
+            throttleDelay: 99
+        });
     }
 
     // Register GSAP plugins if available
     if (window.gsap) {
         if (window.ScrollTrigger) {
             gsap.registerPlugin(ScrollTrigger);
+            // Optimize ScrollTrigger for mobile
+            if (isMobileDevice) {
+                ScrollTrigger.config({ limitCallbacks: true });
+            }
         }
         if (window.TextPlugin) {
             gsap.registerPlugin(TextPlugin);
         }
 
-        // Staggered reveal for generic scroll-animate items
-        gsap.utils.toArray('.scroll-animate').forEach((el) => {
-            gsap.from(el, {
-                opacity: 0,
-                y: 40,
-                duration: 0.8,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 85%',
-                    toggleActions: 'play none none reverse'
-                }
+        // Staggered reveal for generic scroll-animate items (skip on mobile)
+        if (!isMobileDevice) {
+            gsap.utils.toArray('.scroll-animate').forEach((el) => {
+                gsap.from(el, {
+                    opacity: 0,
+                    y: 40,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none' // Changed from reverse for performance
+                    }
+                });
             });
-        });
+        }
 
         // Section card staggers
         const staggerGroups = [
