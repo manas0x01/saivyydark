@@ -3,1717 +3,671 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products | Saivyy Technologies</title>
-    <meta name="description" content="Explore our innovative AI products and platforms designed to accelerate your digital transformation.">
-    
-    <!-- Favicon -->
+    <title>Products | Saivyy Technologies - Enterprise AI Products</title>
+    <meta name="description" content="Explore Saivyy Technologies' suite of AI products — from decision engines and computer vision to generative AI studios and autonomous databases.">
+    <meta name="keywords" content="AI products, Saivyy Brain, Saivyy Vision, NLP engine, analytics platform, automation, AI security, big data, generative AI, autonomous database, cloud AI">
+
     <link rel="icon" type="image/png" href="../saivyyweb.png">
     <link rel="apple-touch-icon" href="../saivyyweb.png">
-    <meta name="theme-color" content="#1e40af">
-    
-    <!-- Tailwind CSS -->
+    <meta name="theme-color" content="#020617">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <!-- Tailwind Config -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
-                        'playfair': ['Playfair Display', 'serif']
+                        'sans': ['DM Sans', 'sans-serif'],
+                        'display': ['Space Grotesk', 'sans-serif'],
                     },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'bounce-slow': 'bounce 3s infinite',
-                        'spin-slow': 'spin 8s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' }
-                        }
-                    }
                 }
             }
         }
     </script>
-    
+
     <style>
-        /* Performance optimizations */
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        html { overflow-x: hidden; }
+        body { font-family: 'DM Sans', sans-serif; background: #020617; color: #e2e8f0; overflow-x: hidden; }
+
+        @keyframes aurora { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        @keyframes borderGlow { 0%, 100% { border-color: rgba(6, 182, 212, 0.25); } 50% { border-color: rgba(139, 92, 246, 0.35); } }
+        @keyframes shimmerSlide { 0% { left: -100%; } 100% { left: 200%; } }
+        @keyframes textGlow { 0%, 100% { text-shadow: 0 0 10px rgba(34, 211, 238, 0.3); } 50% { text-shadow: 0 0 25px rgba(34, 211, 238, 0.6), 0 0 50px rgba(139, 92, 246, 0.2); } }
+        @keyframes pulseRing { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.8); opacity: 0; } }
+        @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        @keyframes geoFloat1 { 0%, 100% { transform: translateY(0) rotate(0deg); } 33% { transform: translateY(-25px) rotate(120deg); } 66% { transform: translateY(15px) rotate(240deg); } }
+        @keyframes geoFloat2 { 0%, 100% { transform: translateY(0) rotate(45deg); } 50% { transform: translateY(-30px) rotate(225deg); } }
+        @keyframes orbSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes scrollBounce { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(8px); opacity: 1; } }
+
+        .card-formal {
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.75));
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(6, 182, 212, 0.12); border-radius: 1.25rem;
+            position: relative; overflow: hidden;
+            animation: borderGlow 4s ease-in-out infinite;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        html {
-            scroll-behavior: smooth;
+        .card-formal::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #22d3ee, #818cf8, transparent); opacity: 0.6; }
+        .card-formal::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent); transition: left 0.6s ease; }
+        .card-formal:hover::after { left: 200%; }
+        .card-formal:hover { transform: translateY(-8px) scale(1.01); border-color: rgba(6, 182, 212, 0.35); box-shadow: 0 0 40px rgba(6, 182, 212, 0.1), 0 20px 60px -20px rgba(6, 182, 212, 0.2); }
+
+        .badge-formal { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 2rem; background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(139, 92, 246, 0.05)); background-size: 300% 300%; animation: aurora 6s ease-in-out infinite, borderGlow 4s ease-in-out infinite; }
+        .heading-accent { background: linear-gradient(135deg, #22d3ee, #818cf8, #22d3ee); background-size: 300% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: aurora 6s ease-in-out infinite; }
+
+        .btn-formal { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; background: linear-gradient(135deg, #0891b2, #06b6d4); border: none; border-radius: 0.75rem; box-shadow: 0 0 25px rgba(6, 182, 212, 0.2), 0 4px 15px rgba(6, 182, 212, 0.15); position: relative; overflow: hidden; transition: all 0.4s ease; cursor: pointer; text-decoration: none; }
+        .btn-formal::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transition: left 0.5s ease; }
+        .btn-formal:hover::before { left: 100%; }
+        .btn-formal:hover { box-shadow: 0 0 40px rgba(6, 182, 212, 0.35), 0 8px 25px rgba(6, 182, 212, 0.25); transform: translateY(-2px); }
+        .btn-formal-secondary { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.8); background: transparent; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 0.75rem; transition: all 0.4s ease; cursor: pointer; text-decoration: none; }
+        .btn-formal-secondary:hover { border-color: rgba(6, 182, 212, 0.5); color: #22d3ee; background: rgba(6, 182, 212, 0.05); }
+
+        .icon-formal { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(139, 92, 246, 0.05)); border: 1px solid rgba(6, 182, 212, 0.15); border-radius: 1rem; font-size: 1.25rem; transition: all 0.4s ease; }
+        .card-formal:hover .icon-formal { background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(139, 92, 246, 0.15)); border-color: rgba(6, 182, 212, 0.5); transform: scale(1.1) rotate(5deg); box-shadow: 0 0 20px rgba(6, 182, 212, 0.2); }
+
+        .stat-formal-value { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, #22d3ee, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 0.5rem; animation: textGlow 3s ease-in-out infinite; }
+
+        .divider-formal { height: 2px; background: linear-gradient(90deg, rgba(6, 182, 212, 0.3), rgba(139, 92, 246, 0.15), transparent); border-radius: 1px; position: relative; overflow: hidden; }
+        .divider-formal::after { content: ''; position: absolute; top: 0; left: -100%; width: 40%; height: 100%; background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.8), transparent); animation: shimmerSlide 3s ease-in-out infinite; }
+
+        .section-aurora { position: relative; overflow: hidden; }
+        .section-aurora::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg, transparent, rgba(6, 182, 212, 0.03), transparent, rgba(139, 92, 246, 0.02), transparent); animation: orbSpin 30s linear infinite; pointer-events: none; }
+
+        .cursor-glow { position: fixed; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, rgba(139, 92, 246, 0.04) 30%, transparent 70%); pointer-events: none; z-index: 1; transform: translate(-50%, -50%); transition: opacity 0.3s ease; will-change: transform; }
+        .cursor-dot { position: fixed; width: 8px; height: 8px; border-radius: 50%; background: #22d3ee; pointer-events: none; z-index: 99; transform: translate(-50%, -50%); box-shadow: 0 0 15px rgba(34, 211, 238, 0.6), 0 0 40px rgba(34, 211, 238, 0.2); transition: width 0.2s, height 0.2s, background 0.2s; mix-blend-mode: screen; }
+        .cursor-dot.hover { width: 40px; height: 40px; background: rgba(34, 211, 238, 0.15); border: 2px solid rgba(34, 211, 238, 0.5); }
+
+        .geo-shape { position: absolute; pointer-events: none; opacity: 0.06; }
+        .geo-shape--triangle { width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-bottom: 52px solid #22d3ee; }
+        .geo-shape--square { width: 40px; height: 40px; border: 2px solid #818cf8; transform: rotate(45deg); }
+        .geo-shape--circle { width: 50px; height: 50px; border: 2px solid #22d3ee; border-radius: 50%; }
+
+        .nav-link-sharp { position: relative; padding: 0.5rem 1rem; transition: all 0.3s ease; }
+        .nav-link-sharp::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, #22d3ee, #818cf8); transition: all 0.3s ease; transform: translateX(-50%); border-radius: 2px; }
+        .nav-link-sharp:hover::after { width: 70%; }
+        .navbar-scrolled { background: rgba(2, 6, 23, 0.95) !important; backdrop-filter: blur(20px) saturate(180%) !important; border-color: rgba(6, 182, 212, 0.15) !important; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), 0 0 60px rgba(6, 182, 212, 0.05) !important; }
+
+        .grid-formal { position: absolute; inset: 0; background-image: linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%); }
+        .micro-float { animation: floatY 4s ease-in-out infinite; }
+
+        .price-tag { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #22d3ee, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .price-period { font-size: 0.875rem; font-weight: 400; -webkit-text-fill-color: #94a3b8; }
+
+        .pricing-card { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .pricing-card.featured { border-color: rgba(6, 182, 212, 0.4); box-shadow: 0 0 50px rgba(6, 182, 212, 0.15); }
+        .pricing-card:hover { transform: translateY(-8px); }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #22d3ee, #818cf8); border-radius: 4px; }
+        ::selection { background: rgba(6, 182, 212, 0.3); color: #fff; }
+
+        @media (max-width: 768px) {
+            .stat-formal-value { font-size: 1.75rem !important; }
+            .price-tag { font-size: 1.5rem; }
         }
-        
-        section {
-            contain: layout style paint;
-        }
-        
-        .gpu-accelerate {
-            will-change: transform;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-        }
-        
-        /* Disable animations on reduced motion preference */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #1e40af, #3b82f6, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .hero-pattern {
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
-            background-size: 50px 50px;
-        }
-        
-        /* Smooth product cards */
-        .product-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            will-change: transform;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-8px);
+        @media (max-width: 480px) {
+            .stat-formal-value { font-size: 1.5rem !important; }
+            .price-tag { font-size: 1.25rem; }
         }
     </style>
 </head>
-<body class="font-inter text-gray-800 overflow-x-hidden">
+<body class="font-sans overflow-x-hidden relative antialiased">
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-[60] bg-slate-950 backdrop-blur-xl border-b border-cyan-500/20 shadow-lg shadow-cyan-500/5 transition-all duration-500">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
                 <div class="flex items-center space-x-3">
                     <a href="../index.html" class="flex items-center space-x-3 group">
                         <div class="relative">
-                            <img src="../saivvyMain.jpeg" alt="Saivyy Technologies" class="h-10 w-10 rounded-full shadow-md group-hover:shadow-lg transition-all duration-300 animate-float">
-                            <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-indigo-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                            <img src="../saivvyMain.jpeg" alt="Saivyy Technologies" class="h-10 w-10 rounded-xl shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all duration-500 group-hover:scale-110 ring-2 ring-cyan-400/50">
+                            <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-400 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
                         </div>
                         <div>
-                            <span class="text-xl font-bold gradient-text font-playfair">Saivyy Technologies</span>
-                            <div class="text-xs text-blue-600 font-medium">AI Solutions</div>
+                            <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent font-display tracking-tight">Saivyy Technologies</span>
+                            <div class="text-xs text-gray-400 font-medium tracking-wide">AI Solutions</div>
                         </div>
                     </a>
                 </div>
-
-                <!-- Navigation -->
-                <nav class="hidden lg:flex items-center space-x-8">
-                    <a href="../index.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Home</a>
-                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">About</a>
-                    <a href="solutions.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Solutions</a>
-                    <a href="products.html" class="text-blue-600 font-medium px-3 py-2 rounded-lg bg-blue-50">Products</a>
-                    <a href="portfolio.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Portfolio</a>
-                    <a href="blog.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-blue-50">Blog</a>
-                    <a href="../index.html#contact" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Contact</a>
+                <nav class="hidden lg:flex items-center space-x-2">
+                    <a href="../index.html" class="nav-link-sharp text-gray-300 hover:text-cyan-400">Home</a>
+                    <a href="about.html" class="nav-link-sharp text-gray-300 hover:text-cyan-400">About</a>
+                    <a href="solutions.html" class="nav-link-sharp text-gray-300 hover:text-cyan-400">Solutions</a>
+                    <a href="products.html" class="nav-link-sharp text-cyan-400">Products</a>
+                    <a href="portfolio.html" class="nav-link-sharp text-gray-300 hover:text-cyan-400">Portfolio</a>
+                    <a href="blog.html" class="nav-link-sharp text-gray-300 hover:text-cyan-400">Blog</a>
+                    <a href="../index.html#contact" class="ml-4 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-500 hover:from-cyan-400 hover:to-cyan-400 text-white font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-300 hover:-translate-y-0.5">
+                        <span class="relative z-10">Get Started</span>
+                    </a>
                 </nav>
-
-                <!-- Modern Mobile Menu Button -->
-                <button class="lg:hidden relative z-[105] w-12 h-12 rounded-xl bg-white bg-opacity-90 backdrop-blur-sm shadow-lg border border-gray-200 hover:bg-opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300" id="modernMobileMenuBtn" aria-label="Toggle mobile menu">
-                    <div class="absolute inset-0 flex flex-col items-center justify-center space-y-1.5">
-                        <div class="w-5 h-0.5 bg-gray-700 transition-all duration-300 ease-out hamburger-line"></div>
-                        <div class="w-5 h-0.5 bg-gray-700 transition-all duration-300 ease-out hamburger-line"></div>
-                        <div class="w-5 h-0.5 bg-gray-700 transition-all duration-300 ease-out hamburger-line"></div>
+                <button class="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800 border border-cyan-500/30 transition-all duration-300 hover:shadow-md hover:shadow-cyan-500/20 focus:outline-none focus:ring-2 focus:ring-cyan-500/50" id="modernMobileMenuBtn" aria-label="Menu">
+                    <div class="relative w-5 h-5">
+                        <span class="absolute top-0 left-0 w-full h-0.5 bg-cyan-400 rounded-full transition-all duration-300 origin-center" id="modernLine1"></span>
+                        <span class="absolute top-2 left-0 w-full h-0.5 bg-cyan-400 rounded-full transition-all duration-300" id="modernLine2"></span>
+                        <span class="absolute top-4 left-0 w-full h-0.5 bg-cyan-400 rounded-full transition-all duration-300 origin-center" id="modernLine3"></span>
                     </div>
                 </button>
             </div>
         </div>
-        
-        <!-- Modern Mobile Menu Sidebar -->
         <div class="lg:hidden fixed inset-0 z-[100] pointer-events-none transition-all duration-500 ease-out" id="modernMobileMenu">
-            <!-- Backdrop -->
             <div class="absolute inset-0 bg-black/0 backdrop-blur-0 transition-all duration-500 ease-out pointer-events-none" id="modernBackdrop"></div>
-            
-            <!-- Sidebar Panel -->
-            <div class="absolute right-0 top-0 h-full w-80 max-w-[85vw] transform translate-x-full transition-all duration-500 ease-out bg-white shadow-2xl border-l border-gray-200" id="modernSidebar">
-                <!-- Solid Background -->
-                <div class="absolute inset-0 bg-white"></div>
-                
-                <!-- Content -->
+            <div class="absolute right-0 top-0 h-full w-80 max-w-[85vw] transform translate-x-full transition-all duration-500 ease-out bg-slate-900 shadow-2xl border-l border-cyan-500/20" id="modernSidebar">
+                <div class="absolute inset-0 bg-slate-900"></div>
                 <div class="relative h-full flex flex-col">
-                    <!-- Header -->
-                    <div class="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-blue-600 to-purple-600">
+                    <div class="flex items-center justify-between p-6 border-b border-cyan-500/20 bg-gradient-to-r from-cyan-600 to-cyan-600">
                         <div class="flex items-center space-x-3">
-                            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
-                                <img src="../saivvyMain.jpeg" alt="Saivyy" class="w-6 h-6 rounded-full object-cover">
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-white">Saivyy Technologies</h3>
-                                <p class="text-xs text-blue-100">AI Solutions</p>
-                            </div>
+                            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm"><img src="../saivvyMain.jpeg" alt="Saivyy" class="w-6 h-6 rounded-full object-cover"></div>
+                            <div><h3 class="font-bold text-white">Saivyy Technologies</h3><p class="text-xs text-cyan-100">AI Solutions</p></div>
                         </div>
-                        <button class="w-10 h-10 rounded-xl bg-white bg-opacity-20 hover:bg-opacity-30 transition-colors duration-200 flex items-center justify-center group backdrop-blur-sm" id="modernCloseBtn">
-                            <i class="fas fa-times text-white group-hover:text-gray-100 transition-colors duration-200"></i>
-                        </button>
+                        <button class="w-10 h-10 rounded-xl bg-white bg-opacity-20 hover:bg-opacity-30 transition-colors duration-200 flex items-center justify-center group backdrop-blur-sm" id="modernCloseBtn"><i class="fas fa-times text-white group-hover:text-gray-100 transition-colors duration-200"></i></button>
                     </div>
-                    
-                    <!-- Navigation -->
-                    <nav class="flex-1 p-6 space-y-3 bg-gray-50">
-                        <a href="../index.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:text-blue-600 transition-all duration-200 group shadow-sm">
-                            <i class="fas fa-home w-4 text-center text-gray-500 group-hover:text-blue-600 transition-colors duration-200"></i>
-                            <span>Home</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200"></i>
-                        </a>
-                        <a href="about.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:text-blue-600 transition-all duration-200 group shadow-sm">
-                            <i class="fas fa-users w-4 text-center text-gray-500 group-hover:text-blue-600 transition-colors duration-200"></i>
-                            <span>About</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200"></i>
-                        </a>
-                        <a href="solutions.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:text-blue-600 transition-all duration-200 group shadow-sm">
-                            <i class="fas fa-cog w-4 text-center text-gray-500 group-hover:text-blue-600 transition-colors duration-200"></i>
-                            <span>Solutions</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200"></i>
-                        </a>
-                        <a href="products.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-md">
-                            <i class="fas fa-cube w-4 text-center"></i>
-                            <span>Products</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs"></i>
-                        </a>
-                        <a href="portfolio.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:text-blue-600 transition-all duration-200 group shadow-sm">
-                            <i class="fas fa-briefcase w-4 text-center text-gray-500 group-hover:text-blue-600 transition-colors duration-200"></i>
-                            <span>Portfolio</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200"></i>
-                        </a>
-                        <a href="blog.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:text-blue-600 transition-all duration-200 group shadow-sm">
-                            <i class="fas fa-blog w-4 text-center text-gray-500 group-hover:text-blue-600 transition-colors duration-200"></i>
-                            <span>Blog</span>
-                            <i class="fas fa-chevron-right ml-auto text-xs opacity-0 group-hover:opacity-100 transition-all duration-200"></i>
-                        </a>
-                        
-                        <!-- Divider -->
-                        <div class="my-4 border-t border-gray-300"></div>
-                        
-                        <!-- CTA Button -->
-                        <a href="../index.html#contact" class="flex items-center justify-center space-x-3 px-4 py-4 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold shadow-lg hover:shadow-xl hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105">
-                            <i class="fas fa-paper-plane"></i>
-                            <span>Get in Touch</span>
-                        </a>
+                    <nav class="flex-1 p-6 space-y-3 bg-slate-900">
+                        <a href="../index.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 transition-all duration-200 group border border-slate-700/50"><i class="fas fa-home w-4 text-center text-gray-500 group-hover:text-cyan-400 transition-colors duration-200"></i><span>Home</span></a>
+                        <a href="about.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 transition-all duration-200 group border border-slate-700/50"><i class="fas fa-users w-4 text-center text-gray-500 group-hover:text-cyan-400 transition-colors duration-200"></i><span>About</span></a>
+                        <a href="solutions.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 transition-all duration-200 group border border-slate-700/50"><i class="fas fa-cog w-4 text-center text-gray-500 group-hover:text-cyan-400 transition-colors duration-200"></i><span>Solutions</span></a>
+                        <a href="products.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-cyan-600 text-white font-semibold shadow-lg shadow-cyan-500/30"><i class="fas fa-cube w-4 text-center"></i><span>Products</span><i class="fas fa-chevron-right ml-auto text-xs"></i></a>
+                        <a href="portfolio.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 transition-all duration-200 group border border-slate-700/50"><i class="fas fa-briefcase w-4 text-center text-gray-500 group-hover:text-cyan-400 transition-colors duration-200"></i><span>Portfolio</span></a>
+                        <a href="blog.html" class="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-300 hover:bg-slate-800 hover:text-cyan-400 transition-all duration-200 group border border-slate-700/50"><i class="fas fa-blog w-4 text-center text-gray-500 group-hover:text-cyan-400 transition-colors duration-200"></i><span>Blog</span></a>
+                        <div class="my-4 border-t border-cyan-500/20"></div>
+                        <a href="../index.html#contact" class="flex items-center justify-center space-x-3 px-4 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300 transform hover:scale-105"><i class="fas fa-paper-plane"></i><span>Get in Touch</span></a>
                     </nav>
-                    
-                    <!-- Footer -->
-                    <div class="p-6 border-t border-gray-300 bg-gray-100">
-                        <div class="text-center text-xs text-gray-600 mb-3 font-medium">Follow Us</div>
+                    <div class="p-6 border-t border-cyan-500/20 bg-slate-950">
+                        <div class="text-center text-xs text-gray-400 mb-3 font-medium">Follow Us</div>
                         <div class="flex justify-center space-x-4">
-                            <a href="https://www.instagram.com/saivyy_technologies/?utm_source=ig_web_button_share_sheet" class="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 transition-colors duration-200 flex items-center justify-center shadow-md">
-                                <i class="fab fa-instagram text-white"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/company/saivyy-technologies/" class="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center shadow-md">
-                                <i class="fab fa-linkedin-in text-white"></i>
-                            </a>
+                            <a href="https://www.instagram.com/saivyy_technologies/" class="w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 transition-colors duration-200 flex items-center justify-center shadow-md shadow-cyan-500/30"><i class="fab fa-instagram text-white"></i></a>
+                            <a href="https://www.linkedin.com/company/saivyy-technologies/" class="w-10 h-10 rounded-full bg-cyan-600 hover:bg-cyan-500 transition-colors duration-200 flex items-center justify-center shadow-md shadow-cyan-500/30"><i class="fab fa-linkedin-in text-white"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
-        <div class="absolute inset-0 hero-pattern opacity-10"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
-        
-        <!-- Floating Elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute top-20 left-10 w-32 h-32 border border-cyan-500/30 rotate-45 animate-float"></div>
-            <div class="absolute top-40 right-20 w-24 h-24 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full animate-pulse"></div>
-            <div class="absolute bottom-32 left-20 w-40 h-40 border-2 border-purple-500/20 rounded-full animate-spin-slow"></div>
-        </div>
-        
-        <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 backdrop-blur-sm mb-8">
-                <div class="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-                <span class="text-cyan-300 text-sm font-medium">10+ Enterprise AI Products</span>
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
-                <span class="text-white">Enterprise-Grade</span><br>
-                <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">AI Platforms</span>
-            </h1>
-            
-            <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8">
-                From intelligent automation and Generative AI studios to Big Data platforms and Autonomous Database solutions — discover production-ready AI products engineered for enterprise scale, security, and performance.
-            </p>
-            
-            <!-- Product Highlights -->
-            <div class="flex flex-wrap justify-center gap-3 mb-10">
-                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-brain mr-1 text-cyan-400"></i>AI Engine</span>
-                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-wand-magic-sparkles mr-1 text-purple-400"></i>GenAI Studio</span>
-                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-database mr-1 text-blue-400"></i>Big Data</span>
-                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-server mr-1 text-green-400"></i>AutoDB</span>
-                <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300"><i class="fas fa-shield-halved mr-1 text-red-400"></i>AI Security</span>
-            </div>
-            
-            <!-- Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 max-w-3xl mx-auto">
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-white">99.9%</div>
-                    <div class="text-sm text-gray-400">Uptime SLA</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-white">50ms</div>
-                    <div class="text-sm text-gray-400">Avg Response</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-white">SOC2</div>
-                    <div class="text-sm text-gray-400">Compliant</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-white">24/7</div>
-                    <div class="text-sm text-gray-400">Support</div>
-                </div>
-            </div>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="scrollToProducts()" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                    <i class="fas fa-rocket mr-2"></i>View All Products
-                </button>
-                <button onclick="scrollToCTA()" class="px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-400 hover:text-white transition-all duration-300 hover:bg-white/10">
-                    <i class="fas fa-video mr-2"></i>Schedule Demo
-                </button>
-            </div>
-        </div>
-    </section>
+    <main class="relative z-10">
 
-    <!-- Products Section -->
-    <section id="products" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-6">
-                    <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    <span class="text-blue-600 text-sm font-medium">Enterprise AI Product Suite</span>
+        <!-- HERO -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950"></div>
+                <div class="absolute inset-0 opacity-60">
+                    <div class="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-r from-purple-600/30 to-cyan-600/20 rounded-full filter blur-3xl micro-float"></div>
+                    <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/20 to-purple-600/20 rounded-full filter blur-3xl micro-float"></div>
                 </div>
-                <h2 class="text-4xl font-bold text-gray-900 mb-6">Production-Ready AI Platforms</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    From intelligent decision engines and Generative AI studios to Big Data platforms and Autonomous Database solutions — enterprise-grade AI products engineered for scale, security, and performance.
+                <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 40px 40px;"></div>
+                <div class="grid-formal"></div>
+                <div class="geo-shape geo-shape--triangle" style="top: 15%; left: 8%; animation: geoFloat1 8s ease-in-out infinite;"></div>
+                <div class="geo-shape geo-shape--square" style="top: 25%; right: 12%; animation: geoFloat2 10s ease-in-out infinite;"></div>
+                <div class="geo-shape geo-shape--circle" style="bottom: 20%; left: 15%; animation: geoFloat1 7s ease-in-out infinite;"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/90"></div>
+            </div>
+            <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center py-20">
+                <div class="badge-formal mb-8" data-aos="fade-down">
+                    <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+                    10 ENTERPRISE-GRADE AI PRODUCTS
+                </div>
+                <h1 class="font-display font-bold leading-[1.1] tracking-tight mb-8" data-aos="fade-up" data-aos-delay="100">
+                    <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white">AI-Powered</span>
+                    <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl heading-accent mt-2">Product Suite</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="200">
+                    Production-ready AI platforms designed for enterprise scale — from intelligent decision engines and computer vision suites to generative AI studios and autonomous databases.
                 </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Saivyy Brain -->
-                <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-brain text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Saivyy Brain</h3>
-                            <p class="text-blue-600 font-medium">AI Decision Engine</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Advanced neural network platform that processes complex data patterns to deliver intelligent insights and automated decision-making capabilities.
-                    </p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-blue-500 mr-3"></i>
-                            <span>Real-time data processing</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-blue-500 mr-3"></i>
-                            <span>Predictive analytics</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-blue-500 mr-3"></i>
-                            <span>Automated insights generation</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button onclick="showProductModal('saivyy-brain')" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
-                            Learn More
-                        </button>
-                        <span class="text-2xl font-bold text-gray-900">$299/mo</span>
-                    </div>
-                </div>
-                
-                <!-- Saivyy Vision -->
-                <div class="bg-gradient-to-br from-purple-50 to-pink-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-eye text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Saivyy Vision</h3>
-                            <p class="text-purple-600 font-medium">Computer Vision Suite</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Comprehensive computer vision platform for image recognition, object detection, and visual analytics across industries.
-                    </p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
-                            <span>Object detection & tracking</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
-                            <span>Facial recognition</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
-                            <span>Quality inspection automation</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button onclick="showProductModal('saivyy-vision')" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
-                            Learn More
-                        </button>
-                        <span class="text-2xl font-bold text-gray-900">$399/mo</span>
-                    </div>
-                </div>
-                
-                <!-- Saivyy NLP -->
-                <div class="bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-comments text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Saivyy NLP</h3>
-                            <p class="text-green-600 font-medium">Language Processing Engine</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Advanced natural language processing platform for text analysis, sentiment detection, and conversational AI applications.
-                    </p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Sentiment analysis</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Chatbot development</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Multi-language support</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button onclick="showProductModal('saivyy-nlp')" class="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-green-500/25 transition-all duration-300">
-                            Learn More
-                        </button>
-                        <span class="text-2xl font-bold text-gray-900">$249/mo</span>
-                    </div>
-                </div>
-                
-                <!-- Saivyy Analytics -->
-                <div class="bg-gradient-to-br from-orange-50 to-amber-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-amber-600 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-chart-line text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Saivyy Analytics</h3>
-                            <p class="text-orange-600 font-medium">Business Intelligence Platform</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Comprehensive analytics platform that transforms raw data into actionable business insights with interactive dashboards.
-                    </p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-orange-500 mr-3"></i>
-                            <span>Real-time dashboards</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-orange-500 mr-3"></i>
-                            <span>Predictive modeling</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-orange-500 mr-3"></i>
-                            <span>Custom reporting</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button onclick="showProductModal('saivyy-analytics')" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300">
-                            Learn More
-                        </button>
-                        <span class="text-2xl font-bold text-gray-900">$199/mo</span>
-                    </div>
-                </div>
-                
-                <!-- Saivyy AutoBot -->
-                <div class="bg-gradient-to-br from-cyan-50 to-teal-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-robot text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Saivyy AutoBot</h3>
-                            <p class="text-cyan-600 font-medium">Process Automation Suite</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Intelligent automation platform that streamlines workflows, eliminates repetitive tasks, and optimizes business processes.
-                    </p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-cyan-500 mr-3"></i>
-                            <span>RPA workflow automation</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-cyan-500 mr-3"></i>
-                            <span>Document processing</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-cyan-500 mr-3"></i>
-                            <span>Task scheduling & monitoring</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button onclick="showProductModal('saivyy-autobot')" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-teal-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300">
-                            Learn More
-                        </button>
-                        <span class="text-2xl font-bold text-gray-900">$349/mo</span>
-                    </div>
-                </div>
-                
-                <!-- Saivyy Secure -->
-                <div class="bg-gradient-to-br from-red-50 to-rose-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-rose-600 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-shield-alt text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Saivyy Secure</h3>
-                            <p class="text-red-600 font-medium">AI Security Platform</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Advanced AI-powered cybersecurity platform that detects threats, prevents attacks, and ensures data protection.
-                    </p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-red-500 mr-3"></i>
-                            <span>Threat detection & prevention</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-red-500 mr-3"></i>
-                            <span>Behavioral analysis</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-red-500 mr-3"></i>
-                            <span>Real-time monitoring</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button onclick="showProductModal('saivyy-secure')" class="px-6 py-3 bg-gradient-to-r from-red-500 to-rose-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-red-500/25 transition-all duration-300">
-                            Learn More
-                        </button>
-                        <span class="text-2xl font-bold text-gray-900">$449/mo</span>
-                    </div>
-                </div>
-                
-                <!-- Saivyy BigData -->
-                <div class="bg-gradient-to-br from-slate-50 to-zinc-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-slate-600 to-zinc-700 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-database text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Saivyy BigData</h3>
-                            <p class="text-slate-600 font-medium">Big Data Analytics Platform</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Enterprise-scale big data platform for processing petabytes of data with distributed computing, real-time streaming, and advanced analytics.
-                    </p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-slate-500 mr-3"></i>
-                            <span>Petabyte-scale processing</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-slate-500 mr-3"></i>
-                            <span>Real-time data streaming</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-slate-500 mr-3"></i>
-                            <span>Data lake & warehouse integration</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button onclick="showProductModal('saivyy-bigdata')" class="px-6 py-3 bg-gradient-to-r from-slate-600 to-zinc-700 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-slate-500/25 transition-all duration-300">
-                            Learn More
-                        </button>
-                        <span class="text-2xl font-bold text-gray-900">$599/mo</span>
-                    </div>
-                </div>
-                
-                <!-- Saivyy GenAI Studio -->
-                <div class="bg-gradient-to-br from-fuchsia-50 to-violet-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-fuchsia-500 to-violet-600 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-wand-magic-sparkles text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Saivyy GenAI</h3>
-                            <p class="text-fuchsia-600 font-medium">Generative AI Studio</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Build and deploy generative AI applications with LLM fine-tuning, RAG pipelines, prompt engineering, and enterprise AI assistants.
-                    </p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-fuchsia-500 mr-3"></i>
-                            <span>LLM fine-tuning & deployment</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-fuchsia-500 mr-3"></i>
-                            <span>RAG pipeline builder</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-fuchsia-500 mr-3"></i>
-                            <span>Enterprise AI assistants</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button onclick="showProductModal('saivyy-genai')" class="px-6 py-3 bg-gradient-to-r from-fuchsia-500 to-violet-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-fuchsia-500/25 transition-all duration-300">
-                            Learn More
-                        </button>
-                        <span class="text-2xl font-bold text-gray-900">$799/mo</span>
-                    </div>
-                </div>
-                
-                <!-- Saivyy AutoDB -->
-                <div class="bg-gradient-to-br from-emerald-50 to-teal-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-server text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Saivyy AutoDB</h3>
-                            <p class="text-emerald-600 font-medium">Autonomous Database</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Self-managing, self-tuning autonomous database with AI-driven optimization, automatic scaling, and intelligent query processing.
-                    </p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-emerald-500 mr-3"></i>
-                            <span>Self-healing & auto-tuning</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-emerald-500 mr-3"></i>
-                            <span>AI-powered query optimization</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-emerald-500 mr-3"></i>
-                            <span>Automatic scaling & failover</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button onclick="showProductModal('saivyy-autodb')" class="px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
-                            Learn More
-                        </button>
-                        <span class="text-2xl font-bold text-gray-900">$699/mo</span>
-                    </div>
-                </div>
-                
-                <!-- Saivyy Cloud -->
-                <div class="bg-gradient-to-br from-sky-50 to-blue-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 product-card">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-r from-sky-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
-                            <i class="fas fa-cloud text-white text-2xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Saivyy Cloud</h3>
-                            <p class="text-sky-600 font-medium">AI Cloud Platform</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Complete cloud infrastructure for AI workloads with GPU clusters, MLOps pipelines, and seamless deployment across multi-cloud environments.
-                    </p>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-sky-500 mr-3"></i>
-                            <span>GPU cluster management</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-sky-500 mr-3"></i>
-                            <span>MLOps & CI/CD pipelines</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check-circle text-sky-500 mr-3"></i>
-                            <span>Multi-cloud deployment</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button onclick="showProductModal('saivyy-cloud')" class="px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-sky-500/25 transition-all duration-300">
-                            Learn More
-                        </button>
-                        <span class="text-2xl font-bold text-gray-900">$549/mo</span>
-                    </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#products-grid" class="btn-formal"><i class="fas fa-cube"></i><span>EXPLORE PRODUCTS</span></a>
+                    <a href="#pricing" class="btn-formal-secondary"><i class="fas fa-tags"></i><span>View Pricing</span></a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-6">
-                    <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    <span class="text-blue-600 text-sm font-medium">Enterprise-Grade Platform</span>
-                </div>
-                <h2 class="text-4xl font-bold text-gray-900 mb-6">Why Choose Saivyy Products?</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Built for enterprise scale with bank-grade security, 99.9% uptime SLA, and dedicated support — trusted by Fortune 500 companies worldwide.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-shield-halved text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">SOC 2 Compliant</h3>
-                    <p class="text-gray-600">
-                        Bank-level security with SOC 2 Type II, GDPR, HIPAA compliance, and end-to-end encryption.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-chart-line text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Auto-Scaling</h3>
-                    <p class="text-gray-600">
-                        Intelligent auto-scaling from startup to enterprise — handle millions of requests seamlessly.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-code text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Developer-First</h3>
-                    <p class="text-gray-600">
-                        REST APIs, Python/JS SDKs, webhooks, and comprehensive documentation for rapid integration.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-headset text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">24/7 Support</h3>
-                    <p class="text-gray-600">
-                        Dedicated success managers, 4-hour SLA response, and enterprise onboarding assistance.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Additional Features Grid -->
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="flex items-start space-x-4 p-4">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-bolt text-blue-600"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-gray-900 mb-1">50ms Latency</h4>
-                        <p class="text-sm text-gray-600">Ultra-low latency with global edge deployment</p>
-                    </div>
-                </div>
-                
-                <div class="flex items-start space-x-4 p-4">
-                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-server text-green-600"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-gray-900 mb-1">99.9% Uptime</h4>
-                        <p class="text-sm text-gray-600">Enterprise SLA with multi-region redundancy</p>
-                    </div>
-                </div>
-                
-                <div class="flex items-start space-x-4 p-4">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-cloud text-purple-600"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-gray-900 mb-1">Multi-Cloud</h4>
-                        <p class="text-sm text-gray-600">Deploy on AWS, Azure, GCP, or on-premise</p>
-                    </div>
-                </div>
-                
-                <div class="flex items-start space-x-4 p-4">
-                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-database text-orange-600"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-gray-900 mb-1">Petabyte Scale</h4>
-                        <p class="text-sm text-gray-600">Process massive datasets with distributed computing</p>
-                    </div>
-                </div>
-                
-                <div class="flex items-start space-x-4 p-4">
-                    <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-lock text-cyan-600"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-gray-900 mb-1">Data Privacy</h4>
-                        <p class="text-sm text-gray-600">Your data stays yours — no model training on customer data</p>
-                    </div>
-                </div>
-                
-                <div class="flex items-start space-x-4 p-4">
-                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-sync text-red-600"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-gray-900 mb-1">Version Control</h4>
-                        <p class="text-sm text-gray-600">Model versioning, rollback, and A/B testing built-in</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Pricing Comparison -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-50 border border-green-200 mb-6">
-                    <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                    <span class="text-green-600 text-sm font-medium">Flexible Pricing</span>
-                </div>
-                <h2 class="text-4xl font-bold text-gray-900 mb-6">Choose Your Plan</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Start with what you need and scale as you grow. All plans include 14-day free trial.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Starter Plan -->
-                <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-blue-300 transition-colors duration-300">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
-                        <p class="text-gray-600 mb-4">For small teams getting started</p>
-                        <div class="text-5xl font-bold text-gray-900">$199<span class="text-lg text-gray-500">/mo</span></div>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-check text-green-500 mr-3"></i>Up to 5 team members
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-check text-green-500 mr-3"></i>1 AI product access
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-check text-green-500 mr-3"></i>100K API calls/month
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-check text-green-500 mr-3"></i>Email support
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-times text-gray-400 mr-3"></i>Custom integrations
-                        </li>
-                    </ul>
-                    <button class="w-full py-3 border-2 border-blue-500 text-blue-600 font-semibold rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300">
-                        Start Free Trial
-                    </button>
-                </div>
-                
-                <!-- Professional Plan -->
-                <div class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 text-white transform scale-105 shadow-2xl relative">
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <span class="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">Most Popular</span>
-                    </div>
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold mb-2">Professional</h3>
-                        <p class="text-blue-100 mb-4">For growing businesses</p>
-                        <div class="text-5xl font-bold">$499<span class="text-lg text-blue-200">/mo</span></div>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>Up to 25 team members
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>5 AI products access
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>1M API calls/month
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>Priority support
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>Custom integrations
-                        </li>
-                    </ul>
-                    <button class="w-full py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300">
-                        Start Free Trial
-                    </button>
-                </div>
-                
-                <!-- Enterprise Plan -->
-                <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-blue-300 transition-colors duration-300">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
-                        <p class="text-gray-600 mb-4">For large organizations</p>
-                        <div class="text-5xl font-bold text-gray-900">Custom</div>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-check text-green-500 mr-3"></i>Unlimited team members
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-check text-green-500 mr-3"></i>All AI products access
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-check text-green-500 mr-3"></i>Unlimited API calls
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-check text-green-500 mr-3"></i>Dedicated support manager
-                        </li>
-                        <li class="flex items-center text-gray-700">
-                            <i class="fas fa-check text-green-500 mr-3"></i>On-premise deployment
-                        </li>
-                    </ul>
-                    <a href="../index.html#contact" class="block w-full py-3 border-2 border-blue-500 text-blue-600 font-semibold rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300 text-center">
-                        Contact Sales
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="cta" class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
-        <div class="container mx-auto px-6 text-center">
-            <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-6">
-                <div class="w-2 h-2 bg-white rounded-full mr-3 animate-pulse"></div>
-                <span class="text-white text-sm font-medium">14-Day Free Trial • No Credit Card Required</span>
-            </div>
-            <h2 class="text-4xl font-bold text-white mb-6">Ready to Deploy Enterprise AI?</h2>
-            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                Join 500+ companies using Saivyy products to power their AI initiatives. Get started with a free trial or schedule a personalized demo with our solutions team.
-            </p>
-            <div class="flex flex-wrap gap-4 justify-center mb-8">
-                <a href="../index.html#contact" class="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg hover:shadow-xl">
-                    <i class="fas fa-rocket mr-2"></i>Start Free Trial
-                </a>
-                <a href="../index.html#contact" class="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 hover:scale-105">
-                    <i class="fas fa-video mr-2"></i>Schedule Demo
-                </a>
-                <a href="solutions.html" class="px-8 py-4 border-2 border-white/50 text-white font-semibold rounded-lg hover:border-white hover:bg-white/10 transition-all duration-300">
-                    <i class="fas fa-cogs mr-2"></i>View Solutions
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+                <a href="#products-grid" class="flex flex-col items-center space-y-2 text-gray-400 hover:text-cyan-400 transition-colors" style="animation: scrollBounce 2s ease-in-out infinite;">
+                    <span class="text-xs font-medium tracking-wider uppercase">Discover</span>
+                    <div class="w-6 h-10 border-2 border-current rounded-full flex justify-center pt-2"><div class="w-1 h-2 bg-current rounded-full animate-pulse"></div></div>
                 </a>
             </div>
-            <!-- Trust Badges -->
-            <div class="flex flex-wrap justify-center items-center gap-6 text-white/80 text-sm">
-                <span><i class="fas fa-shield-halved mr-1"></i>SOC 2 Certified</span>
-                <span><i class="fas fa-lock mr-1"></i>GDPR Compliant</span>
-                <span><i class="fas fa-server mr-1"></i>99.9% Uptime SLA</span>
-                <span><i class="fas fa-headset mr-1"></i>24/7 Support</span>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <!-- PRODUCTS GRID -->
+        <section id="products-grid" class="py-20 md:py-32 bg-slate-950 relative overflow-hidden section-aurora">
+            <div class="grid-formal"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16 md:mb-20" data-aos="fade-up">
+                    <div class="badge-formal mb-8">
+                        <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+                        PRODUCT PORTFOLIO
+                    </div>
+                    <h2 class="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
+                        <span class="text-white">Our </span>
+                        <span class="heading-accent">AI Products</span>
+                    </h2>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">Each product is built for enterprise scale with SOC 2 compliance, 99.9% uptime, and seamless API integration.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <!-- 1: Saivyy Brain -->
+                    <div class="card-formal p-6 md:p-8" data-aos="fade-up" data-aos-delay="50">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="icon-formal"><i class="fas fa-brain text-cyan-400"></i></div>
+                            <span class="price-tag">$299<span class="price-period">/mo</span></span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Saivyy Brain</h3>
+                        <p class="text-sm text-cyan-400 font-semibold mb-3">AI Decision Engine</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Advanced neural network platform for real-time decision making, risk assessment, and predictive intelligence.</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Real-time Decision Making</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Predictive Intelligence</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Risk Assessment</li>
+                        </ul>
+                    </div>
+                    <!-- 2: Saivyy Vision -->
+                    <div class="card-formal p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="icon-formal"><i class="fas fa-eye text-violet-400"></i></div>
+                            <span class="price-tag">$399<span class="price-period">/mo</span></span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Saivyy Vision</h3>
+                        <p class="text-sm text-violet-400 font-semibold mb-3">Computer Vision Suite</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">State-of-the-art image recognition, object detection, and visual analytics for industrial and commercial applications.</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-violet-400 text-xs"></i>Object Detection</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-violet-400 text-xs"></i>Image Recognition</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-violet-400 text-xs"></i>Visual Analytics</li>
+                        </ul>
+                    </div>
+                    <!-- 3: Saivyy NLP -->
+                    <div class="card-formal p-6 md:p-8" data-aos="fade-up" data-aos-delay="150">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="icon-formal"><i class="fas fa-comments text-emerald-400"></i></div>
+                            <span class="price-tag">$249<span class="price-period">/mo</span></span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Saivyy NLP</h3>
+                        <p class="text-sm text-emerald-400 font-semibold mb-3">Language Processing Engine</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Production-grade NLP with sentiment analysis, entity extraction, and multilingual text processing capabilities.</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400 text-xs"></i>Sentiment Analysis</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400 text-xs"></i>Entity Extraction</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400 text-xs"></i>Multilingual Support</li>
+                        </ul>
+                    </div>
+                    <!-- 4: Saivyy Analytics -->
+                    <div class="card-formal p-6 md:p-8" data-aos="fade-up" data-aos-delay="50">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="icon-formal"><i class="fas fa-chart-line text-amber-400"></i></div>
+                            <span class="price-tag">$199<span class="price-period">/mo</span></span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Saivyy Analytics</h3>
+                        <p class="text-sm text-amber-400 font-semibold mb-3">BI Platform</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Comprehensive business intelligence with AI-powered insights, interactive dashboards, and automated reporting.</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-amber-400 text-xs"></i>Interactive Dashboards</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-amber-400 text-xs"></i>AI-Powered Insights</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-amber-400 text-xs"></i>Automated Reports</li>
+                        </ul>
+                    </div>
+                    <!-- 5: Saivyy AutoBot -->
+                    <div class="card-formal p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="icon-formal"><i class="fas fa-robot text-teal-400"></i></div>
+                            <span class="price-tag">$349<span class="price-period">/mo</span></span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Saivyy AutoBot</h3>
+                        <p class="text-sm text-teal-400 font-semibold mb-3">Process Automation</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Intelligent RPA platform with workflow automation, document processing, and end-to-end task orchestration.</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-teal-400 text-xs"></i>Workflow Automation</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-teal-400 text-xs"></i>Document Processing</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-teal-400 text-xs"></i>Task Orchestration</li>
+                        </ul>
+                    </div>
+                    <!-- 6: Saivyy Secure -->
+                    <div class="card-formal p-6 md:p-8" data-aos="fade-up" data-aos-delay="150">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="icon-formal"><i class="fas fa-shield-halved text-rose-400"></i></div>
+                            <span class="price-tag">$449<span class="price-period">/mo</span></span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Saivyy Secure</h3>
+                        <p class="text-sm text-rose-400 font-semibold mb-3">AI Security Platform</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Comprehensive AI-driven security with threat detection, anomaly analysis, and real-time compliance monitoring.</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-rose-400 text-xs"></i>Threat Detection</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-rose-400 text-xs"></i>Anomaly Analysis</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-rose-400 text-xs"></i>Compliance Monitoring</li>
+                        </ul>
+                    </div>
+                    <!-- 7: Saivyy BigData -->
+                    <div class="card-formal p-6 md:p-8" data-aos="fade-up" data-aos-delay="50">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="icon-formal"><i class="fas fa-database text-indigo-400"></i></div>
+                            <span class="price-tag">$599<span class="price-period">/mo</span></span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Saivyy BigData</h3>
+                        <p class="text-sm text-indigo-400 font-semibold mb-3">Big Data Analytics</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Petabyte-scale data processing with real-time streaming, data lakes, and advanced analytics orchestration.</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-indigo-400 text-xs"></i>Petabyte Processing</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-indigo-400 text-xs"></i>Real-time Streaming</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-indigo-400 text-xs"></i>Data Lake Architecture</li>
+                        </ul>
+                    </div>
+                    <!-- 8: Saivyy GenAI -->
+                    <div class="card-formal p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="icon-formal"><i class="fas fa-wand-magic-sparkles text-fuchsia-400"></i></div>
+                            <span class="price-tag">$799<span class="price-period">/mo</span></span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Saivyy GenAI</h3>
+                        <p class="text-sm text-fuchsia-400 font-semibold mb-3">Generative AI Studio</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Enterprise generative AI with custom LLM fine-tuning, RAG pipelines, content generation, and AI assistants.</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-fuchsia-400 text-xs"></i>Custom LLM Fine-Tuning</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-fuchsia-400 text-xs"></i>RAG Pipelines</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-fuchsia-400 text-xs"></i>Content Generation</li>
+                        </ul>
+                    </div>
+                    <!-- 9: Saivyy AutoDB -->
+                    <div class="card-formal p-6 md:p-8" data-aos="fade-up" data-aos-delay="150">
+                        <div class="flex items-center justify-between mb-5">
+                            <div class="icon-formal"><i class="fas fa-server text-sky-400"></i></div>
+                            <span class="price-tag">$699<span class="price-period">/mo</span></span>
+                        </div>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Saivyy AutoDB</h3>
+                        <p class="text-sm text-sky-400 font-semibold mb-3">Autonomous Database</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">Self-healing, auto-scaling database with AI-driven query optimization and intelligent resource management.</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-400 text-xs"></i>Auto-Scaling</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-400 text-xs"></i>Self-Healing</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-sky-400 text-xs"></i>Query Optimization</li>
+                        </ul>
+                    </div>
+                    <!-- 10: Saivyy Cloud -->
+                    <div class="card-formal p-6 md:p-8 sm:col-span-2 lg:col-span-3" data-aos="fade-up" data-aos-delay="50">
+                        <div class="flex flex-col md:flex-row md:items-center gap-6">
+                            <div class="flex items-center gap-4">
+                                <div class="icon-formal"><i class="fas fa-cloud text-blue-400"></i></div>
+                                <div>
+                                    <h3 class="text-xl font-display font-bold text-white">Saivyy Cloud</h3>
+                                    <p class="text-sm text-blue-400 font-semibold">AI Cloud Platform</p>
+                                </div>
+                                <span class="price-tag ml-4">$549<span class="price-period">/mo</span></span>
+                            </div>
+                            <p class="text-gray-400 text-sm leading-relaxed flex-1">Multi-cloud AI infrastructure with Kubernetes orchestration, CI/CD pipelines, model serving, auto-scaling, and enterprise-grade MLOps capabilities.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs">Multi-Cloud</span>
+                                <span class="px-2.5 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs">Kubernetes</span>
+                                <span class="px-2.5 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs">MLOps</span>
+                                <span class="px-2.5 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs">Auto-Scaling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="py-20 md:py-32 bg-[#070e1c] relative overflow-hidden section-aurora">
+            <div class="grid-formal"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16 md:mb-20" data-aos="fade-up">
+                    <div class="badge-formal mb-8">
+                        <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+                        WHY SAIVYY PRODUCTS
+                    </div>
+                    <h2 class="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
+                        <span class="text-white">Built for </span>
+                        <span class="heading-accent">Enterprise Scale</span>
+                    </h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                    <div class="card-formal p-6 md:p-8 text-center" data-aos="fade-up" data-aos-delay="50">
+                        <div class="icon-formal mx-auto mb-5"><i class="fas fa-shield-halved text-cyan-400"></i></div>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">SOC 2 Compliant</h3>
+                        <p class="text-gray-400 text-sm">Enterprise-grade security with full SOC 2 Type II certification and GDPR compliance.</p>
+                    </div>
+                    <div class="card-formal p-6 md:p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon-formal mx-auto mb-5"><i class="fas fa-rocket text-purple-400"></i></div>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">Auto-Scaling</h3>
+                        <p class="text-gray-400 text-sm">Automatic horizontal and vertical scaling to handle any workload without manual intervention.</p>
+                    </div>
+                    <div class="card-formal p-6 md:p-8 text-center" data-aos="fade-up" data-aos-delay="150">
+                        <div class="icon-formal mx-auto mb-5"><i class="fas fa-code text-emerald-400"></i></div>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">Developer-First</h3>
+                        <p class="text-gray-400 text-sm">Comprehensive APIs, SDKs, and documentation built for seamless developer integration.</p>
+                    </div>
+                    <div class="card-formal p-6 md:p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-formal mx-auto mb-5"><i class="fas fa-headset text-amber-400"></i></div>
+                        <h3 class="text-lg font-display font-bold text-white mb-2">24/7 Support</h3>
+                        <p class="text-gray-400 text-sm">Round-the-clock dedicated support with SLA guarantees and priority escalation paths.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section id="pricing" class="py-20 md:py-32 bg-slate-950 relative overflow-hidden section-aurora">
+            <div class="grid-formal"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16 md:mb-20" data-aos="fade-up">
+                    <div class="badge-formal mb-8">
+                        <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+                        PRICING PLANS
+                    </div>
+                    <h2 class="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
+                        <span class="text-white">Simple, </span>
+                        <span class="heading-accent">Transparent Pricing</span>
+                    </h2>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto">Choose the plan that fits your needs. Scale up anytime as your business grows.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <!-- Starter -->
+                    <div class="card-formal pricing-card p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mb-6">
+                            <h3 class="text-xl font-display font-bold text-white mb-2">Starter</h3>
+                            <p class="text-gray-400 text-sm">Perfect for small teams and proof-of-concept projects.</p>
+                        </div>
+                        <div class="mb-6">
+                            <span class="price-tag">$199</span><span class="text-gray-400 text-sm">/month</span>
+                        </div>
+                        <div class="divider-formal mb-6"></div>
+                        <ul class="space-y-3 text-sm text-gray-400 mb-8">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Up to 5 team members</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>2 AI Products</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>10K API calls/month</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Email support</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Basic analytics</li>
+                        </ul>
+                        <a href="../index.html#contact" class="btn-formal-secondary w-full justify-center"><span>Get Started</span></a>
+                    </div>
+                    <!-- Professional (Featured) -->
+                    <div class="card-formal pricing-card featured p-6 md:p-8 relative" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                            <span class="px-4 py-1.5 bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-xs font-bold rounded-full uppercase tracking-wider">Most Popular</span>
+                        </div>
+                        <div class="mb-6 pt-2">
+                            <h3 class="text-xl font-display font-bold text-white mb-2">Professional</h3>
+                            <p class="text-gray-400 text-sm">For growing businesses needing full AI capabilities.</p>
+                        </div>
+                        <div class="mb-6">
+                            <span class="price-tag">$499</span><span class="text-gray-400 text-sm">/month</span>
+                        </div>
+                        <div class="divider-formal mb-6"></div>
+                        <ul class="space-y-3 text-sm text-gray-400 mb-8">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Up to 25 team members</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>5 AI Products</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>100K API calls/month</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Priority support</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Advanced analytics</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Custom integrations</li>
+                        </ul>
+                        <a href="../index.html#contact" class="btn-formal w-full justify-center"><span>Get Started</span></a>
+                    </div>
+                    <!-- Enterprise -->
+                    <div class="card-formal pricing-card p-6 md:p-8" data-aos="fade-up" data-aos-delay="300">
+                        <div class="mb-6">
+                            <h3 class="text-xl font-display font-bold text-white mb-2">Enterprise</h3>
+                            <p class="text-gray-400 text-sm">Unlimited scale for large organizations with custom needs.</p>
+                        </div>
+                        <div class="mb-6">
+                            <span class="price-tag">Custom</span>
+                        </div>
+                        <div class="divider-formal mb-6"></div>
+                        <ul class="space-y-3 text-sm text-gray-400 mb-8">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Unlimited team members</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>All AI Products</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Unlimited API calls</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>24/7 dedicated support</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>Custom SLAs</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400 text-xs"></i>On-premise deployment</li>
+                        </ul>
+                        <a href="../index.html#contact" class="btn-formal-secondary w-full justify-center"><span>Contact Sales</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-20 md:py-32 bg-[#070e1c] relative overflow-hidden section-aurora">
+            <div class="grid-formal"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="card-formal max-w-4xl mx-auto p-8 md:p-12 lg:p-16 text-center" data-aos="fade-up">
+                    <div class="badge-formal mb-8 mx-auto">
+                        <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+                        READY TO BUILD?
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+                        Experience the <span class="heading-accent">Saivyy Suite</span>
+                    </h2>
+                    <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                        Start with a free trial of any product. No credit card required. Get hands-on with enterprise AI in minutes.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="../index.html#contact" class="btn-formal"><i class="fas fa-rocket"></i><span>START FREE TRIAL</span></a>
+                        <a href="solutions.html" class="btn-formal-secondary"><span>Explore Solutions</span><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
     <footer class="relative overflow-hidden">
-        <!-- Futuristic Footer Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-            <!-- Neural Network Pattern -->
+        <div class="absolute inset-0 bg-slate-950">
             <div class="absolute inset-0 opacity-20">
-                <svg class="w-full h-full" viewBox="0 0 1200 600">
-                    <defs>
-                        <pattern id="footerGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="url(#footerGridGradient)" stroke-width="0.5"/>
-                        </pattern>
-                        <linearGradient id="footerGridGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.4" />
-                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.2" />
-                        </linearGradient>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#footerGrid)" />
-                </svg>
+                <svg class="w-full h-full" viewBox="0 0 1200 600"><defs><pattern id="footerGrid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="url(#footerGridGradient)" stroke-width="0.5"/></pattern><linearGradient id="footerGridGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.4" /><stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.2" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#footerGrid)" /></svg>
             </div>
-            
-            <!-- Floating Elements -->
+            <div class="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_rgba(6,182,212,0.1),transparent_50%)]"></div>
+            <div class="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_left,_rgba(139,92,246,0.1),transparent_50%)]"></div>
             <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                <div class="absolute top-10 left-10 w-24 h-24 bg-blue-500/10 rounded-full animate-float"></div>
-                <div class="absolute top-20 right-20 w-32 h-32 bg-indigo-500/10 rounded-full animate-pulse-slow"></div>
-                <div class="absolute bottom-10 left-1/3 w-20 h-20 bg-purple-500/10 rounded-full animate-bounce-slow"></div>
-                <div class="absolute bottom-20 right-1/4 w-28 h-28 bg-cyan-500/10 rounded-full animate-float" style="animation-delay: 1s"></div>
+                <div class="absolute top-10 left-10 w-24 h-24 bg-cyan-500/10 rounded-full micro-float"></div>
+                <div class="absolute bottom-10 left-1/3 w-20 h-20 bg-cyan-500/10 rounded-full micro-float"></div>
             </div>
-            
-            <!-- Circuit Lines -->
             <div class="absolute inset-0 opacity-30">
-                <svg class="w-full h-full" viewBox="0 0 1200 600">
-                    <path class="animate-pulse" d="M0,300 Q300,150 600,300 T1200,300" stroke="url(#footerCircuitGradient)" stroke-width="1" fill="none"/>
-                    <path class="animate-pulse" d="M0,200 Q400,50 800,200 T1200,200" stroke="url(#footerCircuitGradient)" stroke-width="1" fill="none" style="animation-delay: 0.5s"/>
-                    <path class="animate-pulse" d="M0,400 Q200,550 400,400 T800,400 T1200,400" stroke="url(#footerCircuitGradient)" stroke-width="1" fill="none" style="animation-delay: 1s"/>
-                    <defs>
-                        <linearGradient id="footerCircuitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0" />
-                            <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.8" />
-                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
-                        </linearGradient>
-                    </defs>
-                </svg>
+                <svg class="w-full h-full" viewBox="0 0 1200 600"><path class="animate-pulse" d="M0,300 Q300,150 600,300 T1200,300" stroke="url(#footerCircuitGradient)" stroke-width="1" fill="none"/><defs><linearGradient id="footerCircuitGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0" /><stop offset="50%" style="stop-color:#06b6d4;stop-opacity:0.8" /><stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" /></linearGradient></defs></svg>
             </div>
         </div>
-        
         <div class="container mx-auto px-6 py-20 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                <!-- Company Info -->
-                <div class="lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="lg:col-span-2">
                     <div class="mb-8">
                         <div class="flex items-center space-x-4 mb-6">
-                            <div class="relative">
-                                <img src="../saivvyMain.jpeg" alt="Saivyy Technologies Logo" class="w-16 h-16 rounded-full border-2 border-blue-400/30 shadow-lg shadow-blue-400/20">
-                                <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 animate-pulse"></div>
-                            </div>
-                            <div>
-                                <h3 class="text-3xl font-playfair font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Saivyy Technologies</h3>
-                                <p class="text-blue-300 font-medium">AI Innovation Leaders</p>
-                            </div>
+                            <div class="relative"><img src="../saivvyMain.jpeg" alt="Saivyy Technologies Logo" class="w-16 h-16 rounded-full border-2 border-cyan-400/30 shadow-lg shadow-cyan-400/20 ring-2 ring-cyan-400/30"><div class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/20 to-cyan-400/20 animate-pulse"></div></div>
+                            <div><h3 class="text-3xl font-display font-bold text-cyan-400">Saivyy Technologies</h3><p class="text-cyan-400 font-medium">AI Innovation Leaders</p></div>
                         </div>
-                        
-                        <p class="text-gray-300 leading-relaxed mb-8 max-w-lg text-lg">
-                            Pioneering the future with cutting-edge AI and Generative AI solutions. 
-                            We transform businesses through intelligent automation and innovation.
-                        </p>
-                        
-                        <!-- Social Media Links -->
+                        <p class="text-gray-400 leading-relaxed mb-8 max-w-lg text-lg">Pioneering the future with cutting-edge AI and Generative AI solutions. We transform businesses through intelligent automation and innovation.</p>
                         <div class="flex space-x-4">
-                            <a href="#" class="group relative w-12 h-12 bg-gradient-to-r from-blue-600/20 to-blue-700/20 backdrop-blur-sm border border-blue-400/30 rounded-xl flex items-center justify-center text-blue-400 hover:text-white hover:border-blue-400 transition-all duration-300 transform hover:scale-110 hover:rotate-6" target="_blank">
-                                <i class="fab fa-linkedin-in text-lg"></i>
-                                <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                            </a>
-                            <a href="https://x.com/SaivyyTech" class="group relative w-12 h-12 bg-gradient-to-r from-sky-500/20 to-sky-600/20 backdrop-blur-sm border border-sky-400/30 rounded-xl flex items-center justify-center text-sky-400 hover:text-white hover:border-sky-400 transition-all duration-300 transform hover:scale-110 hover:rotate-6" target="_blank">
-                                <i class="fab fa-twitter text-lg"></i>
-                                <div class="absolute inset-0 bg-gradient-to-r from-sky-500 to-sky-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                            </a>
-                            <a href="https://www.instagram.com/saivyy_technologies/" class="group relative w-12 h-12 bg-gradient-to-r from-pink-500/20 to-rose-500/20 backdrop-blur-sm border border-pink-400/30 rounded-xl flex items-center justify-center text-pink-400 hover:text-white hover:border-pink-400 transition-all duration-300 transform hover:scale-110 hover:rotate-6" target="_blank">
-                                <i class="fab fa-instagram text-lg"></i>
-                                <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                            </a>
+                            <a href="https://www.linkedin.com/company/saivyy-technologies/" class="group relative w-12 h-12 bg-slate-800 border border-cyan-500/30 rounded-xl flex items-center justify-center text-cyan-400 hover:text-white hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:rotate-6 shadow-lg shadow-cyan-500/10" target="_blank"><i class="fab fa-linkedin-in text-lg"></i><div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div></a>
+                            <a href="https://x.com/SaivyyTech" class="group relative w-12 h-12 bg-slate-800 border border-sky-500/30 rounded-xl flex items-center justify-center text-sky-400 hover:text-white hover:border-sky-400 transition-all duration-300 transform hover:scale-110 hover:rotate-6 shadow-lg shadow-sky-500/10" target="_blank"><i class="fab fa-twitter text-lg"></i><div class="absolute inset-0 bg-gradient-to-r from-sky-500 to-sky-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div></a>
+                            <a href="https://www.instagram.com/saivyy_technologies/" class="group relative w-12 h-12 bg-slate-800 border border-cyan-500/30 rounded-xl flex items-center justify-center text-cyan-400 hover:text-white hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:rotate-6 shadow-lg shadow-cyan-500/10" target="_blank"><i class="fab fa-instagram text-lg"></i><div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-cyan-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div></a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Quick Links -->
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <h4 class="text-xl font-bold mb-8 text-white flex items-center">
-                        <i class="fas fa-link text-blue-400 mr-3 animate-pulse"></i>
-                        Quick Links
-                    </h4>
-                    <ul class="space-y-4">
-                        <li>
-                            <a href="about.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">About Us</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="solutions.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">Our Solutions</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="portfolio.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">Portfolio</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="blog.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">Blog</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Products -->
                 <div>
-                    <h4 class="text-xl font-bold mb-8 text-white flex items-center">
-                        <i class="fas fa-cube text-purple-400 mr-3"></i>
-                        Products
-                    </h4>
+                    <h4 class="text-xl font-bold mb-8 text-white flex items-center"><i class="fas fa-link text-cyan-400 mr-3 animate-pulse"></i>Quick Links</h4>
                     <ul class="space-y-4">
-                        <li>
-                            <div class="group flex items-center space-x-3 text-gray-300">
-                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">Saivyy Brain</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="group flex items-center space-x-3 text-gray-300">
-                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">Saivyy GenAI</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="group flex items-center space-x-3 text-gray-300">
-                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">Saivyy BigData</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="group flex items-center space-x-3 text-gray-300">
-                                <div class="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                                <span class="font-medium">Saivyy AutoDB</span>
-                            </div>
-                        </li>
+                        <li><a href="../index.html" class="group flex items-center space-x-3 text-gray-400 hover:text-cyan-400 transition-all duration-300 transform hover:translate-x-2"><div class="w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div><span class="font-medium">Home</span></a></li>
+                        <li><a href="about.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2"><div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div><span class="font-medium">About Us</span></a></li>
+                        <li><a href="solutions.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2"><div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div><span class="font-medium">Solutions</span></a></li>
+                        <li><a href="products.html" class="group flex items-center space-x-3 text-cyan-400 font-semibold"><div class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div><span>Products</span></a></li>
+                        <li><a href="portfolio.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2"><div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div><span class="font-medium">Portfolio</span></a></li>
+                        <li><a href="blog.html" class="group flex items-center space-x-3 text-gray-300 hover:text-blue-400 transition-all duration-300 transform hover:translate-x-2"><div class="w-2 h-2 bg-blue-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div><span class="font-medium">Blog</span></a></li>
                     </ul>
                 </div>
-                
-                <!-- Contact Info -->
-                <div data-aos="fade-up" data-aos-delay="400">
-                    <h4 class="text-xl font-bold mb-8 text-white flex items-center">
-                        <i class="fas fa-envelope text-cyan-400 mr-3 animate-pulse"></i>
-                        Contact
-                    </h4>
+                <div>
+                    <h4 class="text-xl font-bold mb-8 text-white flex items-center"><i class="fas fa-envelope text-cyan-400 mr-3 animate-pulse"></i>Contact</h4>
                     <ul class="space-y-6">
-                        <li class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-globe text-green-400 text-sm"></i>
-                            </div>
-                            <div>
-                                <p class="text-white font-medium">Company</p>
-                                <p class="text-gray-300 text-sm">Saivyy Technologies</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-gradient-to-r from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-phone text-blue-400 text-sm"></i>
-                            </div>
-                            <div>
-                                <p class="text-white font-medium">Phone</p>
-                                <p class="text-gray-300 text-sm">+91 9318381279</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-gradient-to-r from-purple-500/20 to-purple-600/20 backdrop-blur-sm border border-purple-400/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-envelope text-purple-400 text-sm"></i>
-                            </div>
-                            <div>
-                                <p class="text-white font-medium">Email</p>
-                                <p class="text-gray-300 text-sm break-all">founder@saivyytechnologies.in</p>
-                            </div>
-                        </li>
+                        <li class="flex items-start space-x-4"><div class="w-10 h-10 bg-gradient-to-r from-cyan-500/20 to-cyan-500/20 backdrop-blur-sm border border-cyan-400/30 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-globe text-cyan-400 text-sm"></i></div><div><p class="text-white font-medium">Company</p><p class="text-gray-300 text-sm">Saivyy Technologies</p></div></li>
+                        <li class="flex items-start space-x-4"><div class="w-10 h-10 bg-gradient-to-r from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-phone text-blue-400 text-sm"></i></div><div><p class="text-white font-medium">Phone</p><p class="text-gray-300 text-sm">+91 9318381279</p></div></li>
+                        <li class="flex items-start space-x-4"><div class="w-10 h-10 bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 backdrop-blur-sm border border-cyan-400/30 rounded-lg flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-cyan-400 text-sm"></i></div><div><p class="text-white font-medium">Email</p><p class="text-gray-300 text-sm break-all">founder@saivyytechnologies.in</p></div></li>
                     </ul>
                 </div>
             </div>
-            
-            <!-- Footer Bottom -->
-            <div class="border-t border-gray-700/50 mt-16 pt-8" data-aos="fade-up" data-aos-delay="500">
+            <div class="border-t border-gray-700/50 mt-16 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                    <div class="text-center md:text-left">
-                        <p class="text-gray-400 text-lg">&copy; 2025 <span class="text-blue-400 font-semibold">Saivyy Technologies</span>. All rights reserved.</p>
-                        <p class="text-gray-500 text-sm mt-1">Pioneering AI Innovation Since 2024</p>
-                    </div>
-                    
+                    <div class="text-center md:text-left"><p class="text-gray-400 text-lg">&copy; 2025 <span class="text-blue-400 font-semibold">Saivyy Technologies</span>. All rights reserved.</p><p class="text-gray-500 text-sm mt-1">Pioneering AI Innovation Since 2024</p></div>
                 </div>
-                
-                <!-- Animated Divider -->
-                <div class="mt-8 relative">
-                    <div class="h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent animate-pulse"></div>
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <div class="w-3 h-3 bg-blue-400 rounded-full animate-ping"></div>
-                        <div class="absolute inset-0 w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
-                    </div>
-                </div>
+                <div class="mt-8 relative"><div class="h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div><div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"><div class="w-3 h-3 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50"></div></div></div>
             </div>
         </div>
     </footer>
 
-    <!-- Product Details Modal -->
-    <div id="productModal" class="fixed inset-0 z-50 hidden">
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="productModalOverlay"></div>
-        <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
-            <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0" id="productModalContent">
-                <div class="p-8">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="flex items-center">
-                            <div class="w-16 h-16 rounded-xl flex items-center justify-center mr-4" id="productModalIcon">
-                                <i class="text-white text-2xl" id="productModalIconElement"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-3xl font-bold text-gray-900" id="productModalTitle">Product Details</h3>
-                                <p class="text-lg font-medium" id="productModalSubtitle">AI Platform</p>
-                            </div>
-                        </div>
-                        <button class="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-300" id="closeProductModal">
-                            <i class="fas fa-times text-gray-500 text-xl"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-xl font-semibold text-gray-900 mb-3">Overview</h4>
-                                <p class="text-gray-700 leading-relaxed" id="productModalDescription"></p>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl">
-                                <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
-                                    <i class="fas fa-star text-blue-500 mr-2"></i>Key Features
-                                </h4>
-                                <ul class="space-y-2" id="productModalFeatures"></ul>
-                            </div>
-                        </div>
-                        
-                        <div class="space-y-6">
-                            <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl">
-                                <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
-                                    <i class="fas fa-chart-line text-green-500 mr-2"></i>Benefits & ROI
-                                </h4>
-                                <ul class="space-y-2" id="productModalBenefits"></ul>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl">
-                                <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
-                                    <i class="fas fa-cogs text-purple-500 mr-2"></i>Technical Specs
-                                </h4>
-                                <ul class="space-y-2" id="productModalSpecs"></ul>
-                            </div>
-                            
-                            <div class="bg-gradient-to-r from-orange-50 to-amber-50 p-6 rounded-xl">
-                                <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
-                                    <i class="fas fa-industry text-orange-500 mr-2"></i>Use Cases
-                                </h4>
-                                <ul class="space-y-2" id="productModalUseCases"></ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="border-t border-gray-200 mt-8 pt-6">
-                        <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
-                            <div class="text-center sm:text-left">
-                                <div class="text-3xl font-bold text-gray-900" id="productModalPrice">$299/mo</div>
-                                <p class="text-gray-600">Starting price per month</p>
-                            </div>
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <button onclick="scrollToCTA(); closeProductModal();" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:-translate-y-1">
-                                    <i class="fas fa-rocket mr-2"></i>Start Free Trial
-                                </button>
-                                <button onclick="window.location.href='../index.html#contact'" class="px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-all duration-300">
-                                    <i class="fas fa-phone mr-2"></i>Contact Sales
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Optimized AOS config for smooth scrolling
-        AOS.init({
-            duration: 600,
-            once: true,
-            throttleDelay: 99,
-            debounceDelay: 50,
-            disable: window.innerWidth < 768
-        });
-        
-        // Add passive event listeners for better scroll performance
-        document.addEventListener('scroll', function() {}, { passive: true });
-        document.addEventListener('touchstart', function() {}, { passive: true });
-
-        // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
+        AOS.init({ duration: 600, easing: 'ease-out', once: true, offset: 50 });
 
-        // Counter animations
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = parseFloat(counter.getAttribute('data-target'));
-                const isDecimal = target % 1 !== 0;
-                
-                gsap.to(counter, {
-                    duration: 2,
-                    ease: "power2.out",
-                    innerHTML: target,
-                    snap: isDecimal ? { innerHTML: 0.1 } : { innerHTML: 1 },
-                    scrollTrigger: {
-                        trigger: counter,
-                        start: "top 90%",
-                        once: true
-                    },
-                    onUpdate: function() {
-                        if (isDecimal) {
-                            counter.innerHTML = parseFloat(this.targets()[0].innerHTML).toFixed(1) + '%';
-                        } else if (target >= 1000) {
-                            counter.innerHTML = Math.round(this.targets()[0].innerHTML).toLocaleString() + '+';
-                        } else {
-                            counter.innerHTML = Math.round(this.targets()[0].innerHTML) + '+';
-                        }
-                    }
-                });
-            });
-        }
+        // Cursor
+        (function() {
+            const glow = document.getElementById('cursorGlow'), dot = document.getElementById('cursorDot');
+            if (!glow || !dot || 'ontouchstart' in window) { if (glow) glow.style.display = 'none'; if (dot) dot.style.display = 'none'; return; }
+            let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0, dotX = 0, dotY = 0;
+            document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+            function animate() { glowX += (mouseX - glowX) * 0.08; glowY += (mouseY - glowY) * 0.08; dotX += (mouseX - dotX) * 0.2; dotY += (mouseY - dotY) * 0.2; glow.style.left = glowX + 'px'; glow.style.top = glowY + 'px'; dot.style.left = dotX + 'px'; dot.style.top = dotY + 'px'; requestAnimationFrame(animate); }
+            animate();
+            document.querySelectorAll('a, button, .card-formal').forEach(el => { el.addEventListener('mouseenter', () => dot.classList.add('hover')); el.addEventListener('mouseleave', () => dot.classList.remove('hover')); });
+        })();
 
- // Smooth scroll functions
-        function scrollToProducts() {
-            document.getElementById('products').scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+        // Navbar
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => { if (window.scrollY > 50) navbar.classList.add('navbar-scrolled'); else navbar.classList.remove('navbar-scrolled'); });
 
-        function scrollToCTA() {
-            document.getElementById('cta').scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-
-        // Product Modal Functionality
-        function showProductModal(productId) {
-            const productData = {
-                'saivyy-brain': {
-                    title: 'Saivyy Brain',
-                    subtitle: 'AI Decision Engine',
-                    icon: 'fas fa-brain',
-                    iconBg: 'bg-gradient-to-r from-blue-500 to-indigo-600',
-                    price: '$299/mo',
-                    description: 'Saivyy Brain is our flagship AI decision engine that combines advanced neural networks, machine learning algorithms, and real-time data processing to deliver intelligent insights and automated decision-making capabilities. Built for enterprise-scale operations, it processes millions of data points to provide actionable recommendations.',
-                    features: [
-                        'Advanced Neural Network Processing',
-                        'Real-time Data Analytics & Insights',
-                        'Predictive Modeling & Forecasting',
-                        'Automated Decision Trees',
-                        'Multi-source Data Integration',
-                        'Custom Algorithm Development'
-                    ],
-                    benefits: [
-                        'Reduce decision-making time by 75%',
-                        'Improve accuracy of business predictions by 85%',
-                        'Automate 60% of routine decisions',
-                        'Increase operational efficiency by 40%',
-                        'Generate ROI of 300% within 12 months'
-                    ],
-                    specs: [
-                        'Cloud-native architecture',
-                        '99.9% uptime SLA guarantee',
-                        'Processes 1M+ data points/second',
-                        'API-first integration approach',
-                        'Enterprise-grade security (SOC 2)',
-                        '24/7 monitoring & support'
-                    ],
-                    useCases: [
-                        'Financial risk assessment',
-                        'Supply chain optimization',
-                        'Customer behavior prediction',
-                        'Fraud detection systems',
-                        'Market trend analysis'
-                    ]
-                },
-                'saivyy-vision': {
-                    title: 'Saivyy Vision',
-                    subtitle: 'Computer Vision Suite',
-                    icon: 'fas fa-eye',
-                    iconBg: 'bg-gradient-to-r from-purple-500 to-pink-600',
-                    price: '$399/mo',
-                    description: 'Saivyy Vision is a comprehensive computer vision platform that transforms visual data into actionable insights. Using state-of-the-art deep learning models, it provides accurate object detection, facial recognition, and quality inspection capabilities across various industries.',
-                    features: [
-                        'Advanced Object Detection & Tracking',
-                        'Facial Recognition & Biometric Analysis',
-                        'Quality Inspection Automation',
-                        'Real-time Video Analytics',
-                        'Custom Model Training',
-                        'Edge Computing Support'
-                    ],
-                    benefits: [
-                        'Reduce quality control costs by 50%',
-                        'Achieve 99.5% accuracy in detection',
-                        'Eliminate human error in inspection',
-                        'Process 1000+ images per minute',
-                        'Improve security monitoring by 80%'
-                    ],
-                    specs: [
-                        'GPU-accelerated processing',
-                        'Support for 50+ image formats',
-                        'Real-time streaming capability',
-                        'Edge deployment ready',
-                        'Custom model training platform',
-                        'RESTful API integration'
-                    ],
-                    useCases: [
-                        'Manufacturing quality control',
-                        'Security & surveillance systems',
-                        'Retail inventory management',
-                        'Medical image analysis',
-                        'Autonomous vehicle systems'
-                    ]
-                },
-                'saivyy-nlp': {
-                    title: 'Saivyy NLP',
-                    subtitle: 'Language Processing Engine',
-                    icon: 'fas fa-comments',
-                    iconBg: 'bg-gradient-to-r from-green-500 to-emerald-600',
-                    price: '$249/mo',
-                    description: 'Saivyy NLP is an advanced natural language processing platform that enables machines to understand, interpret, and generate human language. It powers conversational AI, sentiment analysis, and text analytics applications with industry-leading accuracy.',
-                    features: [
-                        'Advanced Sentiment Analysis',
-                        'Conversational AI & Chatbots',
-                        'Multi-language Text Processing',
-                        'Named Entity Recognition',
-                        'Document Classification',
-                        'Speech-to-Text Integration'
-                    ],
-                    benefits: [
-                        'Improve customer satisfaction by 65%',
-                        'Reduce support costs by 45%',
-                        'Process 10,000+ queries per hour',
-                        'Support 25+ languages',
-                        'Achieve 95% intent recognition accuracy'
-                    ],
-                    specs: [
-                        'Transformer-based architecture',
-                        'Multi-language support (25+ languages)',
-                        'Real-time processing capability',
-                        'Scalable cloud infrastructure',
-                        'Custom model fine-tuning',
-                        'Webhook & API integrations'
-                    ],
-                    useCases: [
-                        'Customer service automation',
-                        'Social media monitoring',
-                        'Document processing',
-                        'Voice assistants',
-                        'Content moderation'
-                    ]
-                },
-                'saivyy-analytics': {
-                    title: 'Saivyy Analytics',
-                    subtitle: 'Business Intelligence Platform',
-                    icon: 'fas fa-chart-line',
-                    iconBg: 'bg-gradient-to-r from-orange-500 to-amber-600',
-                    price: '$199/mo',
-                    description: 'Saivyy Analytics transforms raw data into actionable business insights through advanced analytics, interactive dashboards, and predictive modeling. It empowers data-driven decision making across all levels of your organization.',
-                    features: [
-                        'Interactive Real-time Dashboards',
-                        'Advanced Predictive Modeling',
-                        'Custom Report Generation',
-                        'Data Visualization Tools',
-                        'Automated Insights Discovery',
-                        'Multi-source Data Integration'
-                    ],
-                    benefits: [
-                        'Increase revenue by 30% through insights',
-                        'Reduce reporting time by 70%',
-                        'Improve forecast accuracy by 60%',
-                        'Enable real-time decision making',
-                        'Generate actionable insights daily'
-                    ],
-                    specs: [
-                        'Cloud-based analytics engine',
-                        'Connects to 100+ data sources',
-                        'Real-time data processing',
-                        'Mobile-responsive dashboards',
-                        'Advanced security & compliance',
-                        'White-label customization'
-                    ],
-                    useCases: [
-                        'Sales performance tracking',
-                        'Marketing campaign analysis',
-                        'Financial reporting & forecasting',
-                        'Operational efficiency monitoring',
-                        'Customer behavior analytics'
-                    ]
-                },
-                'saivyy-autobot': {
-                    title: 'Saivyy AutoBot',
-                    subtitle: 'Process Automation Suite',
-                    icon: 'fas fa-robot',
-                    iconBg: 'bg-gradient-to-r from-cyan-500 to-teal-600',
-                    price: '$349/mo',
-                    description: 'Saivyy AutoBot is an intelligent automation platform that streamlines workflows, eliminates repetitive tasks, and optimizes business processes. It combines RPA, AI, and machine learning to deliver comprehensive automation solutions.',
-                    features: [
-                        'Robotic Process Automation (RPA)',
-                        'Intelligent Document Processing',
-                        'Workflow Orchestration',
-                        'Task Scheduling & Monitoring',
-                        'Exception Handling',
-                        'Process Analytics & Optimization'
-                    ],
-                    benefits: [
-                        'Reduce processing time by 80%',
-                        'Eliminate 95% of manual errors',
-                        'Lower operational costs by 60%',
-                        'Improve employee productivity by 50%',
-                        'Scale operations without hiring'
-                    ],
-                    specs: [
-                        'No-code automation builder',
-                        'Cloud & on-premise deployment',
-                        'Enterprise security standards',
-                        'API-first architecture',
-                        'Advanced monitoring & logging',
-                        'Multi-tenant architecture'
-                    ],
-                    useCases: [
-                        'Invoice processing automation',
-                        'Customer onboarding workflows',
-                        'Data entry & migration',
-                        'Compliance reporting',
-                        'IT service management'
-                    ]
-                },
-                'saivyy-secure': {
-                    title: 'Saivyy Secure',
-                    subtitle: 'AI Security Platform',
-                    icon: 'fas fa-shield-alt',
-                    iconBg: 'bg-gradient-to-r from-red-500 to-rose-600',
-                    price: '$449/mo',
-                    description: 'Saivyy Secure is an advanced AI-powered cybersecurity platform that provides comprehensive threat detection, prevention, and response capabilities. It uses machine learning to identify and neutralize security threats in real-time.',
-                    features: [
-                        'AI-powered Threat Detection',
-                        'Behavioral Analysis & Anomaly Detection',
-                        'Real-time Security Monitoring',
-                        'Automated Incident Response',
-                        'Vulnerability Assessment',
-                        'Compliance Management'
-                    ],
-                    benefits: [
-                        'Detect threats 10x faster than traditional methods',
-                        'Reduce false positives by 85%',
-                        'Prevent 99.7% of known attacks',
-                        'Automate 70% of security responses',
-                        'Achieve compliance certification faster'
-                    ],
-                    specs: [
-                        'AI/ML-powered detection engine',
-                        '24/7 security operations center',
-                        'Multi-cloud security coverage',
-                        'SIEM integration capabilities',
-                        'Zero-trust architecture support',
-                        'Regulatory compliance tools'
-                    ],
-                    useCases: [
-                        'Enterprise threat protection',
-                        'Financial services security',
-                        'Healthcare data protection',
-                        'Government security systems',
-                        'Critical infrastructure protection'
-                    ]
-                }
-            };
-            
-            const data = productData[productId];
-            if (!data) return;
-            
-            // Update modal content
-            document.getElementById('productModalTitle').textContent = data.title;
-            document.getElementById('productModalSubtitle').textContent = data.subtitle;
-            document.getElementById('productModalIconElement').className = data.icon + ' text-white text-2xl';
-            document.getElementById('productModalIcon').className = 'w-16 h-16 rounded-xl flex items-center justify-center mr-4 ' + data.iconBg;
-            document.getElementById('productModalDescription').textContent = data.description;
-            document.getElementById('productModalPrice').textContent = data.price;
-            
-            // Update features list
-            const featuresContainer = document.getElementById('productModalFeatures');
-            featuresContainer.innerHTML = data.features.map(feature => 
-                `<li class="flex items-center text-gray-700"><i class="fas fa-check text-blue-500 mr-3"></i>${feature}</li>`
-            ).join('');
-            
-            // Update benefits list
-            const benefitsContainer = document.getElementById('productModalBenefits');
-            benefitsContainer.innerHTML = data.benefits.map(benefit => 
-                `<li class="flex items-center text-gray-700"><i class="fas fa-arrow-up text-green-500 mr-3"></i>${benefit}</li>`
-            ).join('');
-            
-            // Update specs list
-            const specsContainer = document.getElementById('productModalSpecs');
-            specsContainer.innerHTML = data.specs.map(spec => 
-                `<li class="flex items-center text-gray-700"><i class="fas fa-cog text-purple-500 mr-3"></i>${spec}</li>`
-            ).join('');
-            
-            // Update use cases list
-            const useCasesContainer = document.getElementById('productModalUseCases');
-            useCasesContainer.innerHTML = data.useCases.map(useCase => 
-                `<li class="flex items-center text-gray-700"><i class="fas fa-lightbulb text-orange-500 mr-3"></i>${useCase}</li>`
-            ).join('');
-            
-            // Show modal with animation
-            const modal = document.getElementById('productModal');
-            const modalContent = document.getElementById('productModalContent');
-            
-            modal.classList.remove('hidden');
-            
-            // Animate modal in
-            gsap.to(modalContent, {
-                duration: 0.3,
-                scale: 1,
-                opacity: 1,
-                ease: "back.out(1.7)"
-            });
-        }
-        
-        // Close modal functionality
-        function closeProductModal() {
-            const modal = document.getElementById('productModal');
-            const modalContent = document.getElementById('productModalContent');
-            
-            gsap.to(modalContent, {
-                duration: 0.2,
-                scale: 0.95,
-                opacity: 0,
-                ease: "power2.in",
-                onComplete: () => {
-                    modal.classList.add('hidden');
-                }
-            });
-        }
-        
-        // Modal event listeners
-        document.getElementById('closeProductModal').addEventListener('click', closeProductModal);
-        document.getElementById('productModalOverlay').addEventListener('click', closeProductModal);
-        
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeProductModal();
+        // Mobile menu
+        (function() {
+            const btn = document.getElementById('modernMobileMenuBtn'), menu = document.getElementById('modernMobileMenu'), backdrop = document.getElementById('modernBackdrop'), sidebar = document.getElementById('modernSidebar'), closeBtn = document.getElementById('modernCloseBtn');
+            const l1 = document.getElementById('modernLine1'), l2 = document.getElementById('modernLine2'), l3 = document.getElementById('modernLine3');
+            let open = false;
+            function toggle() {
+                open = !open;
+                if (open) { menu.classList.remove('pointer-events-none'); menu.classList.add('pointer-events-auto'); backdrop.classList.remove('bg-black/0','backdrop-blur-0','pointer-events-none'); backdrop.classList.add('bg-black/50','backdrop-blur-sm','pointer-events-auto'); sidebar.classList.remove('translate-x-full'); sidebar.classList.add('translate-x-0'); l1.style.transform='rotate(45deg) translate(6px, 6px)'; l2.style.opacity='0'; l3.style.transform='rotate(-45deg) translate(6px, -6px)'; document.body.style.overflow='hidden'; }
+                else { backdrop.classList.remove('bg-black/50','backdrop-blur-sm','pointer-events-auto'); backdrop.classList.add('bg-black/0','backdrop-blur-0','pointer-events-none'); sidebar.classList.remove('translate-x-0'); sidebar.classList.add('translate-x-full'); l1.style.transform='none'; l2.style.opacity='1'; l3.style.transform='none'; document.body.style.overflow='auto'; setTimeout(() => { if (!open) { menu.classList.remove('pointer-events-auto'); menu.classList.add('pointer-events-none'); }}, 500); }
             }
-        });
+            if (btn) btn.addEventListener('click', toggle);
+            if (closeBtn) closeBtn.addEventListener('click', toggle);
+            if (backdrop) backdrop.addEventListener('click', toggle);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape' && open) toggle(); });
+            menu?.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => { if (open) toggle(); }));
+        })();
 
-        // Initialize counter animations when DOM is loaded
+        // GSAP
         document.addEventListener('DOMContentLoaded', function() {
-            animateCounters();
-        });
-
-        // Add hover effects for product cards
-        document.addEventListener('DOMContentLoaded', function() {
-            const productCards = document.querySelectorAll('.product-card');
-            
-            productCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    gsap.to(this, {
-                        duration: 0.3,
-                        scale: 1.02,
-                        y: -8,
-                        ease: "power2.out"
-                    });
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    gsap.to(this, {
-                        duration: 0.3,
-                        scale: 1,
-                        y: 0,
-                        ease: "power2.out"
-                    });
-                });
+            gsap.utils.toArray('.card-formal').forEach((card, i) => {
+                gsap.fromTo(card, { y: 50, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 0.8, delay: i * 0.03, ease: 'power3.out', scrollTrigger: { trigger: card, start: 'top 85%', toggleActions: 'play none none none' } });
+            });
+            document.querySelectorAll('.card-formal').forEach(card => {
+                card.addEventListener('mousemove', e => { const rect = card.getBoundingClientRect(); const x = ((e.clientX - rect.left) / rect.width) * 100; const y = ((e.clientY - rect.top) / rect.height) * 100; card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(6, 182, 212, 0.12) 0%, transparent 50%), linear-gradient(145deg, rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.75))`; });
+                card.addEventListener('mouseleave', () => { card.style.background = ''; });
             });
         });
 
-        // Modern Mobile Menu Toggle Functions
-        function openModernMenu() {
-            const menu = document.getElementById('modernMobileMenu');
-            const backdrop = document.getElementById('modernBackdrop');
-            const sidebar = document.getElementById('modernSidebar');
-            const btn = document.getElementById('modernMobileMenuBtn');
-            const lines = btn.querySelectorAll('.hamburger-line');
-            
-            menu.classList.remove('pointer-events-none');
-            backdrop.classList.add('bg-black/50', 'backdrop-blur-sm', 'pointer-events-auto');
-            sidebar.classList.remove('translate-x-full');
-            
-            // Animate hamburger to X
-            lines[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
-            lines[1].style.opacity = '0';
-            lines[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
-        }
-
-        function closeModernMenu() {
-            const menu = document.getElementById('modernMobileMenu');
-            const backdrop = document.getElementById('modernBackdrop');
-            const sidebar = document.getElementById('modernSidebar');
-            const btn = document.getElementById('modernMobileMenuBtn');
-            const lines = btn.querySelectorAll('.hamburger-line');
-            
-            backdrop.classList.remove('bg-black/50', 'backdrop-blur-sm', 'pointer-events-auto');
-            sidebar.classList.add('translate-x-full');
-            
-            // Reset hamburger lines
-            lines.forEach(line => {
-                line.style.transform = 'none';
-                line.style.opacity = '1';
-            });
-            
-            setTimeout(() => {
-                menu.classList.add('pointer-events-none');
-            }, 500);
-        }
-
-        // Event Listeners for Modern Menu
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuBtn = document.getElementById('modernMobileMenuBtn');
-            const closeBtn = document.getElementById('modernCloseBtn');
-            const backdrop = document.getElementById('modernBackdrop');
-            const navLinks = document.querySelectorAll('#modernSidebar nav a');
-            
-            if (menuBtn) {
-                menuBtn.addEventListener('click', openModernMenu);
-            }
-            
-            if (closeBtn) {
-                closeBtn.addEventListener('click', closeModernMenu);
-            }
-            
-            if (backdrop) {
-                backdrop.addEventListener('click', closeModernMenu);
-            }
-            
-            // Close menu when navigation link is clicked
-            navLinks.forEach(link => {
-                link.addEventListener('click', closeModernMenu);
-            });
-            
-            // Close menu on Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeModernMenu();
-                }
-            });
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+            anchor.addEventListener('click', function(e) { const target = document.querySelector(this.getAttribute('href')); if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
         });
     </script>
 </body>
